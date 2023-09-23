@@ -1,0 +1,204 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the entire page */
+body {
+    display: flex;
+    justify-content:center;
+    background: #b2c2c9;
+    /* background: url('backG.jpg') no-repeat; */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* @media (max-width: 768px) {
+    .wrapper {
+        display: block; 
+       
+} */
+   
+
+header {
+    top: 0;
+    left:o;
+    width: 100%;
+    padding: 20px 0; 
+    display: flex;
+    align-items: flex-start; 
+    z-index: 99;
+    position: fixed;
+    background-color: #d1e1f3; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    justify-content: right;
+}
+
+header .btnLogin-popup{
+    margin-right: 20px;
+
+}
+
+
+.Navigation{
+    position: relative;
+    font-size: 0.89em;
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    justify-content: center; 
+    
+}
+
+
+.Navigation a:hover {
+    color: red; /* Change color on hover */
+}
+.Navigation .a{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.Navigation .b{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.Navigation .c{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+.Navigation .d{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.Navigation .btnLogin-popup{
+    width: 100px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid #3685eb;
+    outline: none;
+    border-radius:6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #3685eb;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Wrapper styles */
+.wrapper1,
+.wrapper2,
+.wrapper3{
+    position: relative;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 350px;
+    height: 350px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Center content vertically with space around */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 20px; /* Add padding for spacing */
+
+}
+
+.wrapper1{
+    top: 120px;
+
+}
+.wrapper2{
+    top: 100px;
+
+}
+.wrapper3{
+    top: 120px;
+
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+
+.LoginLink{
+    background-color: #3685eb;
+    color: aliceblue;
+    border-radius: 10px;
+    border-color: blue;
+    width: 40px;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: auto;
+
+}
+
+
+/* Style for the "Login" link */
+.wrapper1 .LoginLink,
+.wrapper2 .LoginLink,
+.wrapper3 .LoginLink,
+.wrapper1 .registerLink,
+.wrapper2 .registerLink,
+.wrapper3 .registerLink
+{
+    background-color: #3685eb;
+    color: aliceblue;
+    border-radius: 10px;
+    border-color: blue;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 20px; 
+}
+
+/* Style for the "Register" link
+.wrapper1 .registerLink,
+.wrapper2 .registerLink,
+.wrapper3 .registerLink {
+    background-color: #3685eb;
+    color: aliceblue;
+    justify-content: end;
+    border-radius: 10px;
+    border-color: blue;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-left: 10px; /* Align on the left within the wrapper 
+} */
+
+
