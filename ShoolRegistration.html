@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>School Registration Form</title>
-  <link rel="stylesheet" href="tranferR.css">
+  <link rel="stylesheet" href="ShoolRegistration.css">
 </head>
 <body>
   <header>
@@ -20,7 +20,7 @@
     <div class="title">
       school Registration Form
     </div>
-
+<form action="tranfer.php" method="post">
   <div class="form">
     <div class="inputfield">
       <label>Level of School</label>
@@ -46,8 +46,8 @@
       <input type="password" class="input" name="registration_code">
     </div>
     <div class="inputfield">
-      <label>Confirm Password</label>
-      <input type="password" class="input" name="confirm_password">
+      <label>Password</label>
+      <input type="password" class="input" name="password">
     </div>
     <div class="inputfield">
       <label>Gender Accepted</label>
@@ -61,8 +61,16 @@
       </div>
     </div>
 
-    
-    <!-- Add more fields with name attributes as needed -->
+    <div class="inputfield">
+      <label>Mode of Schooling</label>
+      <div class="custom_select">
+        <select name="mode_of_schooling">
+          <option value="">Day School</option>
+          <option value="Boys">Boarding School</option>
+          <option value="Girls">Both Day and Boarding school</option>
+        </select>
+      </div>
+
     <div class="inputfield">
       <label>Email Address</label>
       <input type="text" class="input" name="email_address">
@@ -70,10 +78,6 @@
     <div class="inputfield">
       <label>Phone Number</label>
       <input type="text" class="input" name="phone_number">
-    </div>
-    <div class="inputfield">
-      <label>Phone Number (2)</label>
-      <input type="text" class="input" name="phone_number_2">
     </div>
     <div class="inputfield">
       <label>Address</label>
@@ -88,7 +92,7 @@
       <input type="number" class="input" name="school_fees">
     </div>
 
-    
+    <div class="inputfield">
     <label>Types of Diet</label>
     <div class="custom_select">
       <select name="diet_type">
@@ -98,6 +102,8 @@
         <option value="Student pays for the special diets">Student pays for the special diets</option>
       </select>
     </div>
+  </div>
+  <div class="inputfield">
     <label>Medical</label>
     <div class="custom_select">
       <select name="medical_facility">
@@ -106,51 +112,21 @@
         <option value="Referral Hospital Near the School">Referral Hospital Near the School</option>
       </select>
     </div>
-
-
-    
-    
+  </form>
+  </div>
     <div class="inputfield terms">
       <label class="check">
-        <input type="checkbox">
+        <h4>Agreed to terms and conditions</h4>
+        <input type="checkbox" required>
         <span class="checkmark"></span>
       </label>
-      <p>Agreed to terms and conditions</p>
+      
    </div> 
+
   <div class="inputfield">
     <input type="submit" value="Register" class="btn">
   </div>
-    <label>Types of Diet</label>
-    <div class="custom_select">
-      <select name="diet_type">
-        <option value="">Select</option>
-        <option value="Normal diet to all student">Normal diet to all student</option>
-        <option value="School provides Special Medical Diets">School provides Special Medical Diets</option>
-        <option value="Student pays for the special diets">Student pays for the special diets</option>
-      </select>
-    </div>
-    <label>Medical</label>
-    <div class="custom_select">
-      <select name="medical_facility">
-        <option value="">Select</option>
-        <option value="Available School Hospital">Available School Hospital</option>
-        <option value="Referral Hospital Near the School">Referral Hospital Near the School</option>
-      </select>
-    </div>
-    
-    <div class="inputfield terms">
-      <label class="check">
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <p>Agreed to terms and conditions</p>
-   </div> 
-  <div class="inputfield">
-    <input type="submit" value="Register" class="btn">
-  </div>
-
   </div>
 	
-
 </body>
 </html>    
