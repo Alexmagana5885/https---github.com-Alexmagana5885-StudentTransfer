@@ -248,7 +248,7 @@ header .btnLogin-popup{
   left: 10px;
   background: none;
   border: none;
-  color: white;
+  color: rgb(7, 7, 7);
   font-size: 24px;
   cursor: pointer;
 }

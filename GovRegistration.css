@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #b2c2c9;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    overflow-x: hidden; 
+}
+
+header {
+    top: 0;
+    left:o;
+    width: 100%;
+    padding: 20px 0; 
+    display: flex;
+    align-items: flex-start; 
+    z-index: 99;
+    position: fixed;
+    background-color: #d1e1f3; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    justify-content: right;
+}
+
+header .btnLogin-popup{
+    margin-right: 20px;
+
+}
+
+
+.Navigation{
+    position: relative;
+    font-size: 0.89em;
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    justify-content: center; 
+    
+}
+
+
+.Navigation a:hover {
+    color: red; /* Change color on hover */
+}
+.Navigation .a{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.Navigation .b{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.Navigation .c{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+.Navigation .d{
+    color: #3685eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.Navigation .btnLogin-popup{
+    width: 100px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid #3685eb;
+    outline: none;
+    border-radius:6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #3685eb;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+
+.wraper {
+    margin-top: 90px; 
+    margin-bottom: 30px;
+    max-width: 500px;
+    width: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+}
+
+.wraper .boxRegister {
+    width: 100%;
+    padding: 40px;
+}
+
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid black;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: black;
+    font-weight: 400;
+    pointer-events: none;
+}
+
+/* Style the dropdown */
+select {
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    background: transparent;
+    
+}
+
+/* Style the label */
+.schSelect label {
+    font-weight:bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Style the options when opened */
+select:focus {
+    border-color: #007bff; /* Change the border color when the dropdown is focused */
+    outline: none; /* Remove the default outline */
+    border-radius: 7px;
+}
+
+.schSelect option{
+    background: transparent;
+    border-radius: 7px;
+}
+
+
+
+.input-box input{
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+
+}
+
+.input-box input:focus label,
+.input-box input:valid label{
+    top:-5px
+}
+
+.forgotPasword{
+    font-size: 0.89em;
+    color:black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgotPasword a{
+    color: #144586;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 10px 20px;
+}
+
+
+.btn{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 40px;
+    background: #3685eb;
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid #3685eb;
+}
+
+.btn :hover{
+    color: #1d344f;
+}
+
+.LoginRegister{
+
+    position: relative;
+    font-size: 0.89em;
+    color:black;
+    text-decoration: none;
+    font-weight: 500;
+
+}
+
+.LoginRegister a{
+    color: #144586;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 10px 20px;
+}
+
+.closeIcon{
+    color: #144586;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    font-size: 15px;
+    right: 0PX;
+    width: 30px;
+    height: 30px;   
+    margin-top: 0px;
+    border: 2px solid #3685eb;
+    background-color: #3685eb;
+    color: #fcfcfd;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+
+}
+
+.closeIcon:hover {
+    color: red; 
+}
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px; 
+    }
+
+    .logo {
+        font-size: 1.5em; 
+    }
+
+    .Navigation {
+        margin-left: 20px; 
+    }
+
+    .wraper {
+        width: 90%; 
+        height: auto; 
+        padding: 20px; 
+        box-sizing: content-box; 
+    }
+
+}
+
+.wraper a:hover {
+    color: red; /* Change color on hover */
+}
+
+
+
+
+
+
