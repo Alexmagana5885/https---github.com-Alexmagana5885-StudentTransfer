@@ -9,7 +9,7 @@
 
 /* Style for the entire page */
 body {
-    display: flex;
+    display:block;
     justify-content:center;
     background: #e0e2e6;
     /* background: url('backG.jpg') no-repeat; */
@@ -25,6 +25,40 @@ body {
        
 } */
    
+.part1{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 200px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.part2 {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Add this line */
+    width: 70%;
+    height: 15%;
+    margin: 0 auto; /* To center horizontally */
+    background-color: #355e8b;
+    margin-bottom: 20px;
+    
+}
+
+/* .cardBox {
+    position: static;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+    overflow: hidden;
+  } */
+
+.part2 p{
+    margin-left: 10px;
+    color: #fff;
+}
+
 
 header {
     top: 0;
