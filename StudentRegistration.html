@@ -20,45 +20,50 @@
     </header>
 
     <div class="wraper">
- 
-
+        
         <div class="boxRegister">
-            <body class="schSelect">
-                <label for="selectOption">Choose School leavel:</label>
-                <select id="selectOption">
-                    <option value="option1">Choose an option</option>
-                    <option value="option1">Primary School</option>
-                    <option value="option2">Secondary School</option>
-                    <option value="option3">University/College</option>
-                </select>
-            </body>
-            <form action="#">
+            <form action="studentregistration.php" method="post">
+                <div class="schSelect">
+                    <label for="selectOption">Choose School Level:</label>
+                    <select id="selectOption" name="level_of_school">
+                        <option value="option1">Choose an option</option>
+                        <option value="Primary School">Primary School</option>
+                        <option value="Secondary School">Secondary School</option>
+                        <option value="University/College">University/College</option>
+                    </select>
+                </div>
+                
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="text" required>
+                    <input type="text" required name="name">
                     <label for="name">Name</label>
                 </div>
+                
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="text" required>
-                    <label for="email">Registration Number</label>
+                    <input type="text" required name="registration_number">
+                    <label for="registration_number">Registration Number</label>
                 </div>
+                
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="password" required>
+                    <input type="password" required name="password">
                     <label for="password">Password</label>
                 </div>
+                
                 <div class="terms">
                     <label><input type="checkbox" required>
                     Agree to terms and conditions</label>
                 </div>
+                
                 <button type="submit" class="btn">Register</button>
-
+        
                 <div class="LoginRegister">
                     <a href="login.html" class="registerLink">Already have an account. Login</a>
                 </div>
             </form>
         </div>
+        
     </div>
 </body>
 </html>
