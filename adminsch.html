@@ -19,7 +19,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="firstPage.html">
                         
                         <span class="title">Dashboard</span>
                     </a>
@@ -63,7 +63,6 @@
                     
                 </div>
             </div>
-
 
 
 <!-- ======================= Cards ================== -->
@@ -130,19 +129,30 @@
                                 <td>not Transfered<span class="status return"></span></td>
                             </tr>
                             <tr>
+                               
+
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td><span class="status return"></span></td>
+                               
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="status return"></span></td>
-                            </tr>
+                            <?php
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['name'] . "</td>";
+                                    echo "<td>" . $row['previous_school'] . "</td>";
+                                    echo "<td>" . $row['date_of_transfer'] . "</td>";
+                                    echo "<td>" . $row['status'] . "</td>";
+                                    echo "<td><span class='status return'></span></td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='5'>No records found</td></tr>";
+                            }
+                            ?>
                             <tr>
                                 <td></td>
                                 <td></td>
@@ -168,6 +178,13 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- =========== Scripts =========  -->
+    <script src="adminsch.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
 
