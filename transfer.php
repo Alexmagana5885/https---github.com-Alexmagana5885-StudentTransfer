@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssssssssssss", $level_of_school, $school_name, $school_location, $registration_code, $password, $gender_accepted, $mode_of_schooling, $email_address, $phone_number, $address, $postal_code, $school_fees, $diet_type, $medical_facility);
 
     if ($stmt->execute()) {
-        header("Location: login.html"); // Replace with the actual URL of the destination page
+        header("Location: login.html"); 
         exit; 
     } else {
         echo "Error: " . $stmt->error;

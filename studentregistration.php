@@ -2,7 +2,7 @@
 // Include the database configuration file
 include("config.php");
 
-// Initialize session (if needed)
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $registration_number = $_POST["registration_number"];
     $password = $_POST["password"];
 
-    // Hash the password for security (You should use a proper password hashing mechanism)
+    // Hash the password for security 
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     // SQL query to insert data into the 'students' table using prepared statement
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         // Registration successful
         // Redirect to login page
-        header("Location: login.html"); // Replace with the actual success page URL
+        header("Location: login.html");
         exit;
     } else {
         // Registration failed
