@@ -1,3 +1,13 @@
+<?php
+require_once('config.php');
+$query = "select * from studenttranfers";
+$result = mysqli_query($conn, $query);
+$query2 = "select * from schoolreg";
+$result2 = mysqli_query($conn, $query2);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +69,16 @@
                 </div>
 
                 <div class="search">
-                    <h2 style="color: #2a2185;">School Name School School Name</h2>
-                    
+                    <?php
+                        if ($result2->num_rows > 0) {
+                            while ($row = $result2->fetch_assoc()) {
+
+                                echo "<h2>" . $row['school_name'] . "</h2>";
+                          
+                            }}
+
+
+                    ?>
                 </div>
             </div>
 
@@ -70,8 +88,10 @@
     <div class="card">
         
         <div>
+        <div class="cardName">Name</div>
             <div class="numbers"></div>
-            <div class="cardName">Total Transfers</div>
+            <div class="numbers"></div>
+           
         </div>
 
     </div>
@@ -79,26 +99,23 @@
 
     <div class="card">
         <div>
+            <div class="cardName">Contacts</div>
             <div class="numbers"></div>
-            <div class="cardName">Accepted Transfers</div>
+            <div class="numbers"></div>
+            
         </div>
     </div>
 
     <div class="card">
         <div>
+        <div class="cardName">Current School</div>
             <div class="numbers"></div>
-            <div class="cardName">Pendig Transfers</div>
+            <div class="numbers"></div>
+            
         </div>
 
     </div>
 
-    <div class="card">
-        <div>
-            <div class="numbers"></div>
-            <div class="cardName">Rejected Transfers</div>
-        </div>
-
-    </div>
 </div>
 
 <!-- ================ tranfer details ================= -->
@@ -112,24 +129,16 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Grade</td>
-                                <td>previous scholl</td>
+                                <td>Name of School</td>
+                                <td>Grade to Join</td>
+                                <td>Location</td>
                                 <td>date of Transfers</td>
-                                <td>Status</td>
+            
                             </tr>
                         </thead>
-
-
-                            <tr>
-                                <td>alex magana</td>
-                                <td>4</td>
-                                <td>st pauls university</td>
-                                <td>09/09/2022</td>
-                                <td>not Transfered<span class="status return"></span></td>
-                            </tr>
-<!--                             
+                            
                             <?php
+                                
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
@@ -141,34 +150,11 @@
                                     echo "</tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='5'>No records found</td></tr>";
+                                echo "<tr><td colspan='5'>No records</td></tr>";
                             }
                             ?>
 
-                           -->
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="status return"></span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="status return"></span></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="status inProgress"></span></td>
-                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>
