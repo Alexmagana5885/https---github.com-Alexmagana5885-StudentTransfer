@@ -10,6 +10,7 @@ body{
     background: #e0e2e6;
 }
 
+
 header {
     top: 0;
     left:o;
@@ -26,7 +27,7 @@ header {
 
 .Navigation{
     position: relative;
-    font-size:70px;
+    font-size:20px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;

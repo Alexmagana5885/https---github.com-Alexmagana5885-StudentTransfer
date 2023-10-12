@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="StudentTranferRegistration.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Student Transfer</title>
 </head>
 <body>
     <header>
-        <nav class="Navigation"> 
+        <nav style="font-size: 12px;" class="Navigation"> 
             <a class="a" href="firstPage.html">Home</a>
-            <a class="b" href="adminsch.html">About</a>
+            <a class="b" href="adminsch.php">About</a>
             <a class="c" href="#">Services</a>
             <a class="d" href="#">Contacts</a>
-            <button id="submitRequest">Submit Your Request</button>
+            <a style="font-size: 12px;" type="submit" id="submitRequest" href="#">Submit Your Request</a>
         </nav>
     </header>
 
-<div class="container">
+
+<form id="transferForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data">
+
+
+    
     <div class="wrapper"> 
             <h2>Personal Details</h2>
             <div class="imputFld">
-                <label class="label">First Name</label>
-                <input name="firstName" type="text" class="textarea">
+                <label class="label">Full Name</label>
+                <input name="fullName" type="text" class="textarea">
             </div>
             <div class="imputFld">
-                <label class="label">second Name</label>
-                <input name="secondName" type="text" class="textarea">
+                <label class="label">Year of Study</label>
+                <input name="YearofStudy" type="text" class="textarea">
             </div>
+
             <div class="imputFld">
                 <label class="label">Phone Number</label>
                 <input name="studentPNumbe" type="number" class="textarea">
@@ -119,10 +126,11 @@
                 <input name="identificatiobPDF" type="file" class="textarea" accept=".pdf">
             </div>
         </div> 
-        
     </div> 
 
 
-</div>
+
+
+</form>
 </body>
 </html>

@@ -48,8 +48,8 @@ $result2 = mysqli_query($conn, $query2);
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="title">Settings</span>
+                    <a href="StudentTranferRegistration.html">
+                        <span class="title">Tranfer Registration</span>
                     </a>
                 </li>
 
@@ -89,8 +89,8 @@ $result2 = mysqli_query($conn, $query2);
         
         <div>
         <div class="cardName">Name</div>
-            <div class="numbers"></div>
-            <div class="numbers"></div>
+            <div style="font-size: 20px;" class="numbers">alex</div>
+            <div style="font-size: 20px;" class="numbers">magana</div>
            
         </div>
 
@@ -100,8 +100,8 @@ $result2 = mysqli_query($conn, $query2);
     <div class="card">
         <div>
             <div class="cardName">Contacts</div>
-            <div class="numbers"></div>
-            <div class="numbers"></div>
+            <div style="font-size: 20px;" class="numbers">0748027123</div>
+            <div style="font-size: 20px;" class="numbers">maganaalex634@gmail.com</div>
             
         </div>
     </div>
@@ -109,8 +109,8 @@ $result2 = mysqli_query($conn, $query2);
     <div class="card">
         <div>
         <div class="cardName">Current School</div>
-            <div class="numbers"></div>
-            <div class="numbers"></div>
+            <div style="font-size: 18px;" class="numbers">St Paul's University</div>
+            <div style="font-size: 18px;" class="numbers">Limuru</div>
             
         </div>
 

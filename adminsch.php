@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-$query = "select * from studenttranfers";
+$query = "select * from transfer_requests";
 $result = mysqli_query($conn, $query);
 $query2 = "select * from schoolreg";
 $result2 = mysqli_query($conn, $query2);
@@ -88,7 +88,7 @@ $result2 = mysqli_query($conn, $query2);
     <div class="card">
         
         <div>
-            <div class="numbers"></div>
+            <div class="numbers">2234</div>
             <div class="cardName">Total Transfers</div>
         </div>
 
@@ -97,14 +97,14 @@ $result2 = mysqli_query($conn, $query2);
 
     <div class="card">
         <div>
-            <div class="numbers"></div>
+            <div class="numbers">2344</div>
             <div class="cardName">Accepted Transfers</div>
         </div>
     </div>
 
     <div class="card">
         <div>
-            <div class="numbers"></div>
+            <div class="numbers">122346</div>
             <div class="cardName">Pendig Transfers</div>
         </div>
 
@@ -112,7 +112,7 @@ $result2 = mysqli_query($conn, $query2);
 
     <div class="card">
         <div>
-            <div class="numbers"></div>
+            <div class="numbers">12235</div>
             <div class="cardName">Rejected Transfers</div>
         </div>
 
@@ -129,11 +129,12 @@ $result2 = mysqli_query($conn, $query2);
 
                     <table>
                         <thead>
-                            <tr>
+                            <tr style="font-size: 15px; color: #355e8b; " >
                                 <td>Name</td>
-                                <td>Grade</td>
-                                <td>previous scholl</td>
-                                <td>date of Transfers</td>
+                                <td>Year of Study</td>
+                                <td>Previous School</td>
+                                <td>Student Email</td>
+                                <td>Gurdian Contact</td>
                                 <td>Status</td>
                             </tr>
                         </thead>
@@ -142,11 +143,13 @@ $result2 = mysqli_query($conn, $query2);
                                 
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
+                                    
                                     echo "<tr>";
-                                    echo "<td>" . $row['name'] . "</td>";
-                                    echo "<td>" . $row['previous_school'] . "</td>";
-                                    echo "<td>" . $row['date_of_transfer'] . "</td>";
-                                    echo "<td>" . $row['status'] . "</td>";
+                                    echo "<td>" . $row['full_Name'] . "</td>";
+                                    echo "<td>" . $row['Year_of_Study'] . "</td>";
+                                    echo "<td>" . $row['prev_school_name'] . "</td>";
+                                    echo "<td>" . $row['student_email'] . "</td>";
+                                    echo "<td>" . $row['parent_phone'] . "</td>";
                                     echo "<td><span class='status return'></span></td>";
                                     echo "</tr>";
                                 }
