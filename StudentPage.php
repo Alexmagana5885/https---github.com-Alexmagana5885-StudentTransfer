@@ -24,14 +24,14 @@ $result2 = mysqli_query($conn, $query2);
             <ul>
                 <li>
                     <a href="#">
-                        <span class="title"> Student Transfer</span>
+                        <span class="title"> Student Page</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="firstPage.html">
                         
-                        <span class="title">Dashboard</span>
+                        <span class="title">Home</span>
                     </a>
                 </li>
 

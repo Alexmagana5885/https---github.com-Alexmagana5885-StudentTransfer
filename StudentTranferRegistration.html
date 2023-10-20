@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="StudentTranferRegistration.css"> 
+    <link rel="stylesheet" href="sample.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -21,7 +21,6 @@
 
 
 <form id="transferForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data">
-
 
     
     <div class="wrapper"> 
@@ -61,9 +60,61 @@
                 <input name="schoolName" type="text" class="textarea">
             </div>
             <div class="imputFld">
-                <label class="label">School Location</label>
-                <input name="schoolLocation" type="text" class="textarea">
+                <label class="label" for="selectCounty">Select County:</label>
+                <select class="textarea" id="selectCounty">
+                    <option value="chooseCounty">Choose a county</option>
+                    <option value="Baringo">Baringo</option>
+                    <option value="Bomet">Bomet</option>
+                    <option value="Bungoma">Bungoma</option>
+                    <option value="Busia">Busia</option>
+                    <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                    <option value="Embu">Embu</option>
+                    <option value="Garissa">Garissa</option>
+                    <option value="Homa Bay">Homa Bay</option>
+                    <option value="Isiolo">Isiolo</option>
+                    <option value="Kajiado">Kajiado</option>
+                    <option value="Kakamega">Kakamega</option>
+                    <option value="Kericho">Kericho</option>
+                    <option value="Kiambu">Kiambu</option>
+                    <option value="Kilifi">Kilifi</option>
+                    <option value="Kirinyaga">Kirinyaga</option>
+                    <option value="Kisii">Kisii</option>
+                    <option value="Kisumu">Kisumu</option>
+                    <option value="Kitui">Kitui</option>
+                    <option value="Kwale">Kwale</option>
+                    <option value="Laikipia">Laikipia</option>
+                    <option value="Lamu">Lamu</option>
+                    <option value="Machakos">Machakos</option>
+                    <option value="Makueni">Makueni</option>
+                    <option value="Mandera">Mandera</option>
+                    <option value="Marsabit">Marsabit</option>
+                    <option value="Meru">Meru</option>
+                    <option value="Migori">Migori</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="Murang'a">Murang'a</option>
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Nakuru">Nakuru</option>
+                    <option value="Nandi">Nandi</option>
+                    <option value="Narok">Narok</option>
+                    <option value="Nyamira">Nyamira</option>
+                    <option value="Nyandarua">Nyandarua</option>
+                    <option value="Nyeri">Nyeri</option>
+                    <option value="Samburu">Samburu</option>
+                    <option value="Siaya">Siaya</option>
+                    <option value="Taita-Taveta">Taita-Taveta</option>
+                    <option value="Tana River">Tana River</option>
+                    <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+                    <option value="Trans Nzoia">Trans Nzoia</option>
+                    <option value="Turkana">Turkana</option>
+                    <option value="Uasin Gishu">Uasin Gishu</option>
+                    <option value="Vihiga">Vihiga</option>
+                    <option value="Wajir">Wajir</option>
+                    <option value="West Pokot">West Pokot</option>
+                </select>
             </div>
+            
+
+
             <div class="imputFld">
                 <label class="label">SChool contact/Phone Number</label>
                 <input name="schoolPNumber" type="number" class="textarea">
@@ -98,6 +149,8 @@
             
     </div>
 
+
+
     <div class="container2">
         <div class="content">
             <p style="margin-bottom: 2px;">Breafly give a Reason for your Tranfer.</p>
@@ -126,6 +179,47 @@
                 <input name="identificatiobPDF" type="file" class="textarea" accept=".pdf">
             </div>
         </div> 
+
+
+
+        <div class="container3">
+
+            <div class="content3">
+
+                <p style="margin-bottom: 2px;">Parent Details</p>
+
+                <label>Name</label>
+                <input name="Name" type="text" class="textarea3">
+                <label>Phone Number</label>
+                <input name="PhoneNumber" type="text" class="textarea3">
+                <label>Email Address</label>
+                <input name="TranferAprovalPDF" type="text" class="textarea3" >
+                <label>ID Number</label>
+                <input name="PID" type="text" class="textarea3" >
+                <p>Reason for the leaving.</p>
+                <textarea name="ReasonForTranfer" cols="7" rows="10" id="tranferReason3"></textarea>
+                
+            </div> 
+           
+            <div class="content3">
+                <p style="margin-bottom: 2px;">Parrent/ Gurdian Declarition.</p>
+                <p>I have cleard/ commit my self to clear all my financial obligations in the school</p>
+                <p>I also have knowledge of this tranfer and concent to it.</p>
+                <label for="">I.D NO</label>
+                <input type="text" class="textarea3">
+                <label for="">Address</label>
+                <input type="text" class="textarea3">
+                <label for="">phone Number</label>
+                <input type="" class="textarea3">
+                <label for="">Email Address</label>
+                <input type="email" class="textarea3">
+    
+            </div>
+            
+        </div> 
+
+
+
     </div> 
 
 
