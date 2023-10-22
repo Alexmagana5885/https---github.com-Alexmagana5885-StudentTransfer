@@ -219,3 +219,38 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+CREATE TABLE student_transfer (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(255),
+    Grade INT,
+    student_phone VARCHAR(20),
+    student_email VARCHAR(255),
+    RegistrationNumber VARCHAR(20),
+    DateOfBirth VARCHAR(255),
+    school_name VARCHAR(255),
+    county VARCHAR(255),
+    school_phone VARCHAR(20),
+    school_email VARCHAR(255),
+    intended_school_name VARCHAR(255),
+    intended_school_location VARCHAR(255),
+    intended_school_contact VARCHAR(20),
+    intended_school_email VARCHAR(255),
+    transfer_reason TEXT,
+    parent_name VARCHAR(255),
+    parent_phone_number VARCHAR(20),
+    parent_id VARCHAR(255),
+    parent_pid VARCHAR(255),
+    parent_reason_for_leaving TEXT,
+    passport_photo VARCHAR(255),
+    clearance_form VARCHAR(255),
+    transfer_approval VARCHAR(255),
+    identification_doc VARCHAR(255),
+    namePP VARCHAR(255),
+    addressP TEXT,
+    phoneNumberP VARCHAR(20),
+    Date VARCHAR(255)
+);

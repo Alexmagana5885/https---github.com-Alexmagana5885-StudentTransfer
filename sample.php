@@ -2,11 +2,11 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle personal details
     $fullName = $_POST["fullName"];
-    $yearOfStudy = $_POST["YearofStudy"];
+    $Grade = $_POST["Grade"];
     $studentPhoneNumber = $_POST["studentPNumber"];
     $studentEmail = $_POST["studentEmail"];
-    $parentPhoneNumber = $_POST["parrentPNumber"];
-    $parentEmail = $_POST["parrentPemail"];
+    $RegistrationNumber = $_POST["RegistrationNumber"];
+    $DateOfBirth = $_POST["DateOfBirth"];
 
     // Handle previous school details
     $schoolName = $_POST["schoolName"];
@@ -48,7 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $parentID = $_POST["namePP"];
     $parentAddress = $_POST["addressP"];
     $parentPhoneNumber = $_POST["phoneNumberP"];
-    $parentEmail = $_POST["emailPP"];
+    $Date = $_POST["Date"];
+     
 
     // Assuming you have a database connection established earlier
     // $conn = new mysqli($servername, $username, $password, $dbname);
@@ -59,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // SQL query to insert data into the database
-    $sql = "INSERT INTO student_transfer (full_name, year_of_study, student_phone, student_email, parent_phone, parent_email, school_name, county, school_phone, school_email, intended_school_name, intended_school_location, intended_school_contact, intended_school_email, transfer_reason, parent_name, parent_phone_number, parent_id, parent_pid, parent_reason_for_leaving, passport_photo, clearance_form, transfer_approval, identification_doc)
-    VALUES ('$fullName', '$yearOfStudy', '$studentPhoneNumber', '$studentEmail', '$parentPhoneNumber', '$parentEmail', '$schoolName', '$selectedCounty', '$schoolPhoneNumber', '$schoolEmail', '$intendedSchoolName', '$intendedSchoolLocation', '$intendedSchoolContact', '$intendedSchoolEmail', '$reasonForTransfer', '$parentName', '$parentPhoneNumberP', '$parentIDP', '$parentPID', '$parentReasonForLeaving', '$passportPhoto', '$clearanceForm', '$transferApproval', '$identificationDoc')";
+    $sql = "INSERT INTO student_transfer (full_name, Grade, student_phone, student_email, RegistrationNumber, DateOfBirth, school_name, county, school_phone, school_email, intended_school_name, intended_school_location, intended_school_contact, intended_school_email, transfer_reason, parent_name, parent_phone_number, parent_id, parent_pid, parent_reason_for_leaving, passport_photo, clearance_form, transfer_approval, identification_doc, namePP, addressP, phoneNumberP, Date)
+    VALUES ('$fullName', '$Grade', '$studentPhoneNumber', '$studentEmail', '$RegistrationNumber', '$DateOfBirth', '$schoolName', '$selectedCounty', '$schoolPhoneNumber', '$schoolEmail', '$intendedSchoolName', '$intendedSchoolLocation', '$intendedSchoolContact', '$intendedSchoolEmail', '$reasonForTransfer', '$parentName', '$parentPhoneNumberP', '$parentIDP', '$parentPID', '$parentReasonForLeaving', '$passportPhoto', '$clearanceForm', '$transferApproval', '$identificationDoc', '$parentID', '$parentAddress', '$parentPhoneNumber', '$Date')";
 
     if ($conn->query($sql) === TRUE) {
         // Redirect after successful insertion
