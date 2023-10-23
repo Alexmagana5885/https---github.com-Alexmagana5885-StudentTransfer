@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="sample.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <select class="textarea" id="selectCounty">
-        <option value="chooseCounty">Choose a county</option>
-        <!-- Options will be populated dynamically -->
-    </select>
+    <!--Trigger-->
+<a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
+
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
     
-    <select class="textarea" id="selectSubCounty">
-        <option value="chooseSubCounty">Choose a sub-county</option>
-        <!-- Options will be populated dynamically based on the selection in the first dropdown -->
-    </select>
-    
-    <script src="sample.js"></script>
-    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Login</h4>
+        <form>
+          <input type="text" name="username" class="username form-control" placeholder="Username"/>
+          <input type="password" name="password" class="password form-control" placeholder="password"/>
+          <input class="btn login" type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
 </body>
 </html>

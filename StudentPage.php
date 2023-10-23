@@ -2,7 +2,7 @@
 require_once('config.php');
 $query = "select * from studenttranfers";
 $result = mysqli_query($conn, $query);
-$query2 = "select * from schoolreg";
+$query2 = "select * from studentdetails";
 $result2 = mysqli_query($conn, $query2);
 
 ?>
@@ -35,17 +35,29 @@ $result2 = mysqli_query($conn, $query2);
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
-                        <span class="title">About</span>
-                    </a>
-                </li>
+               
+<li>
+    <a href="#" onclick="showPopup()">
+        <span class="title">About</span>
+    </a>
+</li>
 
-                <li>
-                    <a href="#">
-                        <span class="title">Contacts</span>
-                    </a>
-                </li>
+
+                
+<div class="popup-container" id="popupContainer">
+    <div class="popup-content">
+       
+        <div id="userInfo"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script src="studentPage.js" ></script>
+
+
+                
+
+                
 
                 <li>
                     <a href="StudentTranferRegistration.html">
@@ -69,16 +81,7 @@ $result2 = mysqli_query($conn, $query2);
                 </div>
 
                 <div class="search">
-                    <?php
-                        if ($result2->num_rows > 0) {
-                            while ($row = $result2->fetch_assoc()) {
-
-                                echo "<h2>" . $row['school_name'] . "</h2>";
-                          
-                            }}
-
-
-                    ?>
+                   <h2>Student Account</h2>
                 </div>
             </div>
 
@@ -88,9 +91,21 @@ $result2 = mysqli_query($conn, $query2);
     <div class="card">
         
         <div>
-        <div class="cardName">Name</div>
-            <div style="font-size: 20px;" class="numbers">alex</div>
-            <div style="font-size: 20px;" class="numbers">magana</div>
+            <div class="cardName">Name</div>
+            <div style="font-size: 20px;" class="numbers">
+                <?php
+                        if ($result2->num_rows > 0) {
+                            while ($row = $result2->fetch_assoc()) {
+
+                                echo "<h2>" . $row['name'] . "</h2>";
+                                
+                          
+                            }}
+
+
+                    ?>
+            </div>
+            
            
         </div>
 
@@ -100,8 +115,18 @@ $result2 = mysqli_query($conn, $query2);
     <div class="card">
         <div>
             <div class="cardName">Contacts</div>
-            <div style="font-size: 20px;" class="numbers">0748027123</div>
-            <div style="font-size: 20px;" class="numbers">maganaalex634@gmail.com</div>
+            <?php
+                        if ($result2->num_rows > 0) {
+                            while ($row = $result2->fetch_assoc()) {
+
+                                echo "<h2>" . $row['Contact'] . "</h2>";
+                                echo "<h2>" . $row['email'] . "</h2>";
+                          
+                            }}
+
+
+                    ?>
+            
             
         </div>
     </div>
@@ -109,8 +134,20 @@ $result2 = mysqli_query($conn, $query2);
     <div class="card">
         <div>
         <div class="cardName">Current School</div>
-            <div style="font-size: 18px;" class="numbers">St Paul's University</div>
-            <div style="font-size: 18px;" class="numbers">Limuru</div>
+
+        <?php
+                        if ($result2->num_rows > 0) {
+                            while ($row = $result2->fetch_assoc()) {
+
+                                echo "<h2>" . $row['currentsSchool'] . "</h2>";
+                                echo "<h2>" . $row['County'] . "</h2>";
+                                echo "<h2>" . $row['SubCounty'] . "</h2>";
+                          
+                            }}
+
+
+                    ?>
+            
             
         </div>
 
@@ -163,6 +200,7 @@ $result2 = mysqli_query($conn, $query2);
     <script src="adminsch.js"></script>
 
     <!-- ====== ionicons ======= -->
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
