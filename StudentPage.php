@@ -80,9 +80,11 @@ $result2 = mysqli_query($conn, $query2);
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div class="search">
-                   <h2>Student Account</h2>
+                <div style="width: 500px; width: 500px;" >
+                <img id="profileImage" src="prfl.png" style="width:20% ; height: 20%; margin-top: 40px; margin-bottom: 10px; float: right; " alt="Description of the image">
                 </div>
+ 
+
             </div>
 
 
@@ -166,10 +168,12 @@ $result2 = mysqli_query($conn, $query2);
                     <table>
                         <thead>
                             <tr>
-                                <td>Name of School</td>
-                                <td>Grade to Join</td>
-                                <td>Location</td>
-                                <td>date of Transfers</td>
+                                <td>SCHOOL INTEDED</td>
+                                <td>YEAR/GRADE</td>
+                                <td>COUNTY</td>
+                                <td>SUB-COUNTY</td>
+                                <td>DATE</td>
+                                <td>TRANSFER STATUS</td>
             
                             </tr>
                         </thead>
