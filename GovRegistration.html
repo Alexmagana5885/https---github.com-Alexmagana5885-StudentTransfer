@@ -1,84 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="GovRegistration.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Transfer</title>
+    <title>Education Office Registration</title>
+    <link rel="stylesheet" href="ShoolRegistration.css">
+
+    <style>
+      header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          background-color: #355e8b;/
+      }
+
+      .Navigation {
+          display: flex;
+      }
+
+      .Navigation a {
+          margin: 0 10px; 
+          text-decoration: none;
+          color: #fff;
+      }
+  </style>
 </head>
+
 <body>
-    <header>
-       
-        <nav class="Navigation">
-            <a class="a" href="firstPage.html">Home</a>
-            <a class="b" href="#">About</a>
-            <a class="c" href="#">Services</a>
-            <a class="d" href="#">Contacts</a>
-            <button class="btnLogin-popup">Register</button>
-        </nav>
-    </header>
+  
+  
+      <header>
+          <h2 style="color:#fff;">Education Office Registration</h2>
+          <nav class="Navigation">
+              <a class="a" href="firstPage.html">Home</a>
+              <a class="b" href="#">About</a>
+              <a class="c" href="#">Services</a>
+              <a class="d" href="#">Contacts</a>
+          </nav>
+      </header>
+     
+  
+  
 
-    <div class="wraper">
- 
-
-        <div class="boxRegister">
-            <body class="schSelect">
-                <label for="selectOption">Type Of Office:</label>
-                <select id="selectOption">
-                    <option value="option0">Choose</option>
-                    <option value="option1">KUCCPS</option>
-                    <option value="option2">County Education Office</option>
-                    <option value="option3">National Education Office</option>
-                   
-                </select>
-            </body>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required>
-                    <label for="name">Name Of The Office</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required>
-                    <label for="email">Registration Number</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required>
-                    <label for="email">Location County</label>
-                </div>
-
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required>
-                    <label for="email">Office Contact</label>
-                </div>
-
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required>
-                    <label for="email">Email address</label>
-                </div>
-
-
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="password" required>
-                    <label for="password">Create Password</label>
-                </div>
-                <div class="terms">
-                    <label><input type="checkbox" required>
-                    Agree to terms and conditions</label>
-                </div>
-                <button type="submit" class="btn">Register</button>
-
-                <div class="LoginRegister">
-                    <a href="login.html" class="registerLink">Already have an account. Login</a>
-                </div>
-            </form>
+    <div class="wrapper">
+        <div class="title">
+            Education Office Registration
         </div>
+
+        <form action="GofficeReg.php" method="post">
+            <div class="form">
+
+                <div class="inputfield">
+                    <label>Name Of The Office</label>
+                    <input type="text" class="input" name="GOoffice">
+                </div>
+
+                <div class="inputfield">
+                    <label>Registration Number</label>
+                    <input type="text" class="input" name="RegistrationNumber">
+                </div>
+
+                <div class="inputfield">
+                    <div class="custom_select">
+                        <select id="selectCounty" name="Gcounty"></select>
+                    </div>
+                </div>
+
+                <div class="inputfield">
+                    <div class="custom_select">
+                        <select id="selectSubCounty" name="Gsubcounty"></select>
+                    </div>
+                </div>
+
+                <div class="inputfield">
+                    <label>Office Contact</label>
+                    <input type="password" class="input" name="registration_code">
+                </div>
+
+                <div class="inputfield">
+                    <label>Email address</label>
+                    <input type="email" class="input" name="Gemail">
+                </div>
+
+                <div class="inputfield">
+                    <label>Create Password</label>
+                    <input type="password" class="input" name="GCreatePassword">
+                </div>
+
+                <div class="inputfield">
+                    <label>Confirm Password</label>
+                    <input type="password" class="input" name="GConfirmPassword">
+                </div>
+
+                <div class="inputfield terms">
+                    <label class="check">
+                        <h4>Agreed to terms and conditions</h4>
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="inputfield">
+                    <input type="submit" value="Register" class="btn">
+                </div>
+            </div>
+        </form>
+        <script src="StudentTranferRegistration.js"></script>
     </div>
+
 </body>
+
 </html>

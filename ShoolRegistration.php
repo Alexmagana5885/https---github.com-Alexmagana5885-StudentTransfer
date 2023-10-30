@@ -41,3 +41,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST1") {
+    // Retrieve form data
+    $officeName = $_POST["GOoffice"];
+    $registrationNumber = $_POST["RegistrationNumber"];
+    $county = $_POST["Gcounty"];
+    $subCounty = $_POST["Gsubcounty"];
+    $officeContact = $_POST["registration_code"];
+    $email = $_POST["Gemail"];
+    $password = $_POST["GCreatePassword"];
+    
+    // SQL query to insert data into the database
+    $sql = "INSERT INTO GofficeRegistration (office_name, registration_number, county, sub_county, office_contact, email, password) VALUES ('$officeName', '$registrationNumber', '$county', '$subCounty', '$officeContact', '$email', '$password')";
+    
+    if ($conn->query($sql) === TRUE) {
+        header("Location: login.html"); 
+        exit; 
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    // Close connection
+    $conn->close();
+}
+?>
+
+

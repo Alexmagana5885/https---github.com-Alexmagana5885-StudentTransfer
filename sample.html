@@ -1,24 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Registration Form</title>
+  <link rel="stylesheet" href="ShoolRegistration.css">
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup Page Example</title>
-    <link rel="stylesheet" href="sample.css">
+    
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f2f2f2; /* Set your desired background color */
+        }
+
+        .Navigation {
+            display: flex;
+        }
+
+        .Navigation a {
+            margin: 0 10px; /* Adjust the margin as per your design */
+            text-decoration: none;
+            color: #333; /* Set your desired text color */
+        }
+    </style>
 </head>
 
 <body>
-    <a href="#" id="popup-link">Click Me!</a>
-
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close" id="close-popup">&times;</span>
-            <h2>Popup Content Goes Here</h2>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <header>
+        <h2>Education Office Registration</h2>
+        <nav class="Navigation">
+            <a class="a" href="firstPage.html">Home</a>
+            <a class="b" href="#">About</a>
+            <a class="c" href="#">Services</a>
+            <a class="d" href="#">Contacts</a>
+        </nav>
+    </header>
+    <!-- Rest of your HTML content -->
 </body>
 
 </html>
+
+<div class="wrapper">
+    <div class="title">
+      Education Office Registration 
+    </div>
+<form action="#" method="post">
+  <div class="form">
+    
+    <div class="inputfield">
+      <label>Name Of The Office</label>
+      <input type="text" class="input" name="GOoffice">
+    </div>
+
+    <div class="inputfield">
+      <label>Registration Number</label>
+      <input type="text" class="input" name="RegistrationNumber">
+    </div>
+    
+    <div class="inputfield">
+        <div class="custom_select">
+          <select id="selectCounty" name="Gcounty"></select>
+        </div>
+    </div>
+
+    <div class="inputfield">
+        <div class="custom_select">
+          <select id="selectSubCounty" name="Gsubcounty"></select>
+        </div>
+    </div>
+
+    <div class="inputfield">
+      <label>Office Contact</label>
+      <input type="password" class="input" name="registration_code">
+    </div>
+
+    <div class="inputfield">
+      <label>Email address</label>
+      <input type="email" class="input" name="Gemail">
+    </div>
+
+
+    <div class="inputfield">
+      <label>Create Password</label>
+      <input type="password" class="input" name="GCreatePassword">
+    </div>
+
+    <div class="inputfield">
+        <label>Confirm Password</label>
+        <input type="password" class="input" name="GConfirmPassword">
+    </div>
+
+    <div class="inputfield terms">
+      <label class="check">
+        <h4>Agreed to terms and conditions</h4>
+        <input type="checkbox" required>
+        <span class="checkmark"></span>
+      </label>
+      
+   </div> 
+
+  <div class="inputfield">
+    <input type="submit" value="Register" class="btn">
+  </div>
+  </div>
+  <script src="StudentTranferRegistration.js"></script> 
+	
+</body>
+</html>    

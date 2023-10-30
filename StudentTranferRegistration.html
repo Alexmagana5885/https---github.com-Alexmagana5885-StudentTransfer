@@ -2,119 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="StudentTranferRegistration.css"> 
+    <link rel="stylesheet" href="studentTranferReg.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
     <title>Student Transfer</title>
 </head>
+
+
 <body>
     <header>
-        <nav style="font-size: 12px;" class="Navigation"> 
+        <nav style="font-size: 15px;" class="Navigation"> 
             <a class="a" href="firstPage.html">Home</a>
             <a class="b" href="adminsch.php">About</a>
             <a class="c" href="#">Services</a>
             <a class="d" href="#">Contacts</a>
-            <a style="font-size: 12px;" type="submit" id="submitRequest" href="#">Submit Your Request</a>
+            <input type="submit" id="submitRequest" value="Register" class="btn">
+            <!-- <a style="font-size: 12px;" type="submit" id="submitRequest" href="#">Submit Your Request</a> -->
         </nav>
     </header>
-
-
+    
+    
 <form id="transferForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data">
 
     
     <div class="wrapper"> 
             <h2>Personal Details</h2>
-            <div class="imputFld">
+            
                 <label class="label">Full Name</label>
                 <input name="fullName" type="text" class="textarea">
-            </div>
-            <div class="imputFld">
+          
+            
                 <label class="label">Grade</label>
                 <input name="Grade" type="text" class="textarea">
-            </div>
+           
 
-            <div class="imputFld">
+            
                 <label class="label">Phone Number</label>
                 <input name="studentPNumbe" type="number" class="textarea">
-            </div>
-            <div class="imputFld">
+           
                 <label class="label">Email Address</label>
                 <input name="studentEmail" type="email" class="textarea">
-            </div>
-            <div class="imputFld">
+            
                 <label class="label">Registration number</label>
                 <input name="RegistrationNumber" type="number" class="textarea">
-            </div>
-            <div class="imputFld">
+            
                 <label class="label">Date of Birth</label>
                 <input name="DateOfBirth" type="date" class="textarea">
-            </div>
+                
+            
             
     </div>
 
+
     <div class="wrapper">
             <h2>Previus School</h2>
-            <div class="imputFld">
+            
                 <label class="label">School Name</label>
                 <input name="schoolName" type="text" class="textarea">
-            </div>
-            <div class="imputFld">
+            
                 <label class="label" for="selectCounty">Select County</label>
                 <select class="textarea" id="selectCounty"></select>
-            </div>
-
-            <div class="imputFld">
+            
                 <label class="label">Select Subcounty</label>
                 <select class="textarea" name="Subcounty" id="selectSubCounty"></select>
-            </div>
             
-
-            <div class="imputFld">
                 <label class="label">SChool contact/Phone Number</label>
                 <input name="schoolPNumber" type="number" class="textarea">
-            </div>
-            <div class="imputFld">
+            
+                
                 <label class="label">School Email Address</label>
                 <input name="schoolEmail" type="email" class="textarea">
-            </div>
+           
 
-            
-            
-            
+             
     </div>
 
     <div class="wrapper">
             <h2>Inteded School</h2>
-            <div class="imputFld">
+            
                 <label class="label">School Name</label>
                 <input name="IntededSchoolName" type="text" class="textarea">
-            </div>
-            <div class="imputFld">
+            
                 <label class="label" for="selectCounty">Select County</label>
                 <select class="textarea" id="selectCounty"></select>
-            </div>
-
-            <div class="imputFld">
+            
                 <label class="label">Select Subcounty</label>
                 <select class="textarea" name="Subcounty" id="selectSubCounty"></select>
-            </div>
             
-
-            <div class="imputFld">
                 <label class="label">School Contact/Phone Number</label>
                 <input name="IntededSchoolContact" type="number" class="textarea">
-            </div>
-            <div class="imputFld">
+                
+            
+                
                 <label class="label">School Email Address</label>
                 <input name="IntededSchoolEmail" type="email" class="textarea">
-            </div>
+            
+                
+                
             
             
     </div>
+    
+    <script src="StudentTranferRegistration.js"></script> 
     <script src="sample.js"></script>
-
-
+    
+    
 
     <div class="container2">
         <div class="content">
@@ -162,14 +155,12 @@
                 <label>ID Number</label>
                 <input name="PID" type="text" class="textarea3" >
                 <p>Reason for the leaving.</p>
-                <textarea name="ReasonForTranferP" cols="7" rows="10" id="tranferReason3"></textarea>
-                
+                <textarea name="ReasonForTranfer" cols="30" rows="10" id="tranferReason"></textarea>
             </div> 
            
             <div class="content3">
                 <p style="margin-bottom: 2px;">Parrent/ Gurdian Declarition.</p>
-                <p>I have cleard/ commit my self to clear all my financial obligations in the school</p>
-                <p>I also have knowledge of this tranfer and concent to it.</p>
+                <p>I have cleard/ commit my self to clear all my financial obligations in the school. I also have knowledge of this tranfer and concent to it.</p>
                 <label for="">I.D NO</label>
                 <input name="namePP" type="text" class="textarea3">
                 <label for="">Address</label>
@@ -190,6 +181,8 @@
 
 
 
+
 </form>
+
 </body>
 </html>

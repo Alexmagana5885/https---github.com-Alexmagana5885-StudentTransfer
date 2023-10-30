@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-$query = "select * from studenttranfers";
+$query = "select * from transfer_requests";
 $result = mysqli_query($conn, $query);
 $query2 = "select * from studentdetails";
 $result2 = mysqli_query($conn, $query2);
@@ -35,7 +35,7 @@ $result2 = mysqli_query($conn, $query2);
                     </a>
                 </li>
 
-               
+<!--                
 <li>
     <a href="#" onclick="showPopup()">
         <span class="title">About</span>
@@ -53,7 +53,7 @@ $result2 = mysqli_query($conn, $query2);
 </div>
 
 <script src="studentPage.js" ></script>
-
+ -->
 
                 
 
@@ -80,7 +80,7 @@ $result2 = mysqli_query($conn, $query2);
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div style="width: 500px; width: 500px;" >
+                <div style="width: 500px; width: 500px; " >
                 <img id="profileImage" src="prfl.png" style="width:20% ; height: 20%; margin-top: 40px; margin-bottom: 10px; float: right; " alt="Description of the image">
                 </div>
  
@@ -169,11 +169,12 @@ $result2 = mysqli_query($conn, $query2);
                         <thead>
                             <tr>
                                 <td>SCHOOL INTEDED</td>
-                                <td>YEAR/GRADE</td>
                                 <td>COUNTY</td>
                                 <td>SUB-COUNTY</td>
                                 <td>DATE</td>
                                 <td>TRANSFER STATUS</td>
+                                
+                                
             
                             </tr>
                         </thead>
@@ -183,10 +184,11 @@ $result2 = mysqli_query($conn, $query2);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<td>" . $row['name'] . "</td>";
-                                    echo "<td>" . $row['previous_school'] . "</td>";
-                                    echo "<td>" . $row['date_of_transfer'] . "</td>";
-                                    echo "<td>" . $row['status'] . "</td>";
+                                    echo "<td>" . $row['intended_school_name'] . "</td>";
+                                    echo "<td>" . $row['intended_school_location'] . "</td>";
+                                    echo "<td>" . $row['intended_school_location'] . "</td>";
+                                    echo "<td>" . $row['Year_of_Study'] . "</td>";
+                                    echo "<td>" . $row['full_Name'] . "</td>";
                                     echo "<td><span class='status return'></span></td>";
                                     echo "</tr>";
                                 }

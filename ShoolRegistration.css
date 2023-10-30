@@ -19,30 +19,22 @@ body {
   margin: 0;
 }
 
-
 header {
-  top: 0;
-  left:o;
-  width: 100%;
-  padding: 20px 0; 
   display: flex;
-  align-items: flex-start; 
-  z-index: 99;
-  position: fixed;
-  background-color: #355e8b; 
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
-  justify-content: right;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #355e8b; /* Set your desired background color */
 }
 
-.Navigation{
-  position: relative;
-  font-size: 0.89em;
-  color: #fff;
+.Navigation {
+  display: flex;
+}
+
+.Navigation a {
+  margin: 0 10px; /* Adjust the margin as per your design */
   text-decoration: none;
-  font-weight: 500;
-  margin-left: 40px;
-  justify-content: center; 
-  
+  color: #fff; /* Set your desired text color */
 }
 
 
