@@ -22,12 +22,12 @@
     <div class="wraper">
 
             <!-- Login -->
-
+            <form action="login.php" method="post">
             <div class="boxLogin">
 
                 <body class="schSelect">
                     <label for="selectOption">Login Category:</label>
-                    <select id="selectOption">
+                    <select name="loginCategory" id="selectOption">
                         <option value="option1">Choose an option</option>
                         <option value="option1">Student</option>
                         <option value="option2">School</option>
@@ -37,12 +37,12 @@
             <form action="#">
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="text" required>
+                    <input name="registrationNumber" type="text" required>
                     <label >Registration Number</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="password" required>
+                    <input name="password" type="password" required>
                     <label >Password</label>
                 </div>
                 <div class="forgotPasword">
@@ -51,7 +51,7 @@
                     <a href="#">Forgot password?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
-
+            </form>
                 <div class="LoginRegister">
                     <p>Don't have an account?<a href="firstPage.html" class="registerLink"> Register</a></p>
                    
@@ -59,7 +59,7 @@
 
 
             </form>
-
+ 
         </div>
 
 

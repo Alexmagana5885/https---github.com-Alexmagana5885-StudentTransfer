@@ -1,5 +1,5 @@
 <?php
-// Include the database configuration file
+//  database configuration 
 include("config.php");
 
 
@@ -15,16 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password for security 
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    // SQL query to insert data into the 'students' table using prepared statement
+   
     $sql = "INSERT INTO studentdetails (level_of_school, name, registration_number, password)
             VALUES (?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $level_of_school, $name, $registration_number, $hashed_password);
+    $stmt->bind_param("ssss", $level_of_school, $name, $registration_number, $password);
 
     if ($stmt->execute()) {
-        // Registration successful
-        // Redirect to login page
+        // Registration successful redirect to login page
+    
         header("Location: login.html");
         exit;
     } else {
