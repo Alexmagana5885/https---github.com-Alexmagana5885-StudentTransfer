@@ -6,25 +6,25 @@ $query2 = "select * from studentdetails";
 $result2 = mysqli_query($conn, $query2);
 
 
-session_start();
-// After verifying the login credentials
-$_SESSION['loginCategory'] = $loginCategory;
-$_SESSION['registrationNumber'] = $registrationNumber;
-session_start();
+// session_start();
+// // After verifying the login credentials
+// $_SESSION['loginCategory'] = $loginCategory;
+// $_SESSION['registrationNumber'] = $registrationNumber;
+// session_start();
 
-// Check if the user is logged in
-if(isset($_SESSION['loginCategory']) && isset($_SESSION['registrationNumber'])) {
-    // User is logged in, customize the page based on login category
-    $loginCategory = $_SESSION['loginCategory'];
-    $registrationNumber = $_SESSION['registrationNumber'];
+// // Check if the user is logged in
+// if(isset($_SESSION['loginCategory']) && isset($_SESSION['registrationNumber'])) {
+//     // User is logged in, customize the page based on login category
+//     $loginCategory = $_SESSION['loginCategory'];
+//     $registrationNumber = $_SESSION['registrationNumber'];
 
-    // Use $loginCategory and $registrationNumber to fetch user-specific data from the database
-    // Populate the page with user-specific content
-} else {
-    // User is not logged in, redirect them to the login page
-    header("Location: login.html"); // Redirect to your login page
-    exit();
-}
+//     // Use $loginCategory and $registrationNumber to fetch user-specific data from the database
+//     // Populate the page with user-specific content
+// } else {
+//     // User is not logged in, redirect them to the login page
+//     header("Location: login.html"); // Redirect to your login page
+//     exit();
+// }
 
 
 ?>

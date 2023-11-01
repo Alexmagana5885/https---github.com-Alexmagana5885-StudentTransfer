@@ -6,15 +6,15 @@ include("config.php"); // Assuming this file contains your database connection c
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $officeName = $_POST["GOoffice"];
-    $registrationNumber = $_POST["RegistrationNumber"];
+    $registrationNumber = $_POST["registrationNumber"];
     $county = $_POST["Gcounty"];
     $subCounty = $_POST["Gsubcounty"];
-    $officeContact = $_POST["registration_code"];
+    $OfficeContact = $_POST["OfficeContact"];
     $email = $_POST["Gemail"];
     $password = $_POST["GCreatePassword"];
     
     // SQL query to insert data into the database
-    $sql = "INSERT INTO GofficeRegistration (office_name, registration_number, county, sub_county, office_contact, email, password) VALUES ('$officeName', '$registrationNumber', '$county', '$subCounty', '$officeContact', '$email', '$password')";
+    $sql = "INSERT INTO EDUofficeRegistration (office_name, registrationNumber, county, sub_county, OfficeContact, email, password) VALUES ('$officeName', '$registrationNumber', '$county', '$subCounty', '$officeContact', '$email', '$password')";
     
     // Check the database connection
     if ($conn->connect_error) {

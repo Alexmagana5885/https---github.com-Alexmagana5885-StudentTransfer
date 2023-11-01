@@ -24,7 +24,7 @@ $result2 = mysqli_query($conn, $query2);
             <ul>
                 <li>
                     <a href="#">
-                        <span class="title"> SHOOL ADMIN</span>
+                        <span class="title"> EDUCATION OFFICE</span>
                     </a>
                 </li>
 
