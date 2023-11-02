@@ -5,6 +5,28 @@ $result = mysqli_query($conn, $query);
 $query2 = "select * from schoolreg";
 $result2 = mysqli_query($conn, $query2);
 
+
+
+
+
+session_start();
+
+// Check if the user is not logged in, redirect them to the login page.
+if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber'])) {
+    header("Location: login.html"); 
+    exit();
+}
+
+// Fetch user-specific data based on session variables
+$loginCategory = $_SESSION['loginCategory'];
+$registrationNumber = $_SESSION['registrationNumber'];
+
+// Query the database to get user-specific data
+$query = "SELECT * FROM schoolreg WHERE registration_number = '$registrationNumber'";
+$result2 = mysqli_query($conn, $query);
+
+
+
 ?>
 
 
