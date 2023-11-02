@@ -1,77 +1,60 @@
 <?php
-// Database connection
-include("config.php");
+require_once('tcpdf/tcpdf.php');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $full_name = $_POST['full_name'];
+    $grade = $_POST['grade'];
+    $phone_number = $_POST['phone_number'];
+    $email = $_POST['email'];
+    // ... add more variables for other form fields ...
+
+    // Create PDF
+    $pdf = new TCPDF();
+    $pdf->SetMargins(10, 10, 10);
+    $pdf->AddPage();
+
+    // Add form data to PDF
+    $pdf->Cell(0, 10, 'Full Name: ' . $full_name, 0, 1);
+    $pdf->Cell(0, 10, 'Grade: ' . $grade, 0, 1);
+    $pdf->Cell(0, 10, 'Phone Number: ' . $phone_number, 0, 1);
+    $pdf->Cell(0, 10, 'Email: ' . $email, 0, 1);
+    // ... add more cells for other form fields ...
+
+    // Output PDF to browser or save it to a file
+    $pdfFileName = 'output.pdf';
+    $pdf->Output($pdfFileName, 'F'); // F for saving to a file
+
+    // Recipient email address
+    $to = 'recipient@example.com';
+
+    // Sender email address
+    $from = 'sender@example.com';
+
+    // Subject of the email
+    $subject = 'Generated PDF';
+
+    // Message body
+    $message = 'Please find the generated PDF attached.';
+
+    // Headers for attaching the PDF
+    $headers = "From: $from\r\n";
+    $headers .= "Reply-To: $from\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: multipart/mixed; boundary=\"boundary\"\r\n";
+    $headers .= "--boundary\r\n";
+    $headers .= "Content-Type: application/octet-stream; name=\"$pdfFileName\"\r\n";
+    $headers .= "Content-Disposition: attachment; filename=\"$pdfFileName\"\r\n";
+    $headers .= "Content-Transfer-Encoding: base64\r\n";
+    $headers .= "\r\n";
+    $headers .= chunk_split(base64_encode(file_get_contents($pdfFileName))) . "\r\n";
+    $headers .= "--boundary--\r\n";
+
+    // Send email with attachment
+    if(mail($to, $subject, $message, $headers)) {
+        echo 'Email sent successfully.';
+    } else {
+        echo 'Email failed to send.';
+    }
 }
-
-// Retrieve form data
-$fullName = $_POST['fullName'];
-$grade = $_POST['Grade'];
-$phoneNumber = $_POST['studentPNumbe'];
-$email = $_POST['studentEmail'];
-$registrationNumber = $_POST['RegistrationNumber'];
-$dateOfBirth = $_POST['DateOfBirth'];
-
-$schoolName = $_POST['schoolName'];
-$county = $_POST['county'];
-$subcounty = $_POST['Subcounty'];
-$schoolPhoneNumber = $_POST['schoolPNumber'];
-$schoolEmail = $_POST['schoolEmail'];
-
-$intendedSchoolName = $_POST['IntededSchoolName'];
-$intendedSchoolCounty = $_POST['county']; // Note: You might want to change these lines
-$intendedSchoolSubcounty = $_POST['Subcounty']; // if they are not supposed to be overwritten
-$intendedSchoolPhoneNumber = $_POST['IntededSchoolContact'];
-$intendedSchoolEmail = $_POST['IntededSchoolEmail'];
-
-$transferReason = $_POST['ReasonForTranfer'];
-
-$PName = $_POST['PName'];
-$PhoneNumberP = $_POST['PhoneNumberP'];
-$pemail = $_POST['pemail'];
-$PID = $_POST['PID'];
-$PReasonForTranfer = $_POST['PReasonForTranfer'];
-
-$IDPP = $_POST['IDPP'];
-$addressP = $_POST['addressP'];
-$phoneNumberP = $_POST['phoneNumberP'];
-$Date = $_POST['Date'];
-
-// handle files
-$passportPdf = $_FILES["pasportPdf"]["name"];
-$clearanceFormPdf = $_FILES["clearanceFormPDF"]["name"];
-$transferApprovalPdf = $_FILES["TranferAprovalPDF"]["name"];
-$identificationPdf = $_FILES["identificationPDF"]["name"];
-
-// Insert data into the database
-$sql = "INSERT INTO student_transfer (full_name, grade, phone_number, email, registration_number, date_of_birth, 
-        previous_school_name, county, subcounty, previous_school_phone_number, previous_school_email, 
-        intended_school_name, intended_school_county, intended_school_subcounty, intended_school_phone_number, 
-        intended_school_email, transfer_reason, pasportPdf, clearanceFormPDF, TranferAprovalPDF, identificationPDF, 
-        PName, PhoneNumberP, pemail, PID, PReasonForTranfer, IDPP, addressP, phoneNumberP, Date) 
-        VALUES ('$fullName', '$grade', '$phoneNumber', '$email', 
-        '$registrationNumber', '$dateOfBirth', '$schoolName', '$county', '$subcounty', '$schoolPhoneNumber', 
-        '$schoolEmail', '$intendedSchoolName', '$intendedSchoolCounty', '$intendedSchoolSubcounty', 
-        '$intendedSchoolPhoneNumber', '$intendedSchoolEmail', '$transferReason', '$passportPdf', '$clearanceFormPdf', 
-        '$transferApprovalPdf', '$identificationPdf', '$PName', '$PhoneNumberP', '$pemail', '$PID', '$PReasonForTranfer', '$IDPP', 
-        '$addressP', '$phoneNumberP', '$Date')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-// Move uploaded files to desired directory
-$uploadDirectory = "uploads/";
-
-move_uploaded_file($_FILES["pasportPdf"]["tmp_name"], $uploadDirectory . $passportPdf);
-move_uploaded_file($_FILES["clearanceFormPDF"]["tmp_name"], $uploadDirectory . $clearanceFormPdf);
-move_uploaded_file($_FILES["TranferAprovalPDF"]["tmp_name"], $uploadDirectory . $transferApprovalPdf);
-move_uploaded_file($_FILES["identificationPDF"]["tmp_name"], $uploadDirectory . $identificationPdf);
-
-$conn->close();
 ?>

@@ -1,69 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Transfer Registration</title>
-    <style>
-        /* Your existing styles for header and navigation go here */
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 120px;
-            z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            display: block;
-            text-decoration: none;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
+    <title>PDF Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
 <body>
+    <form id="pdfForm" action="sample.php" method="post">
+        <!-- Your form fields here -->
+        <input type="text" name="full_name" placeholder="Full Name" required>name<br>
+        <input type="text" name="grade" placeholder="Grade" required>grade<br>
+        <input type="text" name="phone_number" placeholder="Grade" required>phone number<br>
+        <input type="text" name="email" placeholder="Grade" required>email<br>
+        <!-- Add more form fields as needed -->
 
-    <header>
-        <h2 style="color:#fff; margin-left: 20px;">Student Transfer Registration</h2>
-        <nav class="Navigation">
-            <a class="a" href="#prmary">Primary School</a>
-            <a class="b" href="#Secondary">Secondary School</a>
-            <a class="b" href="#University">University/College</a>
+        <button type="button" id="generatePdfButton">Generate PDF and Send</button>
+    </form>
 
-            <!-- Dropdown menu for Contacts -->
-            <div class="dropdown">
-                <a class="c" href="#">Contacts</a>
-                <div class="dropdown-content">
-                    <a href="#contact1">Contact 1</a>
-                    <a href="#contact2">Contact 2</a>
-                    <a href="#contact3">Contact 3</a>
-                    <a href="#contact4">Contact 4</a>
-                </div>
-            </div>
-            <!-- End of Dropdown menu -->
-
-        </nav>
-    </header>
-
-    <!-- Rest of your HTML content goes here -->
-
+    <script>
+        $(document).ready(function() {
+            $("#generatePdfButton").click(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "process_form.php",
+                    data: $("#pdfForm").serialize(),
+                    success: function(response) {
+                        alert(response); // Show response from the server
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error: " + error); // Show error message if request fails
+                    }
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>

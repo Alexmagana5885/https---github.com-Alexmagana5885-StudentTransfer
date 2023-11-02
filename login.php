@@ -13,7 +13,7 @@ $password = $_POST['password'];
 
 // Determine the SQL query based on the selected login category.
 if ($loginCategory === 'option1') {
-    $sql = "SELECT * FROM studentdetails WHERE registration_number=? AND password=?";
+    $sql = "SELECT * FROM studentregistration WHERE registration_number=? AND password=?";
 } elseif ($loginCategory === 'option2') {
     $sql = "SELECT * FROM schoolreg WHERE registration_number=? AND password=?";
 } elseif ($loginCategory === 'option3') {

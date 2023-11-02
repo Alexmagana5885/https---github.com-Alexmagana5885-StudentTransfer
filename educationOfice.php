@@ -1,9 +1,17 @@
 <?php
 require_once('config.php');
-$query = "select * from transfer_requests";
+$query = "select * from studenttransferregistration";
 $result = mysqli_query($conn, $query);
-$query2 = "select * from schoolreg";
+$query2 = "select * from gofficeregistration";
 $result2 = mysqli_query($conn, $query2);
+
+
+$query = "SELECT * FROM studenttransferregistration";
+$result = mysqli_query($conn, $query);
+$totalTransfersCount = mysqli_num_rows($result);
+$query2 = "SELECT * FROM gofficeregistration";
+$result2 = mysqli_query($conn, $query2);
+
 
 ?>
 
@@ -31,7 +39,7 @@ $result2 = mysqli_query($conn, $query2);
                 <li>
                     <a href="firstPage.html">
                         
-                        <span class="title">Dashboard</span>
+                        <span class="title">Home</span>
                     </a>
                 </li>
 
@@ -73,7 +81,7 @@ $result2 = mysqli_query($conn, $query2);
                         if ($result2->num_rows > 0) {
                             while ($row = $result2->fetch_assoc()) {
 
-                                echo "<h2>" . $row['school_name'] . "</h2>";
+                                echo "<h2>" . $row['office_name'] . "</h2>";
                           
                             }}
 
@@ -85,7 +93,7 @@ $result2 = mysqli_query($conn, $query2);
 
 <!-- ======================= Cards ================== -->
 <div class="cardBox">
-    <div class="card">
+    <!-- <div class="card">
         
         <div>
             <div class="numbers">2234</div>
@@ -93,7 +101,14 @@ $result2 = mysqli_query($conn, $query2);
         </div>
 
     </div>
+     -->
+    <div class="card">
+    <div>
+        <div class="numbers"><?php echo $totalTransfersCount; ?></div>
+        <div class="cardName">Total Transfers</div>
+    </div>
     
+    </div>
 
     <div class="card">
         <div>
@@ -130,14 +145,17 @@ $result2 = mysqli_query($conn, $query2);
                     <table>
                         <thead>
                             <tr style="font-size: 15px; color: #355e8b; " >
-                                <td>Name</td>
-                                <td>Year of Study</td>
-                                <td>Previous School</td>
-                                <td>Student Email</td>
-                                <td>Gurdian Contact</td>
+                                <td>Student Name</td>
+                                <td>Current School</td>
+                                <td>intended School</td>
+                                <td>Student Contact</td>
+                                <td>Gurdian/Parent Contact</td>
+                                <td>Date</td>
                                 <td>Status</td>
                             </tr>
                         </thead>
+
+                        
                             
                             <?php
                                 
@@ -145,11 +163,12 @@ $result2 = mysqli_query($conn, $query2);
                                 while ($row = $result->fetch_assoc()) {
                                     
                                     echo "<tr>";
-                                    echo "<td>" . $row['full_Name'] . "</td>";
-                                    echo "<td>" . $row['Year_of_Study'] . "</td>";
-                                    echo "<td>" . $row['prev_school_name'] . "</td>";
-                                    echo "<td>" . $row['student_email'] . "</td>";
-                                    echo "<td>" . $row['parent_phone'] . "</td>";
+                                    echo "<td>" . $row['full_name'] . "</td>";
+                                    echo "<td>" . $row['previous_school_name'] . "</td>";
+                                    echo "<td>" . $row['intended_school_name'] . "</td>";
+                                    echo "<td>" . $row['phone_number'] . "</td>";
+                                    echo "<td>" . $row['parent_phone_number'] . "</td>";
+                                    echo "<td>" . $row['transfer_date'] . "</td>";
                                     echo "<td><span class='status return'></span></td>";
                                     echo "</tr>";
                                 }

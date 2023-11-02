@@ -1,69 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Transfer</title>
-</head>
-<body>
-    <header>
-       
-        <nav class="Navigation">
-            <a class="a" href="firstPage.html">Home</a>
-            <a class="b" href="#">About</a>
-            <a class="c" href="StudentTranferRegistration.html">Services</a>
-            <a class="d" href="#">Contacts</a>
-            <button class="btnLogin-popup">Register</button>
-        </nav>
-    </header>
+    <title>Education Office Registration</title>
+    <link rel="stylesheet" href="ShoolRegistration.css">
 
-    <div class="wraper">
-        
-        <div class="boxRegister">
-            <form action="studentregistration.php" method="post">
-                <div class="schSelect">
-                    <label for="selectOption">Choose School Level:</label>
-                    <select id="selectOption" name="level_of_school">
-                        <option value="option1">Choose an option</option>
-                        <option value="Primary School">Primary School</option>
-                        <option value="Secondary School">Secondary School</option>
-                        <option value="University/College">University/College</option>
-                    </select>
-                </div>
-                
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required name="name">
-                    <label for="name">Name</label>
-                </div>
-                
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required name="registration_number">
-                    <label for="registration_number">Registration Number</label>
-                </div>
-                
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="password" required name="password">
-                    <label for="password">Password</label>
-                </div>
-                
-                <div class="terms">
-                    <label><input type="checkbox" required>
-                    Agree to terms and conditions</label>
-                </div>
-                
-                <button type="submit" class="btn">Register</button>
-        
-                <div class="LoginRegister">
-                    <a href="login.html" class="registerLink">Already have an account. Login</a>
-                </div>
-            </form>
+    <style>
+      header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          background-color: #355e8b;/
+      }
+
+      .Navigation {
+          display: flex;
+      }
+
+      .Navigation a {
+          margin: 0 10px; 
+          text-decoration: none;
+          color: #fff;
+      }
+  </style>
+</head>
+
+<body>
+  
+  
+      <!-- <header>
+          <h2 style="color:#fff;">Education Office Registration</h2>
+          <nav class="Navigation">
+              <a class="a" href="firstPage.html">Home</a>
+              <a class="b" href="#">About</a>
+              <a class="c" href="#">Services</a>
+              <a class="d" href="#">Contacts</a>
+          </nav>
+      </header> -->
+     
+  
+  
+
+    <div class="wrapper">
+        <div class="title">
+            Student Registration
         </div>
-        
+
+        <form action="studentregistration.php" method="post">
+            <div class="form">
+
+                <div class="inputfield">
+                    <div class="custom_select">
+                        <select required name="level_of_school">
+                            <option value="option1">Choose School Level</option>
+                            <option value="Primary School">Primary School</option>
+                            <option value="Secondary School">Secondary School</option>
+                            <option value="University/College">University/College</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputfield">
+                    <label>Name</label>
+                    <input required type="text" class="input" name="Sname">
+                </div>
+
+                <div class="inputfield">
+                    <label>Registration Number</label>
+                    <input required type="text" class="input" name="registration_number">
+                </div>
+
+                <div class="inputfield">
+                    <label>Current School</label>
+                    <input required type="text" class="input" name="Schoolname">
+                </div>
+
+                <div class="inputfield">
+                    <label>School Location</label>
+                    <div class="custom_select">
+                        <select required id="selectCounty" name="Gcounty"></select>
+                    </div>
+                </div>
+
+                <div class="inputfield">
+                    <div class="custom_select">
+                        <select required id="selectSubCounty" name="Gsubcounty"></select>
+                    </div>
+                </div>
+
+                <div class="inputfield">
+                    <label>Gender</label>
+                    <div class="custom_select">
+                        <select  name="sGender">
+                            <option >Choose option </option>
+                            <option >Male</option>
+                            <option >Female</option>
+                            
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="inputfield">
+                    <label required>Student Contact</label>
+                    <input type="number" class="input" name="studentContact">
+                </div>
+
+                <div class="inputfield">
+                    <label>Email address</label>
+                    <input type="email" class="input" name="Semail">
+                </div>
+
+                <div class="inputfield">
+                    <label required>Create Password</label>
+                    <input type="password" class="input" id="password" name="GCreatePassword">
+                </div>
+
+                <div class="inputfield">
+                    <label required>Confirm Password</label>
+                    <input type="password" class="input" id="confirmPassword" name="GConfirmPassword">
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var form = document.querySelector('form');
+                
+                        form.addEventListener('submit', function(event) {
+                            var password = document.getElementById('password').value;
+                            var confirmPassword = document.getElementById('confirmPassword').value;
+                
+                            if (password !== confirmPassword) {
+                                alert("Passwords do not match. Please try again.");
+                                event.preventDefault(); // Prevent the form submission
+                            }
+                        });
+                    });
+                </script>
+                
+
+                <div class="inputfield terms">
+                    <label class="check">
+                        <h4>Agreed to terms and conditions</h4>
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="inputfield">
+                    <input type="submit" value="Register" class="btn">
+                </div>
+            </div>
+        </form>
+        <script src="StudentTranferRegistration.js"></script>
     </div>
+
 </body>
+
 </html>

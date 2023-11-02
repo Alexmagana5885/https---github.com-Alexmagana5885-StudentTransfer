@@ -1,36 +1,25 @@
-$fullName = $_POST['fullName'];
-$grade = $_POST['Grade'];
-$phoneNumber = $_POST['studentPNumbe'];
-$email = $_POST['studentEmail'];
-$registrationNumber = $_POST['RegistrationNumber'];
-$dateOfBirth = $_POST['DateOfBirth'];
+ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
 
-$schoolName = $_POST['schoolName'];
-$county = $_POST['county'];
-$subcounty = $_POST['Subcounty'];
-$schoolPhoneNumber = $_POST['schoolPNumber'];
-$schoolEmail = $_POST['schoolEmail'];
+ul li {
+    width: 40px;
+    height: 40px;
+    background: var(--color);
+    border-radius: 50%;
+    animation: grow 1.6s ease-in-out infinite;
+    animation-delay: var(--delay);
+    box-shadow: 0 0 50px var(--color);
+}
 
-$intendedSchoolName = $_POST['IntededSchoolName'];
-$intendedSchoolCounty = $_POST['county']; // Note: You might want to change these lines
-$intendedSchoolSubcounty = $_POST['Subcounty']; // if they are not supposed to be overwritten
-$intendedSchoolPhoneNumber = $_POST['IntededSchoolContact'];
-$intendedSchoolEmail = $_POST['IntededSchoolEmail'];
-
-$transferReason = $_POST['ReasonForTranfer'];
-
-$PName = $_POST['PName'];
-$PhoneNumberP = $_POST['PhoneNumberP'];
-$pemail = $_POST['pemail'];
-$PID = $_POST['PID'];
-$PReasonForTranfer = $_POST['PReasonForTranfer'];
-
-$IDPP = $_POST['IDPP'];
-$addressP = $_POST['addressP'];
-$phoneNumberP = $_POST['phoneNumberP'];
-$Date = $_POST['Date'];
-
-$passportPdf = $_FILES["pasportPdf"]["name"];
-$clearanceFormPdf = $_FILES["clearanceFormPDF"]["name"];
-$transferApprovalPdf = $_FILES["TranferAprovalPDF"]["name"];
-$identificationPdf = $_FILES["identificationPDF"]["name"];
+@keyframes grow {
+    0%, 40%, 100% {
+        transform: scale(0.2);
+    }
+    
+    20% {
+        transform: scale(1);
+    }
+}

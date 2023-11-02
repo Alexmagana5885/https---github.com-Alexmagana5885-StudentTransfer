@@ -29,7 +29,7 @@
 <body>
 
 
-    <header>
+    <!-- <header>
         <h2 style="color:#fff; margin-left: 20px;">Student Transfer Registration</h2>
         <nav class="Navigation">
             <a class="a" href="firstPage.html">Home</a>
@@ -37,7 +37,7 @@
             <a class="c" href="#">Services</a>
             <a class="d" href="#">Contacts</a>
         </nav>
-    </header>
+    </header> -->
    
 
    
@@ -50,7 +50,7 @@
     <div class="inputfield">
       <label>Level of School</label>
       <div class="custom_select">
-        <select name="level_of_school">
+        <select required name="level_of_school">
           <option value="">Select</option>
           <option value="Primary School">Primary School</option>
           <option value="Secondary School">Secondary School</option>
@@ -60,24 +60,34 @@
     </div>
     <div class="inputfield">
       <label>School name</label>
-      <input type="text" class="input" name="school_name">
+      <input required type="text" class="input" name="school_name">
     </div>
+
     <div class="inputfield">
-      <label>Location</label>
-      <input type="text" class="input" name="school_location">
-    </div>
+      <label>School Location</label>
+      <div class="custom_select">
+          <select required id="selectCounty" name="Gcounty"></select>
+      </div>
+  </div>
+
+  <div class="inputfield">
+      <div class="custom_select">
+          <select required id="selectSubCounty" name="Gsubcounty"></select>
+      </div>
+  </div>
+
     <div class="inputfield">
       <label>Registration Code</label>
-      <input type="password" class="input" name="registration_number">
+      <input required type="password" class="input" name="registration_number">
     </div>
     <div class="inputfield">
       <label>Password</label>
-      <input type="password" class="input" name="password">
+      <input required type="password" class="input" name="password">
     </div>
     <div class="inputfield">
       <label>Gender Accepted</label>
       <div class="custom_select">
-        <select name="gender_accepted">
+        <select required name="gender_accepted">
           <option value="">Select</option>
           <option value="Boys">Boys</option>
           <option value="Girls">Girls</option>
@@ -89,7 +99,7 @@
     <div class="inputfield">
       <label>Mode of Schooling</label>
       <div class="custom_select">
-        <select name="mode_of_schooling">
+        <select required name="mode_of_schooling">
           <option value="">Day School</option>
           <option value="Boys">Boarding School</option>
           <option value="Girls">Both Day and Boarding school</option>
@@ -98,29 +108,29 @@
 
     <div class="inputfield">
       <label>Email Address</label>
-      <input type="text" class="input" name="email_address">
+      <input required type="text" class="input" name="email_address">
     </div>
     <div class="inputfield">
       <label>Phone Number</label>
-      <input type="text" class="input" name="phone_number">
+      <input required type="text" class="input" name="phone_number">
     </div>
     <div class="inputfield">
       <label>Address</label>
-      <textarea class="textarea" name="address"></textarea>
+      <textarea required class="textarea" name="address"></textarea>
     </div>
     <div class="inputfield">
       <label>Postal Code</label>
-      <input type="text" class="input" name="postal_code">
+      <input required type="text" class="input" name="postal_code">
     </div>
     <div class="inputfield">
       <label>School Fees Per Semester in Ksh</label>
-      <input type="number" class="input" name="school_fees">
+      <input required type="number" class="input" name="school_fees">
     </div>
 
     <div class="inputfield">
     <label>Types of Diet</label>
     <div class="custom_select">
-      <select name="diet_type">
+      <select required name="diet_type">
         <option value="">Select</option>
         <option value="Normal diet to all student">Normal diet to all student</option>
         <option value="School provides Special Medical Diets">School provides Special Medical Diets</option>
@@ -131,13 +141,14 @@
   <div class="inputfield">
     <label>Medical</label>
     <div class="custom_select">
-      <select name="medical_facility">
+      <select required name="medical_facility">
         <option value="">Select</option>
         <option value="Available School Hospital">Available School Hospital</option>
         <option value="Referral Hospital Near the School">Referral Hospital Near the School</option>
       </select>
     </div>
   </div>
+  <script src="StudentTranferRegistration.js"></script>
   </form>
   </div>
     <div class="inputfield terms">
