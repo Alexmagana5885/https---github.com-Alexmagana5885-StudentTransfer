@@ -5,7 +5,9 @@ $result = mysqli_query($conn, $query);
 $query2 = "select * from schoolreg";
 $result2 = mysqli_query($conn, $query2);
 
-
+$count = "SELECT * FROM studenttransferregistration";
+$countResult = mysqli_query($conn, $count);
+$totalTransfersCount = mysqli_num_rows($countResult);
 
 
 
@@ -109,10 +111,13 @@ $result2 = mysqli_query($conn, $query);
 <div class="cardBox">
     <div class="card">
         
-        <div>
-            <div class="numbers">2234</div>
-            <div class="cardName">Total Transfers</div>
-        </div>
+    <div>
+        <div class="numbers"><?php echo $totalTransfersCount; ?></div>
+        <div class="cardName">Total Transfers</div>
+    </div>
+
+    
+    
 
     </div>
     
