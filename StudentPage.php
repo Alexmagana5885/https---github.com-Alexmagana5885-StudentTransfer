@@ -2,8 +2,9 @@
 require_once('config.php');
 $query = "select * from transfer_requests";
 $result = mysqli_query($conn, $query);
-$query2 = "select * from studentdetails";
+$query2 = "select * from studentregistration";
 $result2 = mysqli_query($conn, $query2);
+
 
 
 session_start();
@@ -18,9 +19,16 @@ if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber']
 $loginCategory = $_SESSION['loginCategory'];
 $registrationNumber = $_SESSION['registrationNumber'];
 
-// Query the database to get user-specific data
-$query = "SELECT * FROM studentdetails WHERE registration_number = '$registrationNumber'";
+// Query to  get user-specific data
+
+$query = "SELECT * FROM studentregistration WHERE registration_number = '$registrationNumber'";
 $result2 = mysqli_query($conn, $query);
+$row2 = mysqli_fetch_assoc($result2); // Fetch the row
+
+$registrationNumber = $_SESSION['registrationNumber']; 
+
+$sql = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registrationNumber'";
+$result3 = $conn->query($sql);
 
 
 
@@ -99,9 +107,7 @@ $result2 = mysqli_query($conn, $query);
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div style="width: 500px; width: 500px; " >
-                <img id="profileImage" src="prfl.png" style="width:20% ; height: 20%; margin-top: 40px; margin-bottom: 10px; float: right; " alt="Description of the image">
-                </div>
+            
  
 
             </div>
@@ -109,79 +115,54 @@ $result2 = mysqli_query($conn, $query);
 
 <!-- ======================= Cards ================== -->
 <div class="cardBox">
-    <div class="card">
-        
-        <div>
-            <div class="cardName">Name</div>
-            <div style="font-size: 20px;" class="numbers">
-                <?php
-                        // if ($result2->num_rows > 0) {
-                        //     while ($row = $result2->fetch_assoc()) {
 
-                        //         echo "<h2>" . $row['name'] . "</h2>";
-                                
-                          
-                        //     }}
-
-                            if ($result2->num_rows > 0) {
-                                while ($row = $result2->fetch_assoc()) {
-                                    echo "<h2>" . $row['name'] . "</h2>";
-                                    // Output other user-specific data here
-                                }
-                            } else {
-                                echo "No user data found.";
-                            }
-
-
-                    ?>
-            </div>
+<div class="card">
+    <div>
+        <div class="cardName">Profile Image</div>
+        <div style="font-size: 20px;" class="numbers">
+        <img id="profileImage" src="profile.png" style="width:50% ; height: 40%; margin-bottom: 10px; float: center; " alt="Description of the image">
             
-           
         </div>
-
     </div>
-    
-
-    <div class="card">
-        <div>
-            <div class="cardName">Contacts</div>
+</div>
+<div class="card">
+    <div>
+        <div class="cardName">Name</div>
+        <div style="font-size: 20px;" class="numbers">
             <?php
-                        if ($result2->num_rows > 0) {
-                            while ($row = $result2->fetch_assoc()) {
-
-                                echo "<h2>" . $row['Contact'] . "</h2>";
-                                echo "<h2>" . $row['email'] . "</h2>";
-                          
-                            }}
-
-
-                    ?>
-            
-            
+            if ($row2) {
+                echo "<h2>" . $row2['name'] . "</h2>";
+            } 
+            ?>
         </div>
     </div>
+</div>
 
-    <div class="card">
-        <div>
-        <div class="cardName">Current School</div>
-
+<div class="card">
+    <div>
+        <div class="cardName">Contacts</div>
         <?php
-                        if ($result2->num_rows > 0) {
-                            while ($row = $result2->fetch_assoc()) {
-
-                                echo "<h2>" . $row['currentsSchool'] . "</h2>";
-                                echo "<h2>" . $row['County'] . "</h2>";
-                                echo "<h2>" . $row['SubCounty'] . "</h2>";
-                          
-                            }}
-
-
-                    ?>
-            
-            
-        </div>
-
+        if ($row2) {
+            echo "<h2>" . $row2['studentContact'] . "</h2>";
+            echo "<h2>" . $row2['email'] . "</h2>";
+        }
+        ?>
     </div>
+</div>
+
+<div class="card">
+    <div>
+        <div class="cardName">Current School</div>
+        <?php
+        if ($row2) {
+            echo "<h2>" . $row2['currentSchool'] . "</h2>";
+            echo "<h2>" . $row2['county'] . "</h2>";
+            echo "<h2>" . $row2['subCounty'] . "</h2>";
+        }
+        ?>
+    </div>
+</div>
+
 
 </div>
 
@@ -201,30 +182,26 @@ $result2 = mysqli_query($conn, $query);
                                 <td>SUB-COUNTY</td>
                                 <td>DATE</td>
                                 <td>TRANSFER STATUS</td>
-                                
-                                
-            
+     
                             </tr>
                         </thead>
-                            
-                            <?php
-                                
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row['intended_school_name'] . "</td>";
-                                    echo "<td>" . $row['intended_school_location'] . "</td>";
-                                    echo "<td>" . $row['intended_school_location'] . "</td>";
-                                    echo "<td>" . $row['Year_of_Study'] . "</td>";
-                                    echo "<td>" . $row['full_Name'] . "</td>";
-                                    echo "<td><span class='status return'></span></td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='5'>No records</td></tr>";
-                            }
-                            ?>
 
+                        <?php
+                        if ($result3->num_rows > 0) {
+                            while ($row = $result3->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row['intended_school_name'] . "</td>";
+                                echo "<td>" . $row['intended_school_county'] . "</td>";
+                                echo "<td>" . $row['intended_school_subcounty'] . "</td>";
+                                echo "<td>" . $row['transfer_date'] . "</td>";
+                                echo "<td><span class='status return'></span></td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='5'>No records</td></tr>";
+                        }
+
+                        ?>
                         
                         </tbody>
                     </table>
