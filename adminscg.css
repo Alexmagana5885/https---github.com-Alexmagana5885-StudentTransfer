@@ -294,38 +294,22 @@ body {
 .details .recentTransfers table tr td:nth-child(3) {
   text-align: center;
 }
-.status.delivered {
-  padding: 2px 4px;
-  background: #8de02c;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
+
+
+.status-button {
+  background-color: #212255;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.status.pending {
-  padding: 2px 4px;
-  background: #e9b10a;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
+
+.status-button:hover {
+  background-color: #45a049;
 }
-.status.return {
-  padding: 2px 4px;
-  background: #f00;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.inProgress {
-  padding: 2px 4px;
-  background: #1795ce;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
+
 
 .recentCustomers {
   position: relative;

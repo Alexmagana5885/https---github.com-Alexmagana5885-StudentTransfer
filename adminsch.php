@@ -167,23 +167,23 @@ $result2 = mysqli_query($conn, $query);
                         </thead>
                             
                             <?php
-                                
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    
-                                    echo "<tr>";
-                                    echo "<td>" . $row['full_Name'] . "</td>";
-                                    echo "<td>" . $row['Year_of_Study'] . "</td>";
-                                    echo "<td>" . $row['prev_school_name'] . "</td>";
-                                    echo "<td>" . $row['student_email'] . "</td>";
-                                    echo "<td>" . $row['parent_phone'] . "</td>";
-                                    echo "<td><span class='status return'></span></td>";
-                                    echo "</tr>";
+
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['full_Name'] . "</td>";
+                                        echo "<td>" . $row['Year_of_Study'] . "</td>";
+                                        echo "<td>" . $row['prev_school_name'] . "</td>";
+                                        echo "<td>" . $row['student_email'] . "</td>";
+                                        echo "<td>" . $row['parent_phone'] . "</td>";
+                                        echo "<td><a href='TransferFile.html' class='status-link'>More Student Details</a></td>";
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='5'>No records</td></tr>";
                                 }
-                            } else {
-                                echo "<tr><td colspan='5'>No records</td></tr>";
-                            }
-                            ?>
+                                ?>
+                                
 
                         
                         </tbody>

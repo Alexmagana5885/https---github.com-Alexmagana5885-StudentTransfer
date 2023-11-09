@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="TransferFile.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Transfer</title>
+     <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #355e8b;/
+        }
+  
+        .Navigation {
+            display: flex;
+        } 
+  
+        .Navigation a {
+            margin: 0 10px; 
+            text-decoration: none;
+            color: #fff;
+        }
+    </style> 
+  </head>
+  
+<body>
+
+    <body>
+
+        <button id="openPopupBtn">Open Popup</button>
+        
+    
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn">&times;</span>
+                <h4>give a reason for the rejection</h4>
+                <textarea id="textInput"></textarea>
+            </div>
+        </div>
+    
+        <script src="TransferFile.js"></script>
+    </body>
+    
+    
+    <header>
+        <h2 style="color:#fff; margin-left: 20px;">Student Transfer File</h2>
+        <h2 style="color:#fff; margin-left: 20px;">Student Name</h2>
+        <nav class="Navigation">
+            <a id="popup" class="a" href="#prmary">Approve</a>
+            <a class="b" href="#Secondary">Reject</a>
+            <a class="b" href="#University">Keep Pending</a>
+            <button id="openPopupBtn">Open Popup</button>
+            <a class="btnLogin-popup" href="adminsch.php">Home</a>
+            <!-- <button class="btnLogin-popup">Login</button> -->
+
+            <!-- <div class="dropdown">
+                <a class="c" href="#">Education portals</a>
+                <div class="dropdown-content">
+                    <a href="https://kuccps.net/">KUCCPS</a>
+                    <a href="https://www.knec.ac.ke/our-portals/">KNEC</a>
+                    <a href="https://www.education.go.ke/">MINISTRY OF EDUCATION 3</a>
+                    
+                </div>
+            </div> -->
+            
+
+        </nav>
+    </header>
+       
+
+
+
+
+    <div style="padding-top : 110px;" class="table-container">
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Value Submitted</th>
+            </tr>
+            <tr>
+                <td>Full Name</td>
+                <td><?php echo $_POST['fullName']; ?></td>
+            </tr>
+            <tr>
+                <td>Grade</td>
+                <td><?php echo $_POST['Grade']; ?></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><?php echo $_POST['studentPNumbe']; ?></td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><?php echo $_POST['studentEmail']; ?></td>
+            </tr>
+            <tr>
+                <td>Registration number</td>
+                <td><?php echo $_POST['RegistrationNumber']; ?></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td><?php echo $_POST['DateOfBirth']; ?></td>
+            </tr>
+            <tr>
+                <td>School Name (Previous School)</td>
+                <td><?php echo $_POST['schoolName']; ?></td>
+            </tr>
+            <tr>
+                <td>Select County (Previous School)</td>
+                <td><?php echo $_POST['county']; ?></td>
+            </tr>
+            <tr>
+                <td>Select Subcounty (Previous School)</td>
+                <td><?php echo $_POST['Subcounty']; ?></td>
+            </tr>
+            <tr>
+                <td>School Contact/Phone Number (Previous School)</td>
+                <td><?php echo $_POST['schoolPNumber']; ?></td>
+            </tr>
+            <tr>
+                <td>School Email Address (Previous School)</td>
+                <td><?php echo $_POST['schoolEmail']; ?></td>
+            </tr>
+            <tr>
+                <td>School Name (Intended School)</td>
+                <td><?php echo $_POST['IntededSchoolName']; ?></td>
+            </tr>
+            <tr>
+                <td>Select County (Intended School)</td>
+                <td><?php echo $_POST['county']; ?></td>
+            </tr>
+            <tr>
+                <td>Select Subcounty (Intended School)</td>
+                <td><?php echo $_POST['Subcounty']; ?></td>
+            </tr>
+            <tr>
+                <td>School Contact/Phone Number (Intended School)</td>
+                <td><?php echo $_POST['IntededSchoolContact']; ?></td>
+            </tr>
+            <tr>
+                <td>School Email Address (Intended School)</td>
+                <td><?php echo $_POST['IntededSchoolEmail']; ?></td>
+            </tr>
+            <tr>
+                <td>Reason for Transfer</td>
+                <td><?php echo $_POST['ReasonForTranfer']; ?></td>
+            </tr>
+            <tr>
+                <td>Passport Photo</td>
+                <td><?php echo $_FILES['pasportPdf']['name']; ?></td>
+            </tr>
+            <tr>
+                <td>Previous School Clearance Form</td>
+                <td><?php echo $_FILES['clearanceFormPDF']['name']; ?></td>
+            </tr>
+            <tr>
+                <td>Transfer Approval from Previous School</td>
+                <td><?php echo $_FILES['TranferAprovalPDF']['name']; ?></td>
+            </tr>
+            <tr>
+                <td>Birth Certificate or ID Card</td>
+                <td><?php echo $_FILES['identificationPDF']['name']; ?></td>
+            </tr>
+            <tr>
+                <td>Parent's Name</td>
+                <td><?php echo $_POST['PName']; ?></td>
+            </tr>
+            <tr>
+                <td>Parent's Phone Number</td>
+                <td><?php echo $_POST['PhoneNumberP']; ?></td>
+            </tr>
+            <tr>
+                <td>Parent's Email Address</td>
+                <td><?php echo $_POST['pemail']; ?></td>
+            </tr>
+            <tr>
+                <td>Parent's ID Number</td>
+                <td><?php echo $_POST['PID']; ?></td>
+            </tr>
+            <tr>
+                <td>Reason for Leaving (Parent)</td>
+                <td><?php echo $_POST['PReasonForTranfer']; ?></td>
+            </tr>
+            <tr>
+                <td>Parent/Guardian ID Number</td>
+                <td><?php echo $_POST['IDPP']; ?></td>
+            </tr>
+            <tr>
+                <td>Address (Parent/Guardian)</td>
+                <td><?php echo $_POST['addressP']; ?></td>
+            </tr>
+            <tr>
+                <td>Parent/Guardian Phone Number</td>
+                <td><?php echo $_POST['phoneNumberP']; ?></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><?php echo $_POST['Date']; ?></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
+</body>
+</html>
+
+
