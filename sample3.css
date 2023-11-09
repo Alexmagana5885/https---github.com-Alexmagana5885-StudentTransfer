@@ -1,28 +1,116 @@
-/* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-} */
 
-.popup {
+
+body{
+    display: flex; 
+    justify-content: center;
+    background: #fff;
+}
+
+
+header {
+    top: 0;
+    left:o;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 20px 0; 
+    display: flex;
+    align-items: flex-start; 
+    z-index: 99;
+    position: fixed;
+    background-color: #355e8b; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    justify-content: right;
+}
+
+.Navigation{
+    position: relative;
+    font-size: 0.89em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    justify-content: center; 
+    
+}
+
+
+.Navigation a:hover {
+    color: red;
+    font-size: 0.99em;
+}
+
+.Navigation a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding: 10px 20px;
+
+}
+
+.dropdown-content a:hover {
+    background-color:#3685eb;
+}
+
+.Navigation .btnLogin-popup{
+    width: 50px;
+    height: 10px;
+    background: transparent;
+    border: 2px solid #3685eb;
+    outline: none;
+    border-radius:6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+
+
+tr{
+    height: 40px;
+    
+}
+
+td{
+    width: 400px;
+    font-size: 15px;
+    color: #153055;
+}
+
+table{
+    counter-reset: blue;
+    font-size: 18px;
+}
+
+
+#popup1, #popup2, #popup3 {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 400px;
     height: 400px;
-    background: rgba(0, 0, 0, 0.5);
+    background: #355e8b;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
 }
 
 .popup-content {
     background: #fff;
     padding: 20px;
+    width: 400px;
+    height: 400px;
+    box-shadow: #355e8b;
     border-radius: 10px;
+    text-align: center; /* Center the content inside the popup */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Example shadow style */
+    border-radius: 10px;
+    text-align: center;
 }
 
 .close {
@@ -32,3 +120,4 @@
     font-size: 24px;
     cursor: pointer;
 }
+

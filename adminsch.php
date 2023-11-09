@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-$query = "select * from transfer_requests";
+$query = "select * from studenttransferregistration";
 $result = mysqli_query($conn, $query);
 $query2 = "select * from schoolreg";
 $result2 = mysqli_query($conn, $query2);
@@ -171,12 +171,13 @@ $result2 = mysqli_query($conn, $query);
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         echo "<tr>";
-                                        echo "<td>" . $row['full_Name'] . "</td>";
-                                        echo "<td>" . $row['Year_of_Study'] . "</td>";
-                                        echo "<td>" . $row['prev_school_name'] . "</td>";
-                                        echo "<td>" . $row['student_email'] . "</td>";
-                                        echo "<td>" . $row['parent_phone'] . "</td>";
-                                        echo "<td><a href='TransferFile.html' class='status-link'>More Student Details</a></td>";
+                                        echo "<td>" . $row['full_name'] . "</td>";
+                                        echo "<td>" . $row['grade'] . "</td>";
+                                        echo "<td>" . $row['previous_school_name'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['parent_phone_number'] . "</td>";
+                                        echo "<td><a href='TransferFile.html?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                        
                                         echo "</tr>";
                                     }
                                 } else {

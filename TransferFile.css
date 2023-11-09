@@ -86,7 +86,7 @@ table{
 }
 
 
-#popup {
+#popup1, #popup2, #popup3 {
     display: none;
     position: fixed;
     top: 50%;
@@ -94,7 +94,7 @@ table{
     transform: translate(-50%, -50%);
     width: 400px;
     height: 400px;
-    background: none;
+    background: #355e8b;
     justify-content: center;
     align-items: center;
     z-index: 9999;
@@ -108,6 +108,9 @@ table{
     box-shadow: #355e8b;
     border-radius: 10px;
     text-align: center; /* Center the content inside the popup */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Example shadow style */
+    border-radius: 10px;
+    text-align: center;
 }
 
 .close {

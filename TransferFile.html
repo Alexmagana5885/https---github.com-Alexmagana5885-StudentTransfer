@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="TransferFile.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Transfer</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
      <style>
         header {
             display: flex;
@@ -30,44 +33,54 @@
 
     <body>
 
-        <button id="openPopupBtn">Open Popup</button>
-        
     
-        <div class="popup" id="popup">
+        <div class="popup" id="popup1">
             <div class="popup-content">
-                <span class="close" id="closePopupBtn">&times;</span>
-                <h4>give a reason for the rejection</h4>
-                <textarea id="textInput"></textarea>
+                <span class="close" id="closePopupBtn1">&times;</span>
+                <h2 style="color: #355e8b;">Send Admission Letter</h2>
+                
+                <input style="color: #355e8b; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0; font-weight: bold;" type="file" id="fileInput" name="fileInput">
+                <button style="width: 60px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;"  type="submit">Upload</button>
+        
             </div>
         </div>
     
-        <script src="TransferFile.js"></script>
+        <div class="popup" id="popup2">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn2">&times;</span>
+                <h2 style="color: #355e8b;">Give a Reason for the Pending</h2>
+                <textarea style="height: 80%; width: 100%; font-size: 12px;" id="textInput2"></textarea>
+                <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
+            </div>
+        </div>
+    
+        <div class="popup" id="popup3">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn3">&times;</span>
+                <h2 style="color: #355e8b;">Give a Reason for the Rejection</h2>
+                <textarea style="height: 80%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3"></textarea>
+                <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
+            </div>
+        </div>
+    
     </body>
     
     
     <header>
-        <h2 style="color:#fff; margin-left: 20px;">Student Transfer File</h2>
+       
         <h2 style="color:#fff; margin-left: 20px;">Student Name</h2>
         <nav class="Navigation">
-            <a id="popup" class="a" href="#prmary">Approve</a>
-            <a class="b" href="#Secondary">Reject</a>
-            <a class="b" href="#University">Keep Pending</a>
-            <button id="openPopupBtn">Open Popup</button>
+            
+      
+            <a id="openPopupBtn1" class="b" href="#">Approve</a>
+            <a id="openPopupBtn2" class="b" href="#">Keep Pending</a>
+            <a id="openPopupBtn3" class="b" href="#">Reject</a>
             <a class="btnLogin-popup" href="adminsch.php">Home</a>
-            <!-- <button class="btnLogin-popup">Login</button> -->
-
-            <!-- <div class="dropdown">
-                <a class="c" href="#">Education portals</a>
-                <div class="dropdown-content">
-                    <a href="https://kuccps.net/">KUCCPS</a>
-                    <a href="https://www.knec.ac.ke/our-portals/">KNEC</a>
-                    <a href="https://www.education.go.ke/">MINISTRY OF EDUCATION 3</a>
-                    
-                </div>
-            </div> -->
+            
             
 
         </nav>
+        
     </header>
        
 
@@ -77,12 +90,12 @@
     <div style="padding-top : 110px;" class="table-container">
         <table border="1">
             <tr>
-                <th>Name</th>
-                <th>Value Submitted</th>
+                <th>Student Details</th>
             </tr>
             <tr>
                 <td>Full Name</td>
-                <td><?php echo $_POST['fullName']; ?></td>
+                <td>" . $row["full_name"]. "</td>
+                <!-- <td><?php echo $_POST['full_name']; ?></td> -->
             </tr>
             <tr>
                 <td>Grade</td>
@@ -105,15 +118,18 @@
                 <td><?php echo $_POST['DateOfBirth']; ?></td>
             </tr>
             <tr>
+                <th>Previous School Details</th>
+            </tr>
+            <tr>
                 <td>School Name (Previous School)</td>
                 <td><?php echo $_POST['schoolName']; ?></td>
             </tr>
             <tr>
-                <td>Select County (Previous School)</td>
+                <td>County (Previous School)</td>
                 <td><?php echo $_POST['county']; ?></td>
             </tr>
             <tr>
-                <td>Select Subcounty (Previous School)</td>
+                <td>Subcounty (Previous School)</td>
                 <td><?php echo $_POST['Subcounty']; ?></td>
             </tr>
             <tr>
@@ -125,15 +141,18 @@
                 <td><?php echo $_POST['schoolEmail']; ?></td>
             </tr>
             <tr>
+                <th>Intended School Details</th>
+            </tr>
+            <tr>
                 <td>School Name (Intended School)</td>
                 <td><?php echo $_POST['IntededSchoolName']; ?></td>
             </tr>
             <tr>
-                <td>Select County (Intended School)</td>
+                <td>County (Intended School)</td>
                 <td><?php echo $_POST['county']; ?></td>
             </tr>
             <tr>
-                <td>Select Subcounty (Intended School)</td>
+                <td>Subcounty (Intended School)</td>
                 <td><?php echo $_POST['Subcounty']; ?></td>
             </tr>
             <tr>
@@ -145,9 +164,39 @@
                 <td><?php echo $_POST['IntededSchoolEmail']; ?></td>
             </tr>
             <tr>
-                <td>Reason for Transfer</td>
-                <td><?php echo $_POST['ReasonForTranfer']; ?></td>
+                <th>Parrent/Gurdian Part</th>
             </tr>
+            
+            
+            <tr>
+                <td>Parent's/Gurdian's Name</td>
+                <td><?php echo $_POST['PName']; ?></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><?php echo $_POST['PhoneNumberP']; ?></td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><?php echo $_POST['pemail']; ?></td>
+            </tr>
+            <tr>
+                <td>ID Number</td>
+                <td><?php echo $_POST['PID']; ?></td>
+            </tr>
+            <tr>
+                <td>Reason for Leaving (Parent)</td>
+                <td><?php echo $_POST['PReasonForTranfer']; ?></td>
+            </tr>
+
+            <tr>
+                <td>Date</td>
+                <td><?php echo $_POST['Date']; ?></td>
+            </tr>
+            <tr>
+                <th>Required Documents</th>
+            </tr>
+            
             <tr>
                 <td>Passport Photo</td>
                 <td><?php echo $_FILES['pasportPdf']['name']; ?></td>
@@ -164,49 +213,13 @@
                 <td>Birth Certificate or ID Card</td>
                 <td><?php echo $_FILES['identificationPDF']['name']; ?></td>
             </tr>
-            <tr>
-                <td>Parent's Name</td>
-                <td><?php echo $_POST['PName']; ?></td>
-            </tr>
-            <tr>
-                <td>Parent's Phone Number</td>
-                <td><?php echo $_POST['PhoneNumberP']; ?></td>
-            </tr>
-            <tr>
-                <td>Parent's Email Address</td>
-                <td><?php echo $_POST['pemail']; ?></td>
-            </tr>
-            <tr>
-                <td>Parent's ID Number</td>
-                <td><?php echo $_POST['PID']; ?></td>
-            </tr>
-            <tr>
-                <td>Reason for Leaving (Parent)</td>
-                <td><?php echo $_POST['PReasonForTranfer']; ?></td>
-            </tr>
-            <tr>
-                <td>Parent/Guardian ID Number</td>
-                <td><?php echo $_POST['IDPP']; ?></td>
-            </tr>
-            <tr>
-                <td>Address (Parent/Guardian)</td>
-                <td><?php echo $_POST['addressP']; ?></td>
-            </tr>
-            <tr>
-                <td>Parent/Guardian Phone Number</td>
-                <td><?php echo $_POST['phoneNumberP']; ?></td>
-            </tr>
-            <tr>
-                <td>Date</td>
-                <td><?php echo $_POST['Date']; ?></td>
-            </tr>
         </table>
     </div>
 
 
 
 
-
+    <script src="TransferFile.js"></script>
 
 </body>
 </html>
