@@ -203,6 +203,57 @@ $result3 = $conn->query($sql);
 
                         ?>
                         
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+     
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+     
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+     
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+     
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+     
+                            </tr>
+                        </thead>
+                        
                         </tbody>
                     </table>
                 </div>

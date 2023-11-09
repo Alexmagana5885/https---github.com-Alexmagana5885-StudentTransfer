@@ -1,10 +1,10 @@
-ul {
+.menu ul {
     display: flex;
     gap: 1rem;
     list-style: none;
 }
 
-ul li {
+.menu ul li {
     width: 40px;
     height: 40px;
     background: var(--color);
@@ -24,30 +24,31 @@ ul li {
     font-family: sans-serif;
   }
   nav {
-    background: #222;
+    background: #355e8b;
     padding: 5px 20px;
+    
   }
   ul {
     list-style-type: none;
   }
-  a {
+  .menu a {
     color: white;
     text-decoration: none;
   }
-  a:hover {
+  .menu a:hover {
     text-decoration: underline;
   }
   .logo a:hover {
     text-decoration: none;
   }
   .menu li {
-    font-size: 16px;
+    font-size: 13px;
     padding: 15px 5px;
     white-space: nowrap;
   }
   .logo a,
   .toggle a {
-    font-size: 20px;
+    font-size: 16px;
   }
   .button.secondary {
     border-bottom: 1px #444 solid;
@@ -128,9 +129,9 @@ ul li {
     }
     .button a {
         padding: 7.5px 15px;
-        background: teal;
-        border: 1px #006d6d solid;
-        border-radius:50em;
+        background: #3685eb;
+        border: 1px #fff;
+        border-radius:6px;
     }
     .button.secondary a {
         background: transparent;    
@@ -173,3 +174,95 @@ ul li {
         padding-right: 0;
     }
   }
+
+  .container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-top: 60px;
+    
+}
+
+.container .wrapper{
+    width: 308px;
+    position: relative;
+    height: 450px;
+    background: #5f7ba3;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0.5px 10px #fff;
+    transition: 0.3s ease-in-out;
+    margin-top: 5%;
+    border-radius: 20px;
+    align-items: center;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  
+    
+  }
+
+  .container .wrapper a{
+    background-color: #3685eb;
+    color: aliceblue;
+    border-radius: 10px;
+    border-color: blue;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+
+.container .wrapper h2{
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+
+.container .wrapper p{
+    margin-bottom: 40px;
+    justify-content: center;
+    align-self: center;
+}
+
+
+.container2{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-bottom: 150px;
+
+}
+
+.container2 .content{
+    width: 530px;
+    position: relative;
+    height: 370px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
+    align-items: center;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    
+    
+
+
+}
