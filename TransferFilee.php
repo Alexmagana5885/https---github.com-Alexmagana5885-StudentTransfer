@@ -1,3 +1,25 @@
+<?php
+require_once('config.php');
+
+// Check if registration_number is set in the URL
+if (isset($_GET['registration_number'])) {
+    $registration_number = $_GET['registration_number'];
+
+    // Use the registration_number to fetch data from the database
+    $query = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registration_number'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+} else {
+    // Handle the case where registration_number is not set in the URL
+    // Redirect or display an error message
+    header("Location: error_page.php");
+    exit();
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,74 +116,73 @@
             </tr>
             <tr>
                 <td>Full Name</td>
-                <td>" . $row["full_name"]. "</td>
-                <!-- <td><?php echo $_POST['full_name']; ?></td> -->
+                <td><?php echo $row['full_name']; ?></td>
             </tr>
             <tr>
                 <td>Grade</td>
-                <td><?php echo $_POST['Grade']; ?></td>
+                <td><?php echo $row['grade']; ?></td>
             </tr>
             <tr>
                 <td>Phone Number</td>
-                <td><?php echo $_POST['studentPNumbe']; ?></td>
+                <td><?php echo $row['phone_number']; ?></td>
             </tr>
             <tr>
                 <td>Email Address</td>
-                <td><?php echo $_POST['studentEmail']; ?></td>
+                <td><?php echo $row['email']; ?></td>
             </tr>
             <tr>
                 <td>Registration number</td>
-                <td><?php echo $_POST['RegistrationNumber']; ?></td>
+                <td><?php echo $row['registration_number']; ?></td>
             </tr>
             <tr>
                 <td>Date of Birth</td>
-                <td><?php echo $_POST['DateOfBirth']; ?></td>
+                <td><?php echo $row['date_of_birth']; ?></td>
             </tr>
             <tr>
                 <th>Previous School Details</th>
             </tr>
             <tr>
                 <td>School Name (Previous School)</td>
-                <td><?php echo $_POST['schoolName']; ?></td>
+                <td><?php echo $row['previous_school_name']; ?></td>
             </tr>
             <tr>
                 <td>County (Previous School)</td>
-                <td><?php echo $_POST['county']; ?></td>
+                <td><?php echo $row['county']; ?></td>
             </tr>
             <tr>
                 <td>Subcounty (Previous School)</td>
-                <td><?php echo $_POST['Subcounty']; ?></td>
+                <td><?php echo $row['subcounty']; ?></td>
             </tr>
             <tr>
                 <td>School Contact/Phone Number (Previous School)</td>
-                <td><?php echo $_POST['schoolPNumber']; ?></td>
+                <td><?php echo $row['previous_school_phone_number']; ?></td>
             </tr>
             <tr>
                 <td>School Email Address (Previous School)</td>
-                <td><?php echo $_POST['schoolEmail']; ?></td>
+                <td><?php echo $row['previous_school_email']; ?></td>
             </tr>
             <tr>
                 <th>Intended School Details</th>
             </tr>
             <tr>
                 <td>School Name (Intended School)</td>
-                <td><?php echo $_POST['IntededSchoolName']; ?></td>
+                <td><?php echo $row['intended_school_name']; ?></td>
             </tr>
             <tr>
                 <td>County (Intended School)</td>
-                <td><?php echo $_POST['county']; ?></td>
+                <td><?php echo $row['intended_school_county']; ?></td>
             </tr>
             <tr>
                 <td>Subcounty (Intended School)</td>
-                <td><?php echo $_POST['Subcounty']; ?></td>
+                <td><?php echo $row['intended_school_subcounty']; ?></td>
             </tr>
             <tr>
                 <td>School Contact/Phone Number (Intended School)</td>
-                <td><?php echo $_POST['IntededSchoolContact']; ?></td>
+                <td><?php echo $row['intended_school_phone_number']; ?></td>
             </tr>
             <tr>
                 <td>School Email Address (Intended School)</td>
-                <td><?php echo $_POST['IntededSchoolEmail']; ?></td>
+                <td><?php echo $row['intended_school_email']; ?></td>
             </tr>
             <tr>
                 <th>Parrent/Gurdian Part</th>
@@ -170,52 +191,103 @@
             
             <tr>
                 <td>Parent's/Gurdian's Name</td>
-                <td><?php echo $_POST['PName']; ?></td>
+                <td><?php echo $row['parent_name']; ?></td>
             </tr>
             <tr>
                 <td>Phone Number</td>
-                <td><?php echo $_POST['PhoneNumberP']; ?></td>
+                <td><?php echo $row['parent_phone_number']; ?></td>
             </tr>
             <tr>
                 <td>Email Address</td>
-                <td><?php echo $_POST['pemail']; ?></td>
+                <td><?php echo $row['parent_email']; ?></td>
             </tr>
             <tr>
-                <td>ID Number</td>
-                <td><?php echo $_POST['PID']; ?></td>
+                <td>Parent's/Gurdian's ID Number</td>
+                <td><?php echo $row['parent_id_number']; ?></td>
             </tr>
             <tr>
                 <td>Reason for Leaving (Parent)</td>
-                <td><?php echo $_POST['PReasonForTranfer']; ?></td>
+                <td><?php echo $row['parent_reason_for_transfer']; ?></td>
             </tr>
 
             <tr>
                 <td>Date</td>
-                <td><?php echo $_POST['Date']; ?></td>
+                <td><?php echo $row['transfer_date']; ?></td>
             </tr>
             <tr>
                 <th>Required Documents</th>
             </tr>
             
-            <tr>
-                <td>Passport Photo</td>
-                <td><?php echo $_FILES['pasportPdf']['name']; ?></td>
-            </tr>
-            <tr>
-                <td>Previous School Clearance Form</td>
-                <td><?php echo $_FILES['clearanceFormPDF']['name']; ?></td>
-            </tr>
-            <tr>
-                <td>Transfer Approval from Previous School</td>
-                <td><?php echo $_FILES['TranferAprovalPDF']['name']; ?></td>
-            </tr>
-            <tr>
-                <td>Birth Certificate or ID Card</td>
-                <td><?php echo $_FILES['identificationPDF']['name']; ?></td>
-            </tr>
-        </table>
-    </div>
 
+                        
+<td>Passport Photo</td>
+<td>
+    <?php
+    if (!empty($_FILES['passport_pdf_filename']['name'])) {
+        $filename = $_FILES['passport_pdf_filename']['name'];
+        if (file_exists($filename)) {
+            echo "<a href='$filename' download>Download</a>";
+        } else {
+            echo "File not found";
+        }
+    } else {
+        echo "No file uploaded";
+    }
+    ?>
+</td>
+</tr>
+
+
+<td>Previous School Clearance Form</td>
+<td>
+    <?php
+    if (!empty($_FILES['clearanceFormPDF']['name'])) {
+        $filename = $_FILES['clearanceFormPDF']['name'];
+        if (file_exists($filename)) {
+            echo "<a href='$filename' download>Download</a>";
+        } else {
+            echo "File not found";
+        }
+    } else {
+        echo "No file uploaded";
+    }
+    ?>
+</td>
+</tr>
+<td>Transfer Approval from Previous School</td>
+<td>
+    <?php
+    if (!empty($_FILES['TranferAprovalPDF']['name'])) {
+        $filename = $_FILES['TranferAprovalPDF']['name'];
+        if (file_exists($filename)) {
+            echo "<a href='$filename' download>Download</a>";
+        } else {
+            echo "File not found";
+        }
+    } else {
+        echo "No file uploaded";
+    }
+    ?>
+</td>
+</tr>
+
+
+<td>Birth Certificate or ID Card</td>
+<td>
+    <?php
+    if (!empty($_FILES['identificationPDF']['name'])) {
+        $filename = $_FILES['identificationPDF']['name'];
+        if (file_exists($filename)) {
+            echo "<a href='$filename' download>Download</a>";
+        } else {
+            echo "File not found";
+        }
+    } else {
+        echo "No file uploaded";
+    }
+    ?>
+</td>
+</tr>
 
 
 

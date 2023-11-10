@@ -162,7 +162,7 @@ $result2 = mysqli_query($conn, $query);
                                 <td>Previous School</td>
                                 <td>Student Email</td>
                                 <td>Gurdian Contact</td>
-                                <td>Status</td>
+                                <td >Status</td>
                             </tr>
                         </thead>
                             
@@ -176,7 +176,7 @@ $result2 = mysqli_query($conn, $query);
                                         echo "<td>" . $row['previous_school_name'] . "</td>";
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['parent_phone_number'] . "</td>";
-                                        echo "<td><a href='TransferFile.html?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                        echo "<td ><a href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
                                         
                                         echo "</tr>";
                                     }
@@ -202,3 +202,6 @@ $result2 = mysqli_query($conn, $query);
 
 </body>
 </html>
+
+
+

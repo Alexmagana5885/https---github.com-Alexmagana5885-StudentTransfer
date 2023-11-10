@@ -9,10 +9,10 @@ if ($conn->connect_error) {
 }
 
 // Get registration number from the AJAX request
-$registrationNumber = $_GET['registration_number'];
+$registration_number = $_GET['registration_number'];
 
 // Query to fetch student details based on the registration number
-$sql = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registrationNumber'";
+$sql = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registration_number'";
 
 $result = $conn->query($sql);
 
