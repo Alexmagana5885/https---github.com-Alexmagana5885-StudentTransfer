@@ -77,6 +77,12 @@ $result3 = $conn->query($sql);
                         <span class="title">Sign Out</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="#">
+                        <span class="title">Account Settings</span>
+                    </a>
+                </li>
             </ul>
         </div>
     
@@ -128,6 +134,8 @@ $result3 = $conn->query($sql);
             <?php
             if ($row2) {
                 echo "<h2>" . $row2['name'] . "</h2>";
+                echo'<div class="cardName">Registration Number</div>';
+                echo "<h2>" . $row2['registration_number'] . "</h2>";
             } 
             ?>
         </div>
@@ -140,6 +148,7 @@ $result3 = $conn->query($sql);
         <?php
         if ($row2) {
             echo "<h2>" . $row2['studentContact'] . "</h2>";
+            echo'<div class="cardName">Email Number</div>';
             echo "<h2>" . $row2['email'] . "</h2>";
         }
         ?>
@@ -152,7 +161,9 @@ $result3 = $conn->query($sql);
         <?php
         if ($row2) {
             echo "<h2>" . $row2['currentSchool'] . "</h2>";
+            echo'<div class="cardName">County</div>';
             echo "<h2>" . $row2['county'] . "</h2>";
+            echo'<div class="cardName">Sub County</div>';
             echo "<h2>" . $row2['subCounty'] . "</h2>";
         }
         ?>
@@ -177,8 +188,9 @@ $result3 = $conn->query($sql);
                                 <td>COUNTY</td>
                                 <td>SUB-COUNTY</td>
                                 <td>DATE</td>
-                                <td>Education Office Response</td>
                                 <td>Inteded School Response</td>
+                                <td>Education Office Response</td>
+                                
      
                             </tr>
                         </thead>
@@ -191,16 +203,30 @@ $result3 = $conn->query($sql);
                                 echo "<td>" . $row['intended_school_county'] . "</td>";
                                 echo "<td>" . $row['intended_school_subcounty'] . "</td>";
                                 echo "<td>" . $row['transfer_date'] . "</td>";
-                                echo "<td><a id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
-                               echo "<td><a id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                                echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                               echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
        
                                 echo "</tr>";
                             }
                         } else {
                             echo "<tr><td colspan='5'>No records</td></tr>";
                         }
-
+                        
                         ?>
+                        <style>
+                            .buttonResponse{
+                                text-decoration: none;
+                                color: #355e8b;
+                                
+                                
+
+                            }
+                            .buttonResponse :hover{
+                                color: red;
+                            }
+
+                            
+                        </style>
                         
                         <thead>
                             <tr>
