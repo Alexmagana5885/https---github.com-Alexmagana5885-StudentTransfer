@@ -49,7 +49,9 @@
             Student Registration
         </div>
 
-        <form action="studentregistration.php" method="post">
+        <form action="studentregistration.php" method="post" enctype="multipart/form-data">
+        
+        
             <div class="form">
 
                 <div class="inputfield">
@@ -67,6 +69,11 @@
                     <label>Name</label>
                     <input required type="text" class="input" name="Sname">
                 </div>
+                <div class="inputfield">
+                    <label>Profile Picture</label>
+                    <input required type="file" class="input" name="ProfilePicture" accept="image/*">
+                </div>
+                
 
                 <div class="inputfield">
                     <label>Registration Number</label>

@@ -62,27 +62,7 @@ $result3 = $conn->query($sql);
                     </a>
                 </li>
 
-<!--                
-<li>
-    <a href="#" onclick="showPopup()">
-        <span class="title">About</span>
-    </a>
-</li>
-
-
-                
-<div class="popup-container" id="popupContainer">
-    <div class="popup-content">
        
-        <div id="userInfo"></div>
-        <button onclick="closePopup()">Close</button>
-    </div>
-</div>
-
-<script src="studentPage.js" ></script>
- -->
-
-                
 
                 
 
@@ -120,8 +100,24 @@ $result3 = $conn->query($sql);
     <div>
         <div class="cardName">Profile Image</div>
         <div style="font-size: 20px;" class="numbers">
-        <img id="profileImage" src="profile.png" style="width:50% ; height: 40%; margin-bottom: 10px; float: center; " alt="Description of the image">
-            
+        <?php
+        if ($row2 && isset($row2['ProfilePicture'])) {
+            $imagePath = "uploads/" . $row2['ProfilePicture'];
+            echo "<img class='profile-image' src='$imagePath' alt='Profile Picture'>";
+        }
+        ?>
+        <style>
+        .profile-image {
+            width: 100px; 
+            height: 100px; 
+            object-fit: cover; 
+            border-radius: 20%; 
+        }
+
+        </style>
+
+        <!-- <img id="profileImage" src="profile.png" style="width:50% ; height: 40%; margin-bottom: 10px; float: center; " alt="Description of the image">
+             -->
         </div>
     </div>
 </div>
@@ -182,7 +178,7 @@ $result3 = $conn->query($sql);
                                 <td>SUB-COUNTY</td>
                                 <td>DATE</td>
                                 <td>Education Office Response</td>
-                                <td>Inteded Response</td>
+                                <td>Inteded School Response</td>
      
                             </tr>
                         </thead>
@@ -268,19 +264,15 @@ $result3 = $conn->query($sql);
                 <h2 style="color: #355e8b;">School Response</h2>
                 <p>
                 <?php
-                        if ($result3->num_rows > 0) {
-                            while ($row = $result3->fetch_assoc()) {
-                                
-                                echo   $row['Response'] ;
-                                
-                            }
-                        } else {
-                            echo 'No Response';
-                        }
+                if ($result3->num_rows > 0) {
+                    while ($row = $result3->fetch_assoc()) {
+                        echo '<p>' . $row['Response'] . '</p>';
+                    }
+                } else {
+                    echo '<p>No Response</p>';
+                }
+                ?>
 
-                        ?>
-
-                </p>
                 
             </div>
         </div>
