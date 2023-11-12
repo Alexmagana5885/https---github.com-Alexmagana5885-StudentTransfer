@@ -1,32 +1,38 @@
 <?php
-// Connect to your database (use your database credentials)
-include("config.php");
+require_once('config.php');
 
+// Check if registration_number is set in the URL
+if (isset($_GET['registration_number'])) {
+    $registration_number = $_GET['registration_number'];
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Use the registration_number to fetch data from the database
+    $query = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registration_number'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
 
-// Get registration number from the AJAX request
-$registration_number = $_GET['registration_number'];
+    //  form submission
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Check if a response is already stored
+        if (!empty($row['Response'])) {
+            // Display a toast message indicating that a response already exists
+            echo '<script>alert("Response already submitted for this Student.");</script>';
+        } else {
+            // Sanitize and store the user's response in the database
+            $Response = mysqli_real_escape_string($conn, $_POST['Reason']);
+            $updateQuery = "UPDATE studenttransferregistration SET Response = '$Response' WHERE registration_number = '$registration_number'";
+            mysqli_query($conn, $updateQuery);
 
-// Query to fetch student details based on the registration number
-$sql = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registration_number'";
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Fetch student details as an associative array
-    $studentDetails = $result->fetch_assoc();
-
-    // Output student details as JSON (or any other format you prefer)
-    echo json_encode($studentDetails);
+            // Display a toast message indicating that the response has been stored
+            echo '<script>alert("Response submitted successfully.");</script>';
+            header("Location: adminsch.php");
+        }
+    }
 } else {
-    // No student found with the provided registration number
-    echo json_encode(array('error' => 'Student not found'));
+    // Handle the case where registration_number is not set in the URL and display an error message
+  
+    header("Location: error_page.php");
+    exit();
 }
-
-// Close the database connection
-$conn->close();
 ?>
+
+

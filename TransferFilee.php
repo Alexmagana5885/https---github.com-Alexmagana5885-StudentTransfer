@@ -55,14 +55,15 @@ if (isset($_GET['registration_number'])) {
 
     <body>
 
-    
+    <form action="TransferFile.php?registration_number=<?php echo $registration_number; ?>" method="post">
         <div class="popup" id="popup1">
             <div class="popup-content">
                 <span class="close" id="closePopupBtn1">&times;</span>
-                <h2 style="color: #355e8b;">Send Admission Letter</h2>
-                
-                <input style="color: #355e8b; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0; font-weight: bold;" type="file" id="fileInput" name="fileInput">
+                <h2 style="color: #355e8b;">Required Items and  Admission Letter</h2>
+                <textarea style="height: 60%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3" name="Reason" ></textarea>
+                <input style="color: #355e8b; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0; font-weight: bold;" type="file" id="fileInput" name="admissionLetter">
                 <button style="width: 60px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;"  type="submit">Upload</button>
+                
         
             </div>
         </div>
@@ -71,7 +72,7 @@ if (isset($_GET['registration_number'])) {
             <div class="popup-content">
                 <span class="close" id="closePopupBtn2">&times;</span>
                 <h2 style="color: #355e8b;">Give a Reason for the Pending</h2>
-                <textarea style="height: 80%; width: 100%; font-size: 12px;" id="textInput2"></textarea>
+                <textarea style="height: 80%; width: 100%; font-size: 12px;" id="textInput2" name="Reason" ></textarea>
                 <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
             </div>
         </div>
@@ -80,12 +81,14 @@ if (isset($_GET['registration_number'])) {
             <div class="popup-content">
                 <span class="close" id="closePopupBtn3">&times;</span>
                 <h2 style="color: #355e8b;">Give a Reason for the Rejection</h2>
-                <textarea style="height: 80%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3"></textarea>
+                <textarea style="height: 80%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3" name="Reason" ></textarea>
                 <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
             </div>
         </div>
     
     </body>
+
+    </form>
     
     
     <header>
@@ -105,8 +108,6 @@ if (isset($_GET['registration_number'])) {
         
     </header>
        
-
-
 
 
     <div style="padding-top : 110px;" class="table-container">
@@ -187,8 +188,6 @@ if (isset($_GET['registration_number'])) {
             <tr>
                 <th>Parrent/Gurdian Part</th>
             </tr>
-            
-            
             <tr>
                 <td>Parent's/Gurdian's Name</td>
                 <td><?php echo $row['parent_name']; ?></td>

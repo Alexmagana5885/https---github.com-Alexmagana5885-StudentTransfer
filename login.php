@@ -13,12 +13,12 @@ $password = $_POST['password'];
 // Validate and sanitize user input if necessary
 
 // Determine the SQL query based on the selected login category.
-if ($loginCategory === 'option1') {
+if ($loginCategory === 'option1') { 
     $sql = "SELECT * FROM studentregistration WHERE registration_number=? AND password=?";
 } elseif ($loginCategory === 'option2') {
     $sql = "SELECT * FROM schoolreg WHERE registration_number=? AND password=?";
 } elseif ($loginCategory === 'option3') {
-    $sql = "SELECT * FROM EDUofficeRegistration  WHERE registration_number=? AND password=?";
+    $sql = "SELECT * FROM eduofficeregistration  WHERE registration_number=? AND password=?";
 } else {
     // If the login category is invalid, display an error message and stop the script.
     echo "Invalid login category. <a href='javascript:history.back()'>Go back</a>";

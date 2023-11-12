@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-$query = "select * from transfer_requests";
+$query = "select * from studenttransferregistration";
 $result = mysqli_query($conn, $query);
 $query2 = "select * from studentregistration";
 $result2 = mysqli_query($conn, $query2);
@@ -181,7 +181,8 @@ $result3 = $conn->query($sql);
                                 <td>COUNTY</td>
                                 <td>SUB-COUNTY</td>
                                 <td>DATE</td>
-                                <td>TRANSFER STATUS</td>
+                                <td>Education Office Response</td>
+                                <td>Inteded Response</td>
      
                             </tr>
                         </thead>
@@ -194,7 +195,9 @@ $result3 = $conn->query($sql);
                                 echo "<td>" . $row['intended_school_county'] . "</td>";
                                 echo "<td>" . $row['intended_school_subcounty'] . "</td>";
                                 echo "<td>" . $row['transfer_date'] . "</td>";
-                                echo "<td><span class='status return'></span></td>";
+                                echo "<td><a id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                               echo "<td><a id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+       
                                 echo "</tr>";
                             }
                         } else {
@@ -254,12 +257,45 @@ $result3 = $conn->query($sql);
                             </tr>
                         </thead>
                         
+                        
                         </tbody>
                     </table>
                 </div>
 
-                <!-- =========== Scripts =========  -->
+        <div class="popup" id="popup1">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn1">&times;</span>
+                <h2 style="color: #355e8b;">School Response</h2>
+                <p>
+                <?php
+                        if ($result3->num_rows > 0) {
+                            while ($row = $result3->fetch_assoc()) {
+                                
+                                echo   $row['Response'] ;
+                                
+                            }
+                        } else {
+                            echo 'No Response';
+                        }
+
+                        ?>
+
+                </p>
+                
+            </div>
+        </div>
+
+
+        
+
+
+
+
+
+<!-- =========== Scripts =========  -->
+
     <script src="adminsch.js"></script>
+
 
     <!-- ====== ionicons ======= -->
     
