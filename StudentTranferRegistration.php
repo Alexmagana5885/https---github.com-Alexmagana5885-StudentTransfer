@@ -47,11 +47,11 @@ $transferApprovalPdf = $_FILES["TranferAprovalPDF"]["name"];
 $identificationPdf = $_FILES["identificationPDF"]["name"];
 
 // Insert data into the database
-$sql = "INSERT INTO student_transfer (full_name, grade, phone_number, email, registration_number, date_of_birth, 
+$sql = "INSERT INTO studenttransferregistration (full_name, grade, phone_number, email, registration_number, date_of_birth, 
         previous_school_name, county, subcounty, previous_school_phone_number, previous_school_email, 
         intended_school_name, intended_school_county, intended_school_subcounty, intended_school_phone_number, 
         intended_school_email, transfer_reason, pasportPdf, clearanceFormPDF, TranferAprovalPDF, identificationPDF, 
-        PName, PhoneNumberP, pemail, PID, PReasonForTranfer, IDPP, addressP, phoneNumberP, Date) 
+        parent_name, parent_phone_number, parent_email, parent_id_number, parent_reason_for_transfer, parent_idpp, parent_address, parent_phone_number_p, transfer_date) 
         VALUES ('$fullName', '$grade', '$phoneNumber', '$email', 
         '$registrationNumber', '$dateOfBirth', '$schoolName', '$county', '$subcounty', '$schoolPhoneNumber', 
         '$schoolEmail', '$intendedSchoolName', '$intendedSchoolCounty', '$intendedSchoolSubcounty', 
@@ -61,12 +61,13 @@ $sql = "INSERT INTO student_transfer (full_name, grade, phone_number, email, reg
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+    header("Location: StudentPage.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 // Move uploaded files to uploaded directory
-$uploadDirectory = "uploads/";
+$uploadDirectory = "uploads/studentDocuments/";
 
 move_uploaded_file($_FILES["pasportPdf"]["tmp_name"], $uploadDirectory . $passportPdf);
 move_uploaded_file($_FILES["clearanceFormPDF"]["tmp_name"], $uploadDirectory . $clearanceFormPdf);
@@ -75,3 +76,5 @@ move_uploaded_file($_FILES["identificationPDF"]["tmp_name"], $uploadDirectory . 
 
 $conn->close();
 ?>
+
+

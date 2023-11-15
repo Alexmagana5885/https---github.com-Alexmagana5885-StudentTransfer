@@ -21,7 +21,7 @@ $email = mysqli_real_escape_string($conn, $_POST['Semail']);
 $password = mysqli_real_escape_string($conn, $_POST['GCreatePassword']);
 
 // File upload handling
-$uploadDir = "uploads/"; // Directory to store uploaded files
+$uploadDir = "uploads/profileP/"; // Directory to store uploaded files
 
 // Check if a file is selected
 if (isset($_FILES["ProfilePicture"])) {

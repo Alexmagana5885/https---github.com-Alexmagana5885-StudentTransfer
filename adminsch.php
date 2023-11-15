@@ -76,9 +76,9 @@ $result2 = mysqli_query($conn, $query);
                         <span class="title">Settings</span>
                     </a>
                 </li>
-
+                
                 <li>
-                    <a href="#">
+                    <a href="sessionEnd.php" >
                         <span class="title">Sign Out</span>
                     </a>
                 </li>
@@ -176,7 +176,7 @@ $result2 = mysqli_query($conn, $query);
                                         echo "<td>" . $row['previous_school_name'] . "</td>";
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['parent_phone_number'] . "</td>";
-                                        echo "<td ><a href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                        echo "<td ><a class='buttonResponse' href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
                                         
                                         echo "</tr>";
                                     }
@@ -184,6 +184,21 @@ $result2 = mysqli_query($conn, $query);
                                     echo "<tr><td colspan='5'>No records</td></tr>";
                                 }
                                 ?>
+
+<style>
+                            .buttonResponse{
+                                text-decoration: none;
+                                color: #355e8b;
+                                
+                                
+
+                            }
+                            .buttonResponse :hover{
+                                color: red;
+                            }
+
+                            
+                        </style>
                                 
 
                         

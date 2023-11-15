@@ -40,7 +40,7 @@ $result2 = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="adminscg.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Admin</title>
+    <title>Education office</title>
 </head>
 <body>
 
@@ -187,13 +187,29 @@ $result2 = mysqli_query($conn, $query);
                                     echo "<td>" . $row['phone_number'] . "</td>";
                                     echo "<td>" . $row['parent_phone_number'] . "</td>";
                                     echo "<td>" . $row['transfer_date'] . "</td>";
-                                    echo "<td><span class='status return'></span></td>";
+                                    echo "<td ><a class='buttonResponse' href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                        
                                     echo "</tr>";
                                 }
                             } else {
                                 echo "<tr><td colspan='5'>No records</td></tr>";
                             }
                             ?>
+
+<style>
+                            .buttonResponse{
+                                text-decoration: none;
+                                color: #355e8b;
+                                
+                                
+
+                            }
+                            .buttonResponse :hover{
+                                color: red;
+                            }
+
+                            
+                        </style>
 
                         
                         </tbody>

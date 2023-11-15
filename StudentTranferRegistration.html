@@ -17,27 +17,26 @@
             <a class="b" href="#">About</a>
             <a class="c" href="#">Services</a>
             <a class="d" href="#">Contacts</a>
-            <!-- <input type="submit" id="submitRequest" value="Register" class="btn"> -->
-            <a style="font-size: 12px;" type="submit" id="submitRequest" href="#">Submit Your Request</a>
+            
+            <button style="font-size: 12px;" type="submit" id="submitRequest">Submit Your Request</button>
+        
         </nav>
     </header>
     
     
-<form action="studentregistration.php" method="post" class="container" enctype="multipart/form-data">
+<form id="StudentTranferRegistrationForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data" >
 
-    
+   
     <div class="wrapper"> 
+
             <h2>Personal Details</h2>
             
                 <label class="label">Full Name</label>
                 <input name="fullName" type="text" class="textarea">
           
-            
                 <label class="label">Grade</label>
                 <input name="Grade" type="text" class="textarea">
-           
 
-            
                 <label class="label">Phone Number</label>
                 <input name="studentPNumbe" type="number" class="textarea">
            
@@ -45,7 +44,7 @@
                 <input name="studentEmail" type="email" class="textarea">
             
                 <label class="label">Registration number</label>
-                <input name="RegistrationNumber" type="number" class="textarea">
+                <input name="RegistrationNumber" type="text" class="textarea">
             
                 <label class="label">Date of Birth</label>
                 <input name="DateOfBirth" type="date" class="textarea">
@@ -85,10 +84,10 @@
                 <input name="IntededSchoolName" type="text" class="textarea">
             
                 <label class="label" for="selectCounty">Select County</label>
-                <select name="county" class="textarea" id="selectCounty"></select>
+                <select name="county" class="textarea" id="selectCountyI"></select>
             
                 <label class="label">Select Subcounty</label>
-                <select class="textarea" name="Subcounty" id="selectSubCounty"></select>
+                <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
             
                 <label class="label">School Contact/Phone Number</label>
                 <input name="IntededSchoolContact" type="number" class="textarea">
@@ -98,11 +97,11 @@
             
                  
     </div>
+
     
-    <!-- <script src="StudentTranferRegistration.js"></script> 
-    <script src="sample.js"></script>
-     -->
     
+   
+ 
 
     <div class="container2">
         <div class="content">
@@ -150,7 +149,10 @@
                 <label>ID Number</label>
                 <input name="PID" type="text" class="textarea3" >
                 <p>Reason for the leaving.</p>
+                <input style="width: 90%; height: 90px;" name="PID" type="text" class="textarea3" >
+                
                 <textarea name="PReasonForTranfer" cols="30" rows="10" id="tranferReason"></textarea>
+                
             </div> 
            
             <div class="content3">
@@ -174,10 +176,11 @@
     </div> 
 
 
-    <!-- <a style="font-size: 12px; margin-top: 50px;" type="submit" id="submitRequest" href="#">Submit Your Request</a> -->
-
-
 </form>
+
+
+<script src="StudentTranferRegistration.js"></script> 
+
 
 </body>
 </html>

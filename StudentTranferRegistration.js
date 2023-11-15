@@ -17,6 +17,7 @@ fetch(countiesUrl)
       option.value = county;
       option.textContent = county;
       selectCounty.appendChild(option);
+      
     });
   })
   .catch(error => {
@@ -45,4 +46,67 @@ selectCounty.addEventListener('change', () => {
     .catch(error => {
       console.error('Error fetching sub-counties:', error);
     });
+});
+
+
+  // Add an event listener to the button
+document.getElementById('submitRequest').addEventListener('click', function() {
+  //  form submission when the button is clicked
+document.getElementById('StudentTranferRegistrationForm').submit();
+});
+
+
+
+
+const selectCountyI = document.getElementById('selectCountyI');
+const selectSubCountyI = document.getElementById('selectSubCountyI');
+
+// Initialize the second dropdown with a default option
+selectSubCounty.innerHTML = '<option value="chooseSubCounty">Choose a sub-county</option>';
+
+// Populate the first dropdown with counties
+fetch(countiesUrl)
+  .then(response => response.json())
+  .then(data => {
+    data.counties.forEach(county => {
+      const option = document.createElement('option');
+      option.value = county;
+      option.textContent = county;
+      selectCountyI.appendChild(option);
+      
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching counties:', error);
+  });
+
+// Handle change event for the first dropdown
+selectCountyI.addEventListener('change', () => {
+  const selectedCountyI = selectCountyI.value;
+
+  // Clear existing options in the second dropdown
+  selectSubCountyI.innerHTML = '<option value="chooseSubCounty">Choose a sub-county</option>';
+
+  // Populate the second dropdown with sub-counties based on the selected county
+  fetch(subCountiesUrl)
+    .then(response => response.json())
+    .then(data => {
+      const subCounties = data[selectedCountyI] || [];
+      subCounties.forEach(subCounty => {
+        const option = document.createElement('option');
+        option.value = subCounty;
+        option.textContent = subCounty;
+        selectSubCountyI.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching sub-counties:', error);
+    });
+});
+
+
+  // Add an event listener to the button
+document.getElementById('submitRequest').addEventListener('click', function() {
+  //  form submission when the button is clicked
+document.getElementById('StudentTranferRegistrationForm').submit();
 });

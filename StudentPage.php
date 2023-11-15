@@ -41,7 +41,7 @@ $result3 = $conn->query($sql);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="adminscg.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Admin</title>
+    <title>Student Page</title>
 </head>
 <body>
 
@@ -51,7 +51,7 @@ $result3 = $conn->query($sql);
             <ul>
                 <li>
                     <a href="#">
-                        <span class="title"> Student Page</span>
+                        <span class="title"> STUDENT PAGE</span>
                     </a>
                 </li>
 
@@ -61,11 +61,6 @@ $result3 = $conn->query($sql);
                         <span class="title">Home</span>
                     </a>
                 </li>
-
-       
-
-                
-
                 <li>
                     <a href="StudentTranferRegistration.html">
                         <span class="title">Tranfer Registration</span>
@@ -73,7 +68,7 @@ $result3 = $conn->query($sql);
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="sessionEnd.php">
                         <span class="title">Sign Out</span>
                     </a>
                 </li>
@@ -108,7 +103,7 @@ $result3 = $conn->query($sql);
         <div style="font-size: 20px;" class="numbers">
         <?php
         if ($row2 && isset($row2['ProfilePicture'])) {
-            $imagePath = "uploads/" . $row2['ProfilePicture'];
+            $imagePath = "uploads/profileP/" . $row2['ProfilePicture'];
             echo "<img class='profile-image' src='$imagePath' alt='Profile Picture'>";
         }
         ?>
