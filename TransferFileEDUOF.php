@@ -26,7 +26,7 @@ if (isset($_GET['registration_number'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="TransferFile.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Transfer</title>
+    <title>Office Response</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    
@@ -59,12 +59,10 @@ if (isset($_GET['registration_number'])) {
         <div class="popup" id="popup1">
             <div class="popup-content">
                 <span class="close" id="closePopupBtn1">&times;</span>
-                <h2 style="color: #355e8b;">Required Items and  Admission Letter</h2>
+                <h2 style="color: #355e8b;">Confirm the Approval and give a Comment </h2>
                 <textarea style="height: 60%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3" name="Reason" ></textarea>
-                <input style="color: #355e8b; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0; font-weight: bold;" type="file" id="fileInput" name="admissionLetter">
-                <button style="width: 60px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;"  type="submit">Upload</button>
                 
-        
+                <button style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;"  type="submit">Confirm</button>
             </div>
         </div>
     
@@ -89,8 +87,7 @@ if (isset($_GET['registration_number'])) {
     </body>
 
     </form>
-    
-    
+     
     <header>
        
         <h2 style="color:#fff; margin-left: 20px;">Student Name</h2>
@@ -100,15 +97,13 @@ if (isset($_GET['registration_number'])) {
             <a id="openPopupBtn1" class="b" href="#">Approve</a>
             <a id="openPopupBtn2" class="b" href="#">Keep Pending</a>
             <a id="openPopupBtn3" class="b" href="#">Reject</a>
-            <a class="btnLogin-popup" href="adminsch.php">Home</a>
+            <a class="btnLogin-popup" href="educationOfice.php">Home</a>
             
             
-
         </nav>
         
     </header>
        
-
 
     <div style="padding-top : 110px;" class="table-container">
         <table border="1">

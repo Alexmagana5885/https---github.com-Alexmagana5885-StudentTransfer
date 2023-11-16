@@ -217,6 +217,3 @@ $result2 = mysqli_query($conn, $query);
 
 </body>
 </html>
-
-
-

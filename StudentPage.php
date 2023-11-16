@@ -125,7 +125,7 @@ $result3 = $conn->query($sql);
 <div class="card">
     <div>
         <div class="cardName">Name</div>
-        <div style="font-size: 20px;" class="numbers">
+        <div style="font-size: 15px;" class="numbers">
             <?php
             if ($row2) {
                 echo "<h2>" . $row2['name'] . "</h2>";
@@ -140,6 +140,7 @@ $result3 = $conn->query($sql);
 <div class="card">
     <div>
         <div class="cardName">Contacts</div>
+        <div style="font-size: 15px;" class="numbers">
         <?php
         if ($row2) {
             echo "<h2>" . $row2['studentContact'] . "</h2>";
@@ -147,12 +148,14 @@ $result3 = $conn->query($sql);
             echo "<h2>" . $row2['email'] . "</h2>";
         }
         ?>
+        </div>
     </div>
 </div>
 
 <div class="card">
     <div>
         <div class="cardName">Current School</div>
+        <div style="font-size: 15px;" class="numbers">
         <?php
         if ($row2) {
             echo "<h2>" . $row2['currentSchool'] . "</h2>";
@@ -162,6 +165,7 @@ $result3 = $conn->query($sql);
             echo "<h2>" . $row2['subCounty'] . "</h2>";
         }
         ?>
+        </div>
     </div>
 </div>
 
@@ -199,7 +203,7 @@ $result3 = $conn->query($sql);
                                 echo "<td>" . $row['intended_school_subcounty'] . "</td>";
                                 echo "<td>" . $row['transfer_date'] . "</td>";
                                 echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
-                               echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                               echo "<td><a class='buttonResponse' id='openPopupBtn2' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
        
                                 echo "</tr>";
                             }
@@ -282,6 +286,25 @@ $result3 = $conn->query($sql);
         <div class="popup" id="popup1">
             <div class="popup-content">
                 <span class="close" id="closePopupBtn1">&times;</span>
+                <h2 style="color: #355e8b;">School Response</h2>
+                <p>
+                <?php
+                if ($result3->num_rows > 0) {
+                    while ($row = $result3->fetch_assoc()) {
+                        echo '<p>' . $row['Response'] . '</p>';
+                    }
+                } else {
+                    echo '<p>No Response</p>';
+                }
+                ?>
+
+                
+            </div>
+        </div>
+
+        <div class="popup" id="popup2">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn2">&times;</span>
                 <h2 style="color: #355e8b;">School Response</h2>
                 <p>
                 <?php

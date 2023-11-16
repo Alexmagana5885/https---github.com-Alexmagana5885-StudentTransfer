@@ -409,8 +409,7 @@ body {
   }
 }
 
-
-#popup1 {
+.popup {
   display: none;
   position: fixed;
   top: 50%;
@@ -429,10 +428,7 @@ body {
   padding: 20px;
   width: 400px;
   height: 400px;
-  box-shadow: #355e8b;
-  border-radius: 10px;
-  text-align: center; 
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjusted here */
   border-radius: 10px;
   text-align: center;
 }
@@ -444,5 +440,3 @@ body {
   font-size: 24px;
   cursor: pointer;
 }
-
-

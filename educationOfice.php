@@ -187,7 +187,7 @@ $result2 = mysqli_query($conn, $query);
                                     echo "<td>" . $row['phone_number'] . "</td>";
                                     echo "<td>" . $row['parent_phone_number'] . "</td>";
                                     echo "<td>" . $row['transfer_date'] . "</td>";
-                                    echo "<td ><a class='buttonResponse' href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                    echo "<td ><a class='buttonResponse' href='TransferFileEDUOF.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
                                         
                                     echo "</tr>";
                                 }

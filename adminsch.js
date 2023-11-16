@@ -1,39 +1,54 @@
-// add hovered class to selected list item
+// Add hovered class to selected list item
+let navigation = document.querySelector(".navigation");
 let list = document.querySelectorAll(".navigation li");
 
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
-  });
-  this.classList.add("hovered");
+function activeLink(event) {
+  let target = event.target;
+  if (target.tagName === "LI") {
+    list.forEach((item) => {
+      item.classList.remove("hovered");
+    });
+    target.classList.add("hovered");
+  }
 }
 
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
+navigation.addEventListener("mouseover", activeLink);
 
 // Menu Toggle
 let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
 let main = document.querySelector(".main");
 
-toggle.onclick = function () {
+function toggleMenu() {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
-};
+}
 
+toggle.onclick = toggleMenu;
+
+// Function to toggle popups
+function togglePopup(btn, popup) {
+  btn.addEventListener('click', () => {
+    popup.style.display = 'flex';
+  });
+
+  let closeBtn = popup.querySelector('.close');
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   const openPopupBtn1 = document.getElementById('openPopupBtn1');
-  const closePopupBtn1 = document.getElementById('closePopupBtn1');
   const popup1 = document.getElementById('popup1');
-
-  openPopupBtn1.addEventListener('click', () => {
-      popup1.style.display = 'flex';
-  });
-
-  closePopupBtn1.addEventListener('click', () => {
-      popup1.style.display = 'none';
-  });
+  togglePopup(openPopupBtn1, popup1);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const openPopupBtn2 = document.getElementById('openPopupBtn2');
+  const popup2 = document.getElementById('popup2');
+  togglePopup(openPopupBtn2, popup2);
+});
+
 
 // Function to get URL parameter by name
 function getParameterByName(name, url) {
