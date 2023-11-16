@@ -49,6 +49,25 @@ document.addEventListener('DOMContentLoaded', function () {
   togglePopup(openPopupBtn2, popup2);
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const openPopupBtnS = document.getElementById('openPopupBtnS');
+  const popupS = document.getElementById('popupS');
+  togglePopup(openPopupBtnS, popupS);
+});
+
+closePopupBtnS.addEventListener('click', () => {
+  popupS.style.display = 'none';
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const openPopupBtnSS = document.getElementById('openPopupBtnSS');
+  const popupSS = document.getElementById('popupSS');
+  togglePopup(openPopupBtnSS, popupSS);
+});
+
+closePopupBtnSS.addEventListener('click', () => {
+  popupSS.style.display = 'none';
+});
 
 // Function to get URL parameter by name
 function getParameterByName(name, url) {

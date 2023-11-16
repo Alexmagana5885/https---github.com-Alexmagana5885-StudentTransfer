@@ -32,7 +32,7 @@ body {
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
-  width: 300px;
+  width: 250px;
   height: 100%;
   background: var(--blue);
   border-left: 10px solid var(--blue);
@@ -134,8 +134,8 @@ body {
 /* ===================== Main ===================== */
 .main {
   position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
+  width: calc(100% - 250px);
+  left: 250px;
   min-height: 100vh;
   background: var(--white);
   transition: 0.5s;
@@ -434,6 +434,39 @@ body {
 }
 
 .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.popupS, .popupSS{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 550px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+.popup-contentS, .popup-contentSS {
+  background: #fff;
+  padding: 20px;
+  width: 600px;
+  height: 550px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjusted here */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.closeS, .closeSS {
   position: absolute;
   top: 10px;
   right: 10px;

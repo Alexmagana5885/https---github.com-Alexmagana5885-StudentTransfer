@@ -73,9 +73,15 @@ $result3 = $conn->query($sql);
                     </a>
                 </li>
 
+
                 <li>
                     <a href="#">
-                        <span class="title">Account Settings</span>
+                        <span id="openPopupBtnS" class="title">Account Settings Personal Information</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span id="openPopupBtnSS" class="title">Account Settings School Information</span>
                     </a>
                 </li>
             </ul>
@@ -305,7 +311,7 @@ $result3 = $conn->query($sql);
         <div class="popup" id="popup2">
             <div class="popup-content">
                 <span class="close" id="closePopupBtn2">&times;</span>
-                <h2 style="color: #355e8b;">School Response</h2>
+                <h2 style="color: #355e8b;">Education Office Response</h2>
                 <p>
                 <?php
                 if ($result3->num_rows > 0) {
@@ -321,6 +327,255 @@ $result3 = $conn->query($sql);
             </div>
         </div>
 
+        <div class="popupS" id="popupS">
+            <div class="popup-contentS">
+                <span class="closeS" id="closePopupBtnS">&times;</span>
+                <h2 style="color: #355e8b;">Account Settings</h2>
+
+
+                <style>
+                    .inputfield{
+                        margin-bottom: 10px;
+
+                    }
+
+                    .inputfield label{
+                        width: 70%;
+                        color: #473f8a;
+                        font-size: 10px;
+                    }
+
+                    .wrapper .form .inputfield .input,
+                    .inputfield .textarea,
+                    .inputfield .custom_select select {
+                        width: 70%;
+                        outline: none;
+                        border: 1px solid #a0a1b4;
+                        font-size: 12px;
+                        padding: 10px;
+                        border-radius: 3px;
+                        transition: border-color 0.3s ease;
+                    }
+
+
+                    
+
+                </style>
+                
+    <div class="wrapper">
+        <div class="title">
+            Edit Student Personal Information
+        </div>
+
+        <form action="sample.php" method="post" enctype="multipart/form-data">
+            <!-- Include hidden input for the student ID -->
+            <input type="hidden" name="student_id" value="<?php echo $row['registration_number']; ?>">
+
+            <div class="form">
+
+
+
+<div class="inputfield">
+    <label>Name</label>
+    <input  type="text" class="input" name="Sname">
+</div>
+<div class="inputfield">
+    <label>Profile Picture</label>
+    <input  type="file" class="input" name="ProfilePicture" accept="image/*">
+</div>
+
+
+
+<div class="inputfield">
+    <label>Gender</label>
+    <div class="custom_select">
+        <select  name="sGender">
+            <option >Choose option </option>
+            <option >Male</option>
+            <option >Female</option>
+            
+        </select>
+    </div>
+</div>
+
+
+<div class="inputfield">
+    <label >Student Contact</label>
+    <input type="number" class="input" name="studentContact">
+</div>
+
+<div class="inputfield">
+    <label>Email address</label>
+    <input type="email" class="input" name="Semail">
+</div>
+
+<div class="inputfield">
+    <label >Edit Password</label>
+    <input type="password" class="input" id="password" name="GCreatePassword">
+</div>
+
+<div class="inputfield">
+    <label >Confirm Password</label>
+    <input type="password" class="input" id="confirmPassword" name="GConfirmPassword">
+</div>
+<!-- check th password -->
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('form');
+
+        form.addEventListener('submit', function(event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                event.preventDefault(); // Prevent the form submission
+            }
+        });
+    });
+</script>
+
+
+<div class="inputfield terms">
+    <label class="check">
+        <h4>Agreed to terms and conditions</h4>
+        <input type="checkbox" required>
+        <span class="checkmark"></span>
+    </label>
+</div>
+
+</div>
+</form>
+<script src="StudentTranferRegistration.js"></script>
+</div>
+
+            <div class="inputfield">
+            <input style=" width: 80px; height: 30px; border-radius: 10px; color: #0b054d; " type="submit" value="Update Information" class="btn">
+            </div>
+        </form>
+    </div>
+
+                
+
+                
+            </div>
+        </div>
+
+
+
+        <div class="popupSS" id="popupSS">
+            <div class="popup-contentSS">
+                <span class="closeSS" id="closePopupBtnSS">&times;</span>
+                <h2 style="color: #355e8b;">Account Settings</h2>
+
+
+                <style>
+                    .inputfield{
+                        margin-bottom: 10px;
+
+                    }
+
+                    .inputfield label{
+                        width: 100%;
+                        color: #473f8a;
+                        font-size: 12px;
+                    }
+
+                    .wrapper .form .inputfield .input,
+                    .inputfield .textarea,
+                    .inputfield .custom_select select {
+                        width: 100%;
+                        outline: none;
+                        border: 1px solid #a0a1b4;
+                        font-size: 12px;
+                        padding: 7px;
+                        border-radius: 3px;
+                        transition: border-color 0.3s ease;
+                    }
+                    .title{
+                        font-size: 14px;
+                    }
+
+
+                    
+
+                </style>
+                
+    <div class="wrapper">
+        <div class="title">
+            Edit Student School Information
+        </div>
+
+        <form action="sample.php" method="post" enctype="multipart/form-data">
+            <!-- Include hidden input for the student ID -->
+            <input type="hidden" name="student_id" value="<?php echo $row['registration_number']; ?>">
+
+            <div class="form">
+
+<div class="inputfield">
+    <div class="custom_select">
+        <select  name="level_of_school">
+            <option value="option1">Choose School Level</option>
+            <option value="Primary School">Primary School</option>
+            <option value="Secondary School">Secondary School</option>
+            <option value="University/College">University/College</option>
+        </select>
+    </div>
+</div>
+
+
+
+
+<div class="inputfield">
+    <label>Registration Number</label>
+    <input  type="text" class="input" name="registration_number">
+</div>
+
+<div class="inputfield">
+    <label>Current School</label>
+    <input  type="text" class="input" name="Schoolname">
+</div>
+
+<div class="inputfield">
+    <label>School Location</label>
+    <div class="custom_select">
+        <select  id="selectCounty" name="Gcounty"></select>
+    </div>
+</div>
+
+<div class="inputfield">
+    <div class="custom_select">
+        <select  id="selectSubCounty" name="Gsubcounty"></select>
+    </div>
+</div>
+
+
+
+
+<div class="inputfield terms">
+    <label class="check">
+        <h4>Agreed to terms and conditions</h4>
+        <input type="checkbox" required>
+        <span class="checkmark"></span>
+    </label>
+</div>
+
+
+</div>
+</form>
+<script src="StudentTranferRegistration.js"></script>
+</div>
+
+            <div class="inputfield">
+                <input style=" width: 80px; height: 30px; border-radius: 10px; color: #0b054d; " type="submit" value="Update Information" class="btn">
+            </div>
+        </form>
+    </div>
+
+
+
+        
 
         
 
