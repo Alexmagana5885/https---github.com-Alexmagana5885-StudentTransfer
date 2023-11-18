@@ -297,7 +297,7 @@ $result3 = $conn->query($sql);
                 <?php
                 if ($result3->num_rows > 0) {
                     while ($row = $result3->fetch_assoc()) {
-                        echo '<p>' . $row['Response'] . '</p>';
+                        echo '<p>' . $row['IntededSchoolResponse'] . '</p>';
                     }
                 } else {
                     echo '<p>No Response</p>';
@@ -368,7 +368,7 @@ $result3 = $conn->query($sql);
         </div>
 
         <form action="sample.php" method="post" enctype="multipart/form-data">
-            <!-- Include hidden input for the student ID -->
+            
             <input type="hidden" name="student_id" value="<?php echo $row['registration_number']; ?>">
 
             <div class="form">
@@ -508,7 +508,7 @@ $result3 = $conn->query($sql);
         </div>
 
         <form action="sample.php" method="post" enctype="multipart/form-data">
-            <!-- Include hidden input for the student ID -->
+            
             <input type="hidden" name="student_id" value="<?php echo $row['registration_number']; ?>">
 
             <div class="form">
