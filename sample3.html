@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="sample3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PDF Display</title>
 </head>
 <body>
 
-    <div class="popup" id="popup1">
-        <div class="popup-content">
-            <span class="close" id="closePopupBtn1">&times;</span>
-            <h2 style="color: #355e8b;">Send Admission Letter</h2>
-            
-            <input style="color: #355e8b; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0; font-weight: bold;" type="file" id="fileInput" name="fileInput">
-            <button style="width: 60px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;"  type="submit">Upload</button>
-    
-        </div>
-    </div>
+    <embed src="uploads/studentDocuments/ApplicationLetters/" type="application/pdf" width="100%" height="600px" />
 
-    <div class="popup" id="popup2">
-        <div class="popup-content">
-            <span class="close" id="closePopupBtn2">&times;</span>
-            <h2 style="color: #355e8b;">give a reason for the rejection</h2>
-            <textarea style="height: 80%; width: 100%; font-size: 12px;" id="textInput2"></textarea>
-            <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
-        </div>
-    </div>
-
-    <div class="popup" id="popup3">
-        <div class="popup-content">
-            <span class="close" id="closePopupBtn3">&times;</span>
-            <h2 style="color: #355e8b;">give a reason for the rejection</h2>
-            <textarea style="height: 80%; width: 100%; font-size: 12px;" id="textInput3"></textarea>
-            <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
-        </div>
-    </div>
-
-    <header>
-        <h2 style="color:#fff; margin-left: 20px;">Student Transfer File</h2>
-        <h2 style="color:#fff; margin-left: 20px;">Student Name</h2>
-        <nav class="Navigation">
-            <a id="openPopupBtn1" class="b" href="#">Approve</a>
-            <a id="openPopupBtn2" class="b" href="#Secondary">Reject</a>
-            <a id="openPopupBtn3" class="b" href="#University">Keep Pending</a>
-            <a class="btnLogin-popup" href="adminsch.php">Home</a>
-        </nav>
-    </header>
-
-    <script src="sample3.js"></script>
 </body>
 </html>

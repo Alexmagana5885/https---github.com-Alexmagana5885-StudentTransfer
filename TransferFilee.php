@@ -219,18 +219,17 @@ if (isset($_GET['registration_number'])) {
             
 
                         
-<td>Passport Photo</td>
+<td>Application Letters</td>
 <td>
     <?php
-    if (!empty($_FILES['passport_pdf_filename']['name'])) {
-        $filename = $_FILES['passport_pdf_filename']['name'];
-        if (file_exists($filename)) {
-            echo "<a href='$filename' download>Download</a>";
-        } else {
-            echo "File not found";
-        }
+    $registration_number = $row['registration_number']; 
+    $file_path = "uploads/studentDocuments/ApplicationLetters/{$registration_number}.pdf";
+    
+    if (file_exists($file_path)) {
+        echo "<a style='text-decoration: none; color: blue; font-size: 16px; font-family: \"Times New Roman\", Times, serif;' href='{$file_path}' target='_blank' download='{$registration_number}_Application_Letters.pdf'>Download</a>";
+    
     } else {
-        echo "No file uploaded";
+        echo "File not submitted";
     }
     ?>
 </td>
@@ -240,15 +239,14 @@ if (isset($_GET['registration_number'])) {
 <td>Previous School Clearance Form</td>
 <td>
     <?php
-    if (!empty($_FILES['clearanceFormPDF']['name'])) {
-        $filename = $_FILES['clearanceFormPDF']['name'];
-        if (file_exists($filename)) {
-            echo "<a href='$filename' download>Download</a>";
-        } else {
-            echo "File not found";
-        }
+    $registration_number = $row['registration_number']; 
+    $file_path = "uploads/studentDocuments/clearanceForms/{$registration_number}.pdf";
+    
+    if (file_exists($file_path)) {
+        echo "<a style='text-decoration: none; color: blue; font-size: 16px; font-family: \"Times New Roman\", Times, serif;' href='{$file_path}' target='_blank' download='{$registration_number}_Clearance_Form.pdf'>Download</a>";
+    
     } else {
-        echo "No file uploaded";
+        echo "File not submitted";
     }
     ?>
 </td>
@@ -256,15 +254,14 @@ if (isset($_GET['registration_number'])) {
 <td>Transfer Approval from Previous School</td>
 <td>
     <?php
-    if (!empty($_FILES['TranferAprovalPDF']['name'])) {
-        $filename = $_FILES['TranferAprovalPDF']['name'];
-        if (file_exists($filename)) {
-            echo "<a href='$filename' download>Download</a>";
-        } else {
-            echo "File not found";
-        }
+    $registration_number = $row['registration_number']; 
+    $file_path = "uploads/studentDocuments/identifications/{$registration_number}.pdf";
+    
+    if (file_exists($file_path)) {
+        echo "<a style='text-decoration: none; color: blue; font-size: 16px; font-family: \"Times New Roman\", Times, serif;' href='{$file_path}' target='_blank' download='{$registration_number}_Transfer_Approval.pdf'>Download</a>";
+    
     } else {
-        echo "No file uploaded";
+        echo "File not submitted";
     }
     ?>
 </td>
@@ -274,18 +271,19 @@ if (isset($_GET['registration_number'])) {
 <td>Birth Certificate or ID Card</td>
 <td>
     <?php
-    if (!empty($_FILES['identificationPDF']['name'])) {
-        $filename = $_FILES['identificationPDF']['name'];
-        if (file_exists($filename)) {
-            echo "<a href='$filename' download>Download</a>";
-        } else {
-            echo "File not found";
-        }
+    $registration_number = $row['registration_number']; 
+    $file_path = "uploads/studentDocuments/TranferAprovals/{$registration_number}.pdf";
+    
+    if (file_exists($file_path)) {
+        echo "<a style='text-decoration: none; color: blue; font-size: 16px; font-family: \"Times New Roman\", Times, serif;' href='{$file_path}' target='_blank' download='{$registration_number}_Birth_Certificate.pdf'>Download</a>";
+    
     } else {
-        echo "No file uploaded";
+        echo "File not submitted";
     }
     ?>
 </td>
+
+
 </tr>
 
 

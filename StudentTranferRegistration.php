@@ -42,10 +42,17 @@ $Date = $_POST['Date'];
 
 
 // Function to generate a unique file name based on registration number
+// function generateFileName($registrationNumber, $originalFileName) {
+//     $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+//     return $registrationNumber . '_' . time() . '.' . $fileExtension;
+// }
+
+
 function generateFileName($registrationNumber, $originalFileName) {
     $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
-    return $registrationNumber . '_' . time() . '.' . $fileExtension;
+    return $registrationNumber . '.' . $fileExtension;
 }
+
 
 
 $ApplicationLetterPdf = generateFileName($registrationNumber, $_FILES["ApplicationLetterPdf"]["name"]);
