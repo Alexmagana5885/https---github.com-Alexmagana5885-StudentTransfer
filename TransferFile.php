@@ -19,7 +19,7 @@ if (isset($_GET['registration_number'])) {
         } else {
             // Sanitize and store the user's response in the database
             $Response = mysqli_real_escape_string($conn, $_POST['Reason']);
-            $updateQuery = "UPDATE studenttransferregistration SET Response = '$Response' WHERE registration_number = '$registration_number'";
+            $updateQuery = "UPDATE studenttransferregistration SET IntededSchoolResponse = '$Response' WHERE registration_number = '$registration_number'";
             mysqli_query($conn, $updateQuery);
 
             // Display a toast message indicating that the response has been stored
