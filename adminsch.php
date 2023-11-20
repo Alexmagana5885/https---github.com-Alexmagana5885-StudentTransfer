@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+$sessionTimeout = 30 * 60;
+
+
 require_once('config.php');
 $query = "select * from studenttransferregistration";
 $result = mysqli_query($conn, $query);
@@ -10,8 +15,6 @@ $countResult = mysqli_query($conn, $count);
 $totalTransfersCount = mysqli_num_rows($countResult);
 
 
-
-session_start();
 
 // Check if the user is not logged in, redirect them to the login page.
 if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber'])) {
@@ -55,7 +58,7 @@ $result2 = mysqli_query($conn, $query);
                 <li>
                     <a href="firstPage.html">
                         
-                        <span class="title">Dashboard</span>
+                        <span class="title">Home</span>
                     </a>
                 </li>
 

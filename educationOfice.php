@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+$sessionTimeout = 30 * 60;
+
+
 require_once('config.php');
 $query = "select * from studenttransferregistration";
 $result = mysqli_query($conn, $query);
@@ -13,7 +18,7 @@ $query2 = "SELECT * FROM gofficeregistration";
 $result2 = mysqli_query($conn, $query2);
 
 
-session_start();
+
 
 // Check if the user is not logged in, redirect them to the login page.
 if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber'])) {
@@ -80,7 +85,7 @@ $result2 = mysqli_query($conn, $query);
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="sessionEnd.php">
                         <span class="title">Sign Out</span>
                     </a>
                 </li>

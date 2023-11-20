@@ -1,4 +1,8 @@
 <?php
+session_start();
+$sessionTimeout = 30 * 60;
+
+
 require_once('config.php');
 $query = "select * from studenttransferregistration";
 $result = mysqli_query($conn, $query);
@@ -7,7 +11,6 @@ $result2 = mysqli_query($conn, $query2);
 
 
 
-session_start();
 
 // Check if the user is not logged in, redirect them to the login page.
 if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber'])) {
@@ -29,6 +32,12 @@ $registrationNumber = $_SESSION['registrationNumber'];
 
 $sql = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registrationNumber'";
 $result3 = $conn->query($sql);
+
+
+$resultSchoolResponse = $conn->query($sql);
+
+
+$EducationOfficeResponse = $conn->query($sql);
 
 
 
@@ -289,39 +298,47 @@ $result3 = $conn->query($sql);
                     </table>
                 </div>
 
-                
-        
-<div class="popup" id="popup1">
-    <div class="popup-content">
-        <span class="close" id="closePopupBtn1">&times;</span>
-        <h2 style="color: #355e8b;">School Response</h2>
-        <p>
-        <?php
-        if (!empty($rows)) {
-            echo '<p>' . $rows[0]['IntededSchoolResponse'] . '</p>';
-        } else {
-            echo '<p>No Response</p>';
-        }
-        ?>
-        </p>
-    </div>
-</div>
+        <div class="popup" id="popup1">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn1">&times;</span>
+                <h2 style="color: #355e8b;">School Response</h2>
+                <p>
+                <?php
+                if ($resultSchoolResponse->num_rows > 0) {
+                    while ($row = $resultSchoolResponse->fetch_assoc()) {
+                        echo '<p>' . $row['IntededSchoolResponse'] . '</p>';
+                    }
+                } else {
+                    echo '<p>No Response</p>';
+                }
+                ?>
+            
+                </p>
 
-<div class="popup" id="popup2">
-    <div class="popup-content">
-        <span class="close" id="closePopupBtn2">&times;</span>
-        <h2 style="color: #355e8b;">Education Office Response</h2>
-        <p>
-        <?php
-        if (!empty($rows)) {
-            echo '<p>' . $rows[0]['education_office_response'] . '</p>';
-        } else {
-            echo '<p>No Response</p>';
-        }
-        ?>
-        </p>
-    </div>
-</div>
+                
+            </div>
+        </div>
+
+        <div class="popup" id="popup2">
+            <div class="popup-content">
+                <span class="close" id="closePopupBtn2">&times;</span>
+                <h2 style="color: #355e8b;">Education Office Response</h2>
+                <p>
+                <?php
+                if ($EducationOfficeResponse->num_rows > 0) {
+                    while ($row = $EducationOfficeResponse->fetch_assoc()) {
+                        echo '<p>' . $row['education_office_response'] . '</p>';
+                    }
+                } else {
+                    
+                    echo '<p>No Response</p>';
+                }
+                ?>
+                </p>
+
+                
+            </div>
+        </div>
 
         <div class="popupS" id="popupS">
             <div class="popup-contentS">
