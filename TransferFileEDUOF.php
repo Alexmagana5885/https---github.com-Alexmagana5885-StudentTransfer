@@ -18,6 +18,9 @@ if (isset($_GET['registration_number'])) {
 
 
 
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -55,38 +58,40 @@ if (isset($_GET['registration_number'])) {
 
     <body>
         
-    <form action="https://formsubmit.co/maganaalex634@gmail.com" method="post">
+    <form action="sample2.php" method="post">
         <div class="popup" id="popup1">
             <div class="popup-content">
                 <span class="close" id="closePopupBtn1">&times;</span>
-                <h2 style="color: #355e8b;">Confirm the Approval and give a Comment </h2>
-                <textarea style="height: 60%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3" name="Reason" ></textarea>
+            <h2 style="color: #355e8b;">Response</h2>
+            <h3>Approval:</h3><br>
+            <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
+
+            <h3>Pending Transfer:</h3><br>
+            <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
+
+            <h3>Rejecting Transfer:</h3><br>
+            <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
+            <br><br>
+
+            <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
+            <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
+                <option value="option1">Choose an option</option>
+                <option value="option2">Approve</option>
+                <option value="option3">Keep Pending</option>
+                <option value="option4">Reject</option>
+            </select>
+            <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
+
+            <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
+
                 
-                <button style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;"  type="submit">Confirm</button>
-            </div>
         </div>
     
-        <div class="popup" id="popup2">
-            <div class="popup-content">
-                <span class="close" id="closePopupBtn2">&times;</span>
-                <h2 style="color: #355e8b;">Give a Reason for the Pending</h2>
-                <textarea style="height: 80%; width: 100%; font-size: 12px;" id="textInput2" name="Reason" ></textarea>
-                <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
-            </div>
-        </div>
-    
-        <div class="popup" id="popup3">
-            <div class="popup-content">
-                <span class="close" id="closePopupBtn3">&times;</span>
-                <h2 style="color: #355e8b;">Give a Reason for the Rejection</h2>
-                <textarea style="height: 80%; width: 100%; font-size: 12px; margin: left 20px;;" id="textInput3" name="Reason" ></textarea>
-                <button style="width: 60px; height: 30px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;" >Submit</button>
-            </div>
-        </div>
-    
-    </body>
 
     </form>
+    </body>
+    
+    
      
     <header>
        
@@ -215,6 +220,8 @@ if (isset($_GET['registration_number'])) {
                         
             <td>Application Letters</td>
 <td>
+
+
     <?php
     $registration_number = $row['registration_number']; 
     $file_path = "uploads/studentDocuments/ApplicationLetters/{$registration_number}.pdf";

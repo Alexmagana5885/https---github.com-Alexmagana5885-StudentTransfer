@@ -1,24 +1,23 @@
 <?php
-
 session_start();
 $sessionTimeout = 30 * 60;
 
-
 require_once('config.php');
-$query = "select * from studenttransferregistration";
+
+// Fetch data from the database
+$query = "SELECT * FROM studenttransferregistration";
 $result = mysqli_query($conn, $query);
-$query2 = "select * from schoolreg";
+
+$query2 = "SELECT * FROM schoolreg";
 $result2 = mysqli_query($conn, $query2);
 
 $count = "SELECT * FROM studenttransferregistration";
 $countResult = mysqli_query($conn, $count);
 $totalTransfersCount = mysqli_num_rows($countResult);
 
-
-
 // Check if the user is not logged in, redirect them to the login page.
 if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber'])) {
-    header("Location: login.html"); 
+    header("Location: login.html");
     exit();
 }
 
@@ -29,20 +28,18 @@ $registrationNumber = $_SESSION['registrationNumber'];
 // Query the database to get user-specific data
 $query = "SELECT * FROM schoolreg WHERE registration_number = '$registrationNumber'";
 $result2 = mysqli_query($conn, $query);
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="adminscg.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Admin</title>
 </head>
+
 <body>
 
     <!-- =============== Navigation ================ -->
@@ -51,13 +48,12 @@ $result2 = mysqli_query($conn, $query);
             <ul>
                 <li>
                     <a href="#">
-                        <span class="title"> SHOOL ADMIN</span>
+                        <span class="title"> SCHOOL ADMIN</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="firstPage.html">
-                        
                         <span class="title">Home</span>
                     </a>
                 </li>
@@ -79,15 +75,14 @@ $result2 = mysqli_query($conn, $query);
                         <span class="title">Settings</span>
                     </a>
                 </li>
-                
+
                 <li>
-                    <a href="sessionEnd.php" >
+                    <a href="sessionEnd.php">
                         <span class="title">Sign Out</span>
                     </a>
                 </li>
             </ul>
         </div>
-    
 
         <div class="main">
             <div class="topbar">
@@ -97,60 +92,51 @@ $result2 = mysqli_query($conn, $query);
 
                 <div class="search">
                     <?php
-                        if ($result2->num_rows > 0) {
-                            while ($row = $result2->fetch_assoc()) {
-
-                                echo "<h2>" . $row['school_name'] . "</h2>";
-                          
-                            }}
-
-
+                    if ($result2->num_rows > 0) {
+                        while ($row = $result2->fetch_assoc()) {
+                            echo "<h2>" . $row['school_name'] . "</h2>";
+                        }
+                    }
                     ?>
                 </div>
             </div>
 
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <!-- Card 1: Total Transfers -->
+                <div class="card">
+                    <div>
+                        <div class="numbers"><?php echo $totalTransfersCount; ?></div>
+                        <div class="cardName">Total Transfers</div>
+                    </div>
+                </div>
 
-<!-- ======================= Cards ================== -->
-<div class="cardBox">
-    <div class="card">
-        
-    <div>
-        <div class="numbers"><?php echo $totalTransfersCount; ?></div>
-        <div class="cardName">Total Transfers</div>
-    </div>
+                <!-- Card 2: Accepted Transfers -->
+                <div class="card">
+                    <div>
+                        <div class="numbers">2344</div>
+                        <div class="cardName">Accepted Transfers</div>
+                    </div>
+                </div>
 
-    
-    
+                <!-- Card 3: Pending Transfers -->
+                <div class="card">
+                    <div>
+                        <div class="numbers">122346</div>
+                        <div class="cardName">Pending Transfers</div>
+                    </div>
+                </div>
 
-    </div>
-    
+                <!-- Card 4: Rejected Transfers -->
+                <div class="card">
+                    <div>
+                        <div class="numbers">12235</div>
+                        <div class="cardName">Rejected Transfers</div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-        <div>
-            <div class="numbers">2344</div>
-            <div class="cardName">Accepted Transfers</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div>
-            <div class="numbers">122346</div>
-            <div class="cardName">Pendig Transfers</div>
-        </div>
-
-    </div>
-
-    <div class="card">
-        <div>
-            <div class="numbers">12235</div>
-            <div class="cardName">Rejected Transfers</div>
-        </div>
-
-    </div>
-</div>
-
-<!-- ================ tranfer details ================= -->
-
+            <!-- ================ Transfer Details ================= -->
             <div class="details">
                 <div class="recentTransfers">
                     <div class="cardHeader">
@@ -159,36 +145,36 @@ $result2 = mysqli_query($conn, $query);
 
                     <table>
                         <thead>
-                            <tr style="font-size: 15px; color: #355e8b; " >
+                            <tr style="font-size: 15px; color: #355e8b; ">
                                 <td>Name</td>
                                 <td>Year of Study</td>
                                 <td>Previous School</td>
                                 <td>Student Email</td>
                                 <td>Gurdian Contact</td>
-                                <td >Status</td>
+                                <td>Details</td>
+                                <!-- <td>Response</td> -->
                             </tr>
                         </thead>
-                            
+                        <tbody>
                             <?php
-
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row['full_name'] . "</td>";
-                                        echo "<td>" . $row['grade'] . "</td>";
-                                        echo "<td>" . $row['previous_school_name'] . "</td>";
-                                        echo "<td>" . $row['email'] . "</td>";
-                                        echo "<td>" . $row['parent_phone_number'] . "</td>";
-                                        echo "<td ><a class='buttonResponse' href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
-                                        
-                                        echo "</tr>";
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='5'>No records</td></tr>";
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['full_name'] . "</td>";
+                                    echo "<td>" . $row['grade'] . "</td>";
+                                    echo "<td>" . $row['previous_school_name'] . "</td>";
+                                    echo "<td>" . $row['email'] . "</td>";
+                                    echo "<td>" . $row['parent_phone_number'] . "</td>";
+                                    echo "<td ><a class='buttonResponse' href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                    // echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                                    echo "</tr>";
                                 }
-                                ?>
+                            } else {
+                                echo "<tr><td colspan='5'>No records</td></tr>";
+                            }
+                            ?>
 
-<style>
+                        <style>
                             .buttonResponse{
                                 text-decoration: none;
                                 color: #355e8b;
@@ -196,27 +182,71 @@ $result2 = mysqli_query($conn, $query);
                                 
 
                             }
-                            .buttonResponse :hover{
+                            .buttonResponse:hover{
                                 color: red;
                             }
 
                             
-                        </style>
-                                
+                        </style>    
 
-                        
+
+
                         </tbody>
                     </table>
                 </div>
 
-                <!-- =========== Scripts =========  -->
-    <script src="adminsch.js"></script>
+                <!-- Response Popup Form -->
+                <form action="sample2.php" method="post">
+                                <!-- <?php
+                // if ($result->num_rows > 0) {
+                // while ($row = $result->fetch_assoc()) {
+                    // echo '<div class="popup" id="' . $row['registration_number'] . '">';
+                // }
+                // }
+                // ?> -->
+
+<!-- > popup1 -->
+                    <div class="popup" id="popup1">
+                        <div class="popup-content">
+                            <span class="close" id="closePopupBtn1">&times;</span>
+                            <h2 style="color: #355e8b;">Response</h2>
+
+                            <h3>Approval:</h3><br>
+                            <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
+
+                            <h3>Pending Transfer:</h3><br>
+                            <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
+
+                            <h3>Rejecting Transfer:</h3><br>
+                            <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
+                            <br><br>
+
+                            <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
+                            <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
+                                <option value="option1">Choose an option</option>
+                                <option value="option2">Approve</option>
+                                <option value="option3">Keep Pending</option>
+                                <option value="option4">Reject</option>
+                            </select>
+
+                            <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
+
+                            <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <!-- <script src="adminsch.js"></script> -->
+    <script src="sample.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-
-
 </body>
+
 </html>

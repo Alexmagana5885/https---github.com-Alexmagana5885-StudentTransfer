@@ -55,6 +55,19 @@ document.addEventListener('DOMContentLoaded', function () {
   togglePopup(openPopupBtnS, popupS);
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const openPopuppBtn1 = document.getElementById('openPopuppBtn1');
+  const closePopuppBtn1 = document.getElementById('closePopuppBtn1'); 
+  const popupp1 = document.getElementById('popupp1');
+  
+  togglePopup(openPopuppBtn1, popupp1);
+
+  closePopuppBtn1.addEventListener('click', () => {
+    popupp1.style.display = 'none';
+  });
+});
+
+
 closePopupBtnS.addEventListener('click', () => {
   popupS.style.display = 'none';
 });
@@ -69,6 +82,8 @@ closePopupBtnSS.addEventListener('click', () => {
   popupSS.style.display = 'none';
 });
 
+
+
 // Function to get URL parameter by name
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -79,3 +94,5 @@ function getParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+
