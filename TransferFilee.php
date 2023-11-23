@@ -1,6 +1,8 @@
 <?php
 require_once('config.php');
 
+
+
 // Check if registration_number is set in the URL
 if (isset($_GET['registration_number'])) {
     $registration_number = $_GET['registration_number'];
@@ -15,6 +17,9 @@ if (isset($_GET['registration_number'])) {
     header("Location: error_page.php");
     exit();
 }
+
+
+
 ?>
 
 
@@ -54,36 +59,43 @@ if (isset($_GET['registration_number'])) {
 <body>
 
     <body>
-        <form action="sample2.php?registration_number=<?php echo $registration_number; ?>" method="post">
-            <div class="popup" id="popup1">
-                <div class="popup-content">
-                    <span class="close" id="closePopupBtn1">&times;</span>
-                    <h2 style="color: #355e8b;">Response</h2>
+    <form action="SchoolResponses.php" method="post" enctype="multipart/form-data">
+    <div class="popup" id="popup1">
+        <div class="popup-content">
+            <span class="close" id="closePopupBtn1">&times;</span>
+            <h2 style="color: #355e8b;">Response</h2>
 
-                    <h3>Approval:</h3>
-                    <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
+            <!--  feedback options  -->
+            <h3>Approval:</h3>
+        <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
 
-                    <h3>Pending Transfer:</h3>
-                    <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
+        <h3>Pending Transfer:</h3>
+        <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
 
-                    <h3>Rejecting Transfer:</h3>
-                    <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
-                    <br><br>
+        <h3>Rejecting Transfer:</h3>
+        <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
+        <br><br>
+            <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
+            <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
+                <option value="option1">Choose an option</option>
+                <option value="option2">Approve</option>
+                <option value="option3">Keep Pending</option>
+                <option value="option4">Reject</option>
+            </select>
 
-                    <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
-                    <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
-                        <option value="option1">Choose an option</option>
-                        <option value="option2">Approve</option>
-                        <option value="option3">Keep Pending</option>
-                        <option value="option4">Reject</option>
-                    </select>
+            <!-- Hidden input to store registration_number -->
+            <input type="hidden" name="registration_number" value="<?php echo $row['registration_number']; ?>">
+            
 
-                    <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
+            <!-- File input -->
+            <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
 
-                    <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
-                </div>
-            </div>
-        </form>
+            <!-- Submit button -->
+            <button type="submit" name="submitFeedback" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
+        </div>
+    </div>
+</form>
+
 
     
     </body>
@@ -97,7 +109,9 @@ if (isset($_GET['registration_number'])) {
         <nav class="Navigation">
             
       
-            <a id="openPopupBtn1" class="b" href="#">Give Feedback</a>
+      
+            <a id="openPopupBtn1" class="b" href="#">Give Feedback</a> 
+
             <a id="openPopupBtn2" class="b" href="#"></a>
             <a id="openPopupBtn3" class="b" href="#"></a>
             <a class="btnLogin-popup" href="adminsch.php">Home</a>

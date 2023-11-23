@@ -1,6 +1,8 @@
 <?php
 require_once('config.php');
 
+
+
 // Check if registration_number is set in the URL
 if (isset($_GET['registration_number'])) {
     $registration_number = $_GET['registration_number'];
@@ -18,10 +20,10 @@ if (isset($_GET['registration_number'])) {
 
 
 
-
-
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,7 @@ if (isset($_GET['registration_number'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="TransferFile.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Response</title>
+    <title>School Response</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    
@@ -57,22 +59,22 @@ if (isset($_GET['registration_number'])) {
 <body>
 
     <body>
-        
-    <form action="sample2.php" method="post">
-        <div class="popup" id="popup1">
-            <div class="popup-content">
-                <span class="close" id="closePopupBtn1">&times;</span>
+    <form action="education_office_response.php" method="post" enctype="multipart/form-data">
+    <div class="popup" id="popup1">
+        <div class="popup-content">
+            <span class="close" id="closePopupBtn1">&times;</span>
             <h2 style="color: #355e8b;">Response</h2>
-            <h3>Approval:</h3><br>
-            <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
 
-            <h3>Pending Transfer:</h3><br>
-            <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
+            <!--  feedback options  -->
+            <h3>Approval:</h3>
+        <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
 
-            <h3>Rejecting Transfer:</h3><br>
-            <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
-            <br><br>
+        <h3>Pending Transfer:</h3>
+        <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
 
+        <h3>Rejecting Transfer:</h3>
+        <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
+        <br><br>
             <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
             <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
                 <option value="option1">Choose an option</option>
@@ -80,35 +82,47 @@ if (isset($_GET['registration_number'])) {
                 <option value="option3">Keep Pending</option>
                 <option value="option4">Reject</option>
             </select>
+
+            <!-- Hidden input to store registration_number -->
+            <input type="hidden" name="registration_number" value="<?php echo $row['registration_number']; ?>">
+            
+
+            <!-- File input -->
             <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
 
-            <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
-
-                
+            <!-- Submit button -->
+            <button type="submit" name="submitFeedback" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
         </div>
-    
+    </div>
+</form>
 
-    </form>
+
+    
     </body>
+
     
     
-     
+    
     <header>
        
         <h2 style="color:#fff; margin-left: 20px;">Student Name</h2>
         <nav class="Navigation">
             
       
-            <a id="openPopupBtn1" class="b" href="#">Approve</a>
-            <a id="openPopupBtn2" class="b" href="#">Keep Pending</a>
-            <a id="openPopupBtn3" class="b" href="#">Reject</a>
-            <a class="btnLogin-popup" href="educationOfice.php">Home</a>
+      
+            <a id="openPopupBtn1" class="b" href="#">Give Feedback</a> 
+
+            <a id="openPopupBtn2" class="b" href="#"></a>
+            <a id="openPopupBtn3" class="b" href="#"></a>
+            <a class="btnLogin-popup" href="adminsch.php">Home</a>
             
             
+
         </nav>
         
     </header>
        
+
 
     <div style="padding-top : 110px;" class="table-container">
         <table border="1">
@@ -217,11 +231,10 @@ if (isset($_GET['registration_number'])) {
                 <th>Required Documents</th>
             </tr>
             
+
                         
-            <td>Application Letters</td>
+<td>Application Letters</td>
 <td>
-
-
     <?php
     $registration_number = $row['registration_number']; 
     $file_path = "uploads/studentDocuments/ApplicationLetters/{$registration_number}.pdf";
@@ -286,6 +299,7 @@ if (isset($_GET['registration_number'])) {
 
 
 </tr>
+
 
 
     <script src="TransferFile.js"></script>
