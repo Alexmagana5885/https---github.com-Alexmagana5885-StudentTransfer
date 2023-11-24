@@ -36,6 +36,6 @@ if (isset($_POST['submitFeedback'])) {
 }
 
 // Redirect to the original page
-header("Location: TransferFilee.php");
+header("Location: SchoolPage.php");
 exit();
 ?>

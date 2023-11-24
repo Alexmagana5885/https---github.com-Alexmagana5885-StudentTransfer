@@ -173,8 +173,8 @@ $result2 = mysqli_query($conn, $query);
                                 <td>intended School</td>
                                 <td>Student Contact</td>
                                 <td>Gurdian/Parent Contact</td>
-                                <td>Date</td>
-                                <td>Status</td>
+                                <td>Details</td>
+                                <td>Response</td>
                             </tr>
                         </thead>
 
@@ -191,9 +191,8 @@ $result2 = mysqli_query($conn, $query);
                                     echo "<td>" . $row['intended_school_name'] . "</td>";
                                     echo "<td>" . $row['phone_number'] . "</td>";
                                     echo "<td>" . $row['parent_phone_number'] . "</td>";
-                                    echo "<td>" . $row['transfer_date'] . "</td>";
-                                    echo "<td ><a class='buttonResponse' href='TransferFileEDUOF.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
-                                        
+                                    echo "<td ><a class='buttonResponse' href='educationOfficeResponse.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                    echo "<td>" . $row['education_office_response'] . "</td>";  
                                     echo "</tr>";
                                 }
                             } else {
@@ -209,7 +208,7 @@ $result2 = mysqli_query($conn, $query);
                                 
 
                             }
-                            .buttonResponse :hover{
+                            .buttonResponse:hover{
                                 color: red;
                             }
 

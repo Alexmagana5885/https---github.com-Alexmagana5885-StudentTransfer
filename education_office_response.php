@@ -48,6 +48,6 @@ if (isset($_POST['submitFeedback'])) {
 }
 
 // Redirect to the original page
-header("Location: TransferFileEDUOF.php");
+header("Location: educationOffice.php");
 exit();
 ?>

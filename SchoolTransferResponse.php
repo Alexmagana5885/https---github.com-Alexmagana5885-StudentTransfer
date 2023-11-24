@@ -59,7 +59,7 @@ if (isset($_GET['registration_number'])) {
 <body>
 
     <body>
-    <form action="education_office_response.php" method="post" enctype="multipart/form-data">
+    <form action="SchoolResponses.php" method="post" enctype="multipart/form-data">
     <div class="popup" id="popup1">
         <div class="popup-content">
             <span class="close" id="closePopupBtn1">&times;</span>
@@ -77,10 +77,10 @@ if (isset($_GET['registration_number'])) {
         <br><br>
             <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
             <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
-                <option value="option1">Choose an option</option>
-                <option value="option2">Approve</option>
-                <option value="option3">Keep Pending</option>
-                <option value="option4">Reject</option>
+                <option value="Not Given">Choose an option</option>
+                <option value="Approved">Approve</option>
+                <option value="Pending">Keep Pending</option>
+                <option value="Rejected">Reject</option>
             </select>
 
             <!-- Hidden input to store registration_number -->
@@ -105,16 +105,17 @@ if (isset($_GET['registration_number'])) {
     
     <header>
        
-        <h2 style="color:#fff; margin-left: 20px;">Student Name</h2>
+        <h2 style="color:#fff; margin-left: 20px;"><?php echo $row['full_name']; ?> Tranfer Details</h2>
         <nav class="Navigation">
             
       
       
             <a id="openPopupBtn1" class="b" href="#">Give Feedback</a> 
+            <a class="btnLogin-popup" href="SchoolPage.php">Home</a>
 
             <a id="openPopupBtn2" class="b" href="#"></a>
             <a id="openPopupBtn3" class="b" href="#"></a>
-            <a class="btnLogin-popup" href="adminsch.php">Home</a>
+            
             
             
 

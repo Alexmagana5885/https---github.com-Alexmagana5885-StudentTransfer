@@ -33,11 +33,10 @@ $registrationNumber = $_SESSION['registrationNumber'];
 $sql = "SELECT * FROM studenttransferregistration WHERE registration_number = '$registrationNumber'";
 $result3 = $conn->query($sql);
 
-
 $resultSchoolResponse = $conn->query($sql);
 
-
 $EducationOfficeResponse = $conn->query($sql);
+
 
 
 
@@ -298,47 +297,60 @@ $EducationOfficeResponse = $conn->query($sql);
                     </table>
                 </div>
 
-        <div class="popup" id="popup1">
-            <div class="popup-content">
-                <span class="close" id="closePopupBtn1">&times;</span>
-                <h2 style="color: #355e8b;">School Response</h2>
-                <p>
-                <?php
-                if ($resultSchoolResponse->num_rows > 0) {
-                    while ($row = $resultSchoolResponse->fetch_assoc()) {
-                        echo '<p>' . $row['IntededSchoolResponse'] . '</p>';
-                    }
+<div class="popup" id="popup1">
+    <div style="font-size: 18px;" class="popup-content">
+        <span class="close" id="closePopupBtn1">&times;</span>
+        <h2 style="color: #355e8b;">School Response</h2>
+        <p>
+        <?php
+        if ($resultSchoolResponse->num_rows > 0) {
+            while ($row = $resultSchoolResponse->fetch_assoc()) {
+                echo '<p>';
+                if (!empty($row['schoolResponse'])) {
+                    // Display file download link
+                    echo 'Download School Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '">Download</a>';
                 } else {
-                    echo '<p>No Response</p>';
+                    echo 'No Response';
                 }
-                ?>
-            
-                </p>
+                echo '</p>';
+            }
+        } else {
+            echo '<p>No Response</p>';
+        }
+        ?>
+        </p>
+    </div>
+</div>
 
-                
-            </div>
-        </div>
 
-        <div class="popup" id="popup2">
-            <div class="popup-content">
-                <span class="close" id="closePopupBtn2">&times;</span>
-                <h2 style="color: #355e8b;">Education Office Response</h2>
-                <p>
-                <?php
-                if ($EducationOfficeResponse->num_rows > 0) {
-                    while ($row = $EducationOfficeResponse->fetch_assoc()) {
-                        echo '<p>' . $row['education_office_response'] . '</p>';
-                    }
+<div class="popup" id="popup2">
+    <div style="font-size: 18px;"  class="popup-content">
+        <span class="close" id="closePopupBtn2">&times;</span>
+        <h2 style="color: #355e8b;">Education Office Response</h2>
+        <p>
+        <?php
+        if ($EducationOfficeResponse->num_rows > 0) {
+            while ($row = $EducationOfficeResponse->fetch_assoc()) {
+                echo '<p>';
+                if (!empty($row['education_office_response'])) {
+                    // Display file download link
+                    echo 'Download Education Office Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '">Download</a>';
                 } else {
-                    
-                    echo '<p>No Response</p>';
+                    echo 'No Response';
                 }
-                ?>
-                </p>
+                echo '</p>';
+            }
+        } else {
+            echo '<p>No Response</p>';
+        }
+        ?>
+        </p>
+    </div>
+</div>
 
-                
-            </div>
-        </div>
+
+
+
 
         <div class="popupS" id="popupS">
             <div class="popup-contentS">

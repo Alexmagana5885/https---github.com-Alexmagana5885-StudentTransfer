@@ -42,9 +42,9 @@ if ($result->num_rows == 1) {
     if ($loginCategory === 'option1') {
         header("Location: studentPage.php");  
     } elseif ($loginCategory === 'option2') {
-        header("Location: adminsch.php");  
+        header("Location: SchoolPage.php");  
     } elseif ($loginCategory === 'option3') {
-        header("Location: educationOfice.php");  
+        header("Location: educationOffice.php");  
     }
 
     exit();

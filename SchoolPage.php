@@ -152,7 +152,7 @@ $result2 = mysqli_query($conn, $query);
                                 <td>Student Email</td>
                                 <td>Gurdian Contact</td>
                                 <td>Details</td>
-                                <!-- <td>Response</td> -->
+                                <td>Response</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -165,8 +165,8 @@ $result2 = mysqli_query($conn, $query);
                                     echo "<td>" . $row['previous_school_name'] . "</td>";
                                     echo "<td>" . $row['email'] . "</td>";
                                     echo "<td>" . $row['parent_phone_number'] . "</td>";
-                                    echo "<td ><a class='buttonResponse' href='TransferFilee.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
-                                    // echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                                    echo "<td ><a class='buttonResponse' href='SchoolTransferResponse.php?registration_number=" . $row['registration_number'] . "' class='status-link'>More Student Details</a></td>";
+                                    echo "<td>" . $row['schoolResponse'] . "</td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -240,8 +240,8 @@ $result2 = mysqli_query($conn, $query);
     </div>
 
     <!-- =========== Scripts =========  -->
-    <!-- <script src="adminsch.js"></script> -->
-    <script src="sample.js"></script>
+    <script src="adminsch.js"></script>
+    <!-- <script src="sample.js"></script> -->
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
