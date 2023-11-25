@@ -110,3 +110,44 @@ document.getElementById('submitRequest').addEventListener('click', function() {
   //  form submission when the button is clicked
 document.getElementById('StudentTranferRegistrationForm').submit();
 });
+
+// populate the school selection part according to the county selected
+
+function populateSchools() {
+    var selectCounty = document.getElementById("selectCountyI");
+    var selectSchool = document.getElementById("selectSchoolI");
+
+    // Get the selected county
+    var selectedCounty = selectCounty.value;
+
+    // Clear the existing options 
+    selectSchool.innerHTML = "";
+
+    // Make request to get the JSON data
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var jsonData = JSON.parse(xhr.responseText);
+
+            // Populate the schools dropdown
+            if (jsonData[selectedCounty]) {
+                for (var i = 0; i < jsonData[selectedCounty].length; i++) {
+                    var option = document.createElement("option");
+                    option.text = jsonData[selectedCounty][i];
+                    selectSchool.add(option);
+                }
+            }
+        }
+    };
+    xhr.open("GET", "SchoolMaping.php", true);
+    xhr.send();
+}
+
+// Populate the county dropdown on page load
+window.onload = function () {
+    var selectCounty = document.getElementById("selectCountyI");
+
+    // Trigger the initial population of schools dropdown
+    populateSchools();
+};
+

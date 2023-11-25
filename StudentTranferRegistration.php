@@ -22,8 +22,8 @@ $schoolPhoneNumber = $_POST['schoolPNumber'];
 $schoolEmail = $_POST['schoolEmail'];
 
 $intendedSchoolName = $_POST['IntededSchoolName'];
-$intendedSchoolCounty = $_POST['county']; // Note: You might want to change these lines
-$intendedSchoolSubcounty = $_POST['Subcounty']; // if they are not supposed to be overwritten
+$intendedSchoolCounty = $_POST['county']; 
+$intendedSchoolSubcounty = $_POST['Subcounty']; 
 $intendedSchoolPhoneNumber = $_POST['IntededSchoolContact'];
 $intendedSchoolEmail = $_POST['IntededSchoolEmail'];
 

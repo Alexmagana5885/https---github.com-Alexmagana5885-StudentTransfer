@@ -2,7 +2,6 @@
 // Assuming you have a database connection established
 require_once('config.php');
 
-
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -37,5 +36,6 @@ $conn->close();
 $jsonData = json_encode($countySchools, JSON_PRETTY_PRINT);
 
 // Output the JSON data
+header('Content-Type: application/json');
 echo $jsonData;
 ?>
