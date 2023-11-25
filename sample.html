@@ -1,86 +1,78 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="sample.css">
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-    crossorigin="anonymous"></script>
+    <title>School Selection</title>
     <script>
-    $(function() {
-    $(".toggle").on("click", function() {
-        if ($(".item").hasClass("active")) {
-            $(".item").removeClass("active");
-        } else {
-            $(".item").addClass("active");
-        }
-    });
-});
+        document.addEventListener('DOMContentLoaded', function () {
+            // Assuming you have a variable 'schools' containing the list of schools in JSON format
+            // You should fetch this data from your server/database
+            var schools = [
+                {"school_name": "School A", "county": "County A", "subcounty": "Subcounty A"},
+                {"school_name": "School B", "county": "County A", "subcounty": "Subcounty A"},
+                {"school_name": "School C", "county": "County B", "subcounty": "Subcounty B"},
+                // Add more schools as needed
+            ];
+
+            var selectCounty = document.getElementById('selectCountyI');
+            var selectSubCounty = document.getElementById('selectSubCountyI');
+            var schoolList = document.getElementById('schoolList');
+
+            function updateSchools() {
+                // Get the selected county and subcounty
+                var selectedCounty = selectCounty.value;
+                var selectedSubCounty = selectSubCounty.value;
+
+                // Filter schools based on the selected county and subcounty
+                var filteredSchools = schools.filter(function (school) {
+                    return school.county === selectedCounty && school.subcounty === selectedSubCounty;
+                });
+
+                // Display the filtered schools
+                displaySchools(filteredSchools);
+            }
+
+            function displaySchools(schools) {
+                // Clear the current school list
+                schoolList.innerHTML = '';
+
+                // Display each school in the list
+                schools.forEach(function (school) {
+                    var option = document.createElement('option');
+                    option.text = school.school_name;
+                    option.value = school.school_name;
+                    schoolList.add(option);
+                });
+            }
+
+            // Attach the updateSchools function to the change event of county and subcounty select elements
+            selectCounty.addEventListener('change', updateSchools);
+            selectSubCounty.addEventListener('change', updateSchools);
+        });
     </script>
 </head>
 <body>
-    <div class="popup" id="popup1">
-        <div class="popup-content">
-            <span class="close" id="closePopupBtn1">&times;</span>
-            <h2 style="color: #355e8b;">Response</h2>
-            <h3>Approval:</h3><br>
-            <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
+    <div class="wrapper">
+        <h2>Intended School</h2>
 
-            <h3>Pending Transfer:</h3><br>
-            <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
+        <label class="label">Select County</label>
+        <select name="county" class="textarea" id="selectCountyI">
+            <!-- Populate counties here -->
+        </select>
 
-            <h3>Rejecting Transfer:</h3><br>
-            <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
-            <br><br>
+        <label class="label">Select Subcounty</label>
+        <select class="textarea" name="Subcounty" id="selectSubCountyI">
+            <!-- Populate subcounties here -->
+        </select>
 
-            <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
-            <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
-                <option value="option1">Choose an option</option>
-                <option value="option2">Approve</option>
-                <option value="option3">Keep Pending</option>
-                <option value="option4">Reject</option>
-            </select>
-            <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
-
-            <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
-
-            
-        </div>
+        <label class="label">Available Schools</label>
+        <select name="selectedSchool" class="textarea" id="schoolList">
+            <!-- Schools will be populated dynamically using JavaScript -->
+        </select>
     </div>
 </body>
 </html>
 
-
-
-
-<form action="sample2.php" method="post" enctype="multipart/form-data">
-    <div class="popup" id="popup1">
-        <div class="popup-content">
-            <span class="close" id="closePopupBtn1">&times;</span>
-        <h2 style="color: #355e8b;">Response</h2>
-        <h3>Approval:</h3><br>
-        <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
-
-        <h3>Pending Transfer:</h3><br>
-        <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
-
-        <h3>Rejecting Transfer:</h3><br>
-        <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
-        <br><br>
-
-        <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
-        <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
-            <option value="option1">Choose an option</option>
-            <option value="option2">Approve</option>
-            <option value="option3">Keep Pending</option>
-            <option value="option4">Reject</option>
-        </select>
-        <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
-
-        <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
-
-            
-    </div>
+`schoolreg`(`id`, `level_of_school`, `school_name`, `county`, `subcounty`, `registration_number`, `password`, `gender_accepted`, `mode_of_schooling`, `email_address`, `phone_number`, `address`, `postal_code`, `school_fees`, `diet_type`, `medical_facility`)
+"county": ["school_name", "school_name",......],

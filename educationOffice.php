@@ -17,6 +17,20 @@ $totalTransfersCount = mysqli_num_rows($result);
 $query2 = "SELECT * FROM gofficeregistration";
 $result2 = mysqli_query($conn, $query2);
 
+$countAcceptedTransfers = "SELECT * FROM studenttransferregistration WHERE education_office_response = 'Approved'";
+$countResultAcceptedTransfers = mysqli_query($conn, $countAcceptedTransfers);
+$AcceptedTransfers = mysqli_num_rows($countResultAcceptedTransfers);
+
+$countPendingTransfers = "SELECT * FROM studenttransferregistration WHERE education_office_response = 'Pending'";
+$resultPendingTransfers = mysqli_query($conn, $countPendingTransfers);
+$pendingTransfers = mysqli_num_rows($resultPendingTransfers);
+
+
+$countRejectedTransfers = "SELECT * FROM studenttransferregistration WHERE education_office_response = 'Rejected'";
+$countResultRejectedTransfers = mysqli_query($conn, $countRejectedTransfers);
+$RejectedTransfers = mysqli_num_rows($countResultRejectedTransfers);
+
+
 
 
 
@@ -135,14 +149,14 @@ $result2 = mysqli_query($conn, $query);
 
     <div class="card">
         <div>
-            <div class="numbers">2344</div>
+            <div class="numbers"><?php echo $AcceptedTransfers; ?></div>
             <div class="cardName">Accepted Transfers</div>
         </div>
     </div>
 
     <div class="card">
         <div>
-            <div class="numbers">122346</div>
+            <div class="numbers"><?php echo $pendingTransfers; ?></div>
             <div class="cardName">Pendig Transfers</div>
         </div>
 
@@ -150,7 +164,7 @@ $result2 = mysqli_query($conn, $query);
 
     <div class="card">
         <div>
-            <div class="numbers">12235</div>
+            <div class="numbers"><?php echo $RejectedTransfers; ?></div>
             <div class="cardName">Rejected Transfers</div>
         </div>
 
@@ -181,7 +195,17 @@ $result2 = mysqli_query($conn, $query);
                         
                             
                             <?php
-                                
+
+                                $sql = "SELECT * FROM studenttransferregistration ORDER BY 
+                                CASE 
+                                    WHEN education_office_response = '' THEN 3 
+                                    WHEN education_office_response = 'Pending' THEN 0
+                                    WHEN education_office_response = 'Rejected' THEN 3
+                                    WHEN education_office_response = 'Approved' THEN 2
+                                    ELSE 4
+                                END, education_office_response";
+                                $result = $conn->query($sql);
+
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     

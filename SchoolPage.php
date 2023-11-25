@@ -11,9 +11,25 @@ $result = mysqli_query($conn, $query);
 $query2 = "SELECT * FROM schoolreg";
 $result2 = mysqli_query($conn, $query2);
 
-$count = "SELECT * FROM studenttransferregistration";
-$countResult = mysqli_query($conn, $count);
+$countTotalTransfers = "SELECT * FROM studenttransferregistration";
+$countResult = mysqli_query($conn, $countTotalTransfers);
 $totalTransfersCount = mysqli_num_rows($countResult);
+
+$countAcceptedTransfers = "SELECT * FROM studenttransferregistration WHERE schoolResponse = 'Approved'";
+$countResultAcceptedTransfers = mysqli_query($conn, $countAcceptedTransfers);
+$AcceptedTransfers = mysqli_num_rows($countResultAcceptedTransfers);
+
+$countPendingTransfers = "SELECT * FROM studenttransferregistration WHERE schoolResponse = 'Pending'";
+$resultPendingTransfers = mysqli_query($conn, $countPendingTransfers);
+$pendingTransfers = mysqli_num_rows($resultPendingTransfers);
+
+
+$countRejectedTransfers = "SELECT * FROM studenttransferregistration WHERE schoolResponse = 'Rejected'";
+$countResultRejectedTransfers = mysqli_query($conn, $countRejectedTransfers);
+$RejectedTransfers = mysqli_num_rows($countResultRejectedTransfers);
+
+
+
 
 // Check if the user is not logged in, redirect them to the login page.
 if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber'])) {
@@ -114,15 +130,15 @@ $result2 = mysqli_query($conn, $query);
                 <!-- Card 2: Accepted Transfers -->
                 <div class="card">
                     <div>
-                        <div class="numbers">2344</div>
+                        <div class="numbers"><?php echo $AcceptedTransfers; ?></div>
                         <div class="cardName">Accepted Transfers</div>
                     </div>
                 </div>
-
+                 
                 <!-- Card 3: Pending Transfers -->
                 <div class="card">
                     <div>
-                        <div class="numbers">122346</div>
+                        <div class="numbers"><?php echo $pendingTransfers; ?></div>
                         <div class="cardName">Pending Transfers</div>
                     </div>
                 </div>
@@ -130,7 +146,7 @@ $result2 = mysqli_query($conn, $query);
                 <!-- Card 4: Rejected Transfers -->
                 <div class="card">
                     <div>
-                        <div class="numbers">12235</div>
+                        <div class="numbers"><?php echo $RejectedTransfers; ?></div>
                         <div class="cardName">Rejected Transfers</div>
                     </div>
                 </div>
@@ -157,6 +173,18 @@ $result2 = mysqli_query($conn, $query);
                         </thead>
                         <tbody>
                             <?php
+                            $sql = "SELECT * FROM studenttransferregistration ORDER BY 
+                            CASE 
+                                WHEN education_office_response = '' THEN 0 
+                                WHEN education_office_response = 'Pending' THEN 1
+                                WHEN education_office_response = 'Rejected' THEN 2
+                                WHEN education_office_response = 'Approved' THEN 3
+                                ELSE 4
+                            END, education_office_response";
+
+                            $result = $conn->query($sql);
+
+
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
