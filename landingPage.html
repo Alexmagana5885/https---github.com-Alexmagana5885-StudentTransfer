@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="studentTranferReg.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Student Transfer</title>
+</head>
+
+
+<body>
+    <header>
+        <nav style="font-size: 15px;" class="Navigation"> 
+            <a class="a" href="StudentPage.php">Home</a>
+
+            <button style="font-size: 12px;" type="submit" id="submitRequest">Submit Your Request</button>
+        
+        </nav>
+    </header>
+    
+    
+<form id="StudentTranferRegistrationForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data" >
+
+   
+    <div class="wrapper"> 
+
+            <h2>Personal Details</h2>
+            
+                <label class="label">Full Name</label>
+                <input name="fullName" type="text" class="textarea">
+          
+                <label class="label">Grade</label>
+                <input name="Grade" type="text" class="textarea">
+
+                <label class="label">Phone Number</label>
+                <input name="studentPNumbe" type="number" class="textarea">
+           
+                <label class="label">Email Address</label>
+                <input name="studentEmail" type="email" class="textarea">
+            
+                <label class="label">Registration number</label>
+                <input name="RegistrationNumber" type="text" class="textarea">
+            
+                <label class="label">Date of Birth</label>
+                <input name="DateOfBirth" type="date" class="textarea">
+                
+            
+            
+    </div>
+
+
+    <div class="wrapper">
+            <h2>Previus School</h2>
+            
+                <label class="label">School Name</label>
+                <input name="schoolName" type="text" class="textarea">
+            
+                <label class="label" for="selectCounty">Select County</label>
+                <select name="county" class="textarea" id="selectCounty"></select>
+            
+                <label class="label">Select Subcounty</label>
+                <select class="textarea" name="Subcounty" id="selectSubCounty"></select>
+            
+                <label class="label">SChool contact/Phone Number</label>
+                <input name="schoolPNumber" type="number" class="textarea">
+            
+                
+                <label class="label">School Email Address</label>
+                <input name="schoolEmail" type="email" class="textarea">
+           
+
+             
+    </div>
+
+
+    <div class="wrapper">
+        <h2>Intended School</h2>
+      
+        <label class="label" for="selectCounty">Select County</label>
+        <select name="county" class="textarea" id="selectCountyI" onchange="populateSchools()"></select>
+      
+        <label class="label">School Name</label>
+        <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
+
+        <label class="label">Select Subcounty</label>
+        <p class="textarea" name="Subcounty"><?php echo isset($row['subcounty']) ? $row['subcounty'] : ''; ?></p>
+
+        <label class="label">School Contact/Phone Number</label>
+        <p class="textarea" name="IntendedSchoolContact"><?php echo isset($row['phone_number']) ? $row['phone_number'] : ''; ?></p>
+
+        <label class="label">School Email Address</label>
+        <p class="textarea" name="IntendedSchoolEmail"><?php echo isset($row['email_address']) ? $row['email_address'] : ''; ?></p>
+
+
+    </div>
+   
+    
+
+    <div class="container2">
+        <div class="content">
+            <p style="margin-bottom: 2px;">Breafly give a Reason for your Tranfer.</p>
+            <p style="margin-bottom: 2px;">Talk of why you choose to leave your current School and </p>
+            <p>Why choose The Inteded School.</p>
+            <textarea name="ReasonForTranfer" cols="30" rows="10" id="tranferReason"></textarea>
+        </div>
+        <div class="content">
+            <p style="margin-bottom: 2px;">Upload the following documents</p>
+            <p>Make sure they are in PDF Format.</p>
+            
+            <div class="content2">
+                <label>Application Letter</label>
+                <input name="ApplicationLetterPdf" type="file" class="textarea" accept=".pdf">
+            </div>
+            <div class="content2">
+                <label>Privous school clearance form</label>
+                <input name="clearanceFormPDF" type="file" class="textarea" accept=".pdf">
+            </div>
+            <div class="content2">
+                <label>Tranfer Aproval from privous School</label>
+                <input name="TranferAprovalPDF" type="file" class="textarea" accept=".pdf">
+            </div>
+
+            <div class="content2">
+                <label>Birth Certificate or ID card</label>
+                <input name="identificationPDF" type="file" class="textarea" accept=".pdf">
+            </div>
+        </div> 
+
+
+
+        <div class="container3">
+
+            <div class="content3">
+
+                <p style="margin-bottom: 2px;">Parent Details</p>
+
+                <label>Name</label>
+                <input name="PName" type="text" class="textarea3">
+                <label>Phone Number</label>
+                <input name="PhoneNumberP" type="number" class="textarea3">
+                <label>Email Address</label>
+                <input name="pemail" type="email" class="textarea3" >
+                <label>ID Number</label>
+                <input name="PID" type="text" class="textarea3" >
+                <p>Reason for the leaving.</p>
+                <input style="width: 90%; height: 90px;" name="PID" type="text" class="textarea3" >
+                
+                <textarea name="PReasonForTranfer" cols="30" rows="10" id="tranferReason"></textarea>
+                
+            </div> 
+           
+            <div class="content3">
+                <p style="margin-bottom: 2px;">Parrent/ Gurdian Declarition.</p>
+                <p>I have cleard/ commit my self to clear all my financial obligations in the school. I also have knowledge of this tranfer and concent to it.</p>
+                <label for="">I.D NO</label>
+                <input name="IDPP" type="number" class="textarea3">
+                <label for="">Address</label>
+                <input name="addressP" type="text" class="textarea3">
+                <label for="">phone Number</label>
+                <input name="phoneNumberP" type="number" class="textarea3">
+                <label for="">Date</label>
+                <input name="Date" type="date" class="textarea3">
+    
+            </div>
+            
+        </div> 
+
+
+
+    </div> 
+
+    <div id="University" class="container2">
+        <div class="content">
+            <img src="images/img14.jpeg" alt="" style="width: 500px; height: 350px;">
+        </div>
+        <div class="content">
+            <h2 style="color: #355e8b;">University and College</h2><br>
+            <p>Computers are versatile electronic devices that have revolutionized nearly every aspect of modern life..Computers are versatile electronic devices that have revolutionized nearly every aspect of modern life. They process and store information using binary code, allowing them to perform an array of tasks, from complex calculations and data analysis to multimedia entertainment and communication. Computers come in various forms, including desktops, laptops, tablets, and smartphones, each tailored to specific user needs. Their rapid evolution, driven by Moore's Law and advancements in semiconductor technology, has continuously expanded their capabilities,.
+                Computers are versatile electronic devices that have revolutionized nearly every aspect of modern life..Computers are versatile electronic devices that have revolutionized nearly every aspect of modern life. They process and store information using binary code, allowing them to perform an array of tasks, from complex calculations and data analysis to multimedia entertainment and communication. Computers come in various forms, including desktops, laptops, tablets, and smartphones, each tailored to specific user needs. Their rapid evolution, driven by Moore's Law and advancements in semiconductor technology, has continuously expanded their capabilities,.
+                Computers are versatile electronic devices that have revolutionized nearly every aspect of modern life..Computers are versatile electronic devices that have revolutionized nearly every aspect of modern life. They process and store information using binary code, allowing them to perform an array of tasks, from complex calculations and data analysis to multimedia entertainment and communication. Computers come in various forms, including desktops, laptops, tablets, and smartphones, each tailored to specific user needs. Their rapid evolution, driven by Moore's Law and advancements in semiconductor technology, has continuously expanded their capabilities,.
+            </p>
+        </div> 
+        
+    </div> 
+
+
+
+</form>
+
+
+<script src="StudentTranferRegistration.js"></script>
+
+
+
+</body>
+
+</html>
+

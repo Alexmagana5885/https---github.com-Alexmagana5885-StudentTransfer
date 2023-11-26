@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <script>
         $(document).ready(function () {
             // Assuming jsonData contains the JSON data you generated in your PHP script
-            var jsonData = <?php echo $jsonData; ?>;
+            var jsonData = <?php echo json_encode($jsonData, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE); ?>;
 
             // Populate County dropdown
             var countyDropdown = $("#selectCountyI");
@@ -29,6 +30,9 @@
                 $.each(jsonData[selectedCounty], function (index, school) {
                     schoolDropdown.append($("<option></option>").attr("value", school.school_name).text(school.school_name));
                 });
+
+                // Trigger change event to update Subcounty, Contact, and Email fields
+                schoolDropdown.trigger("change");
             });
 
             // Handle school selection change
@@ -49,13 +53,14 @@
         });
     </script>
 </head>
+
 <body>
     <div class="wrapper">
         <h2>Intended School</h2>
-      
+
         <label class="label" for="selectCounty">Select County</label>
         <select name="county" class="textarea" id="selectCountyI"></select>
-      
+
         <label class="label">School Name</label>
         <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
 
@@ -70,6 +75,5 @@
     </div>
     <script src="StudentTranferRegistration.js"></script>
 </body>
-<script src="StudentTranferRegistration.js"></script>
 
 </html>

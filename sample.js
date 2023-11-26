@@ -1,33 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const buttons = document.querySelectorAll('.buttonResponse');
 
-  buttons.forEach(function (button) {
-      button.addEventListener('click', function () {
-          const registrationNumber = button.getAttribute('data-registration-number');
-          togglePopup(registrationNumber);
-      });
-  });
-});
+    function populateSchools() {
+        const selectedSchool = document.getElementById('selectSchoolI').value;
+        const apiUrl = `/getSchoolInfo.php?school=${selectedSchool}`;
 
-function togglePopup(registrationNumber) {
-  const popup = document.getElementById(registrationNumber);
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('selectSubCountyI').value = data.Subcounty;
+                document.getElementById('selectSchoolContactI').value = data.Contact;
+                document.getElementById('selectSchoolEmailI').value = data.Email;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
 
-  if (popup) {
-      if (popup.style.display === 'block' || popup.style.display === '') {
-          popup.style.display = 'none';
-      } else {
-          popup.style.display = 'block';
-      }
-  }
-}
+    document.getElementById('selectSchoolI').addEventListener('change', populateSchools);
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  const openPopupBtnSS = document.getElementById("openPopupBtn1");
-  const popupSS = document.getElementById("registration_number");
-  togglePopup(openPopupBtnSS, popupSS);
-});
-
-closePopupBtn1.addEventListener("click", () => {
-  popupSS.style.display = "none";
-});

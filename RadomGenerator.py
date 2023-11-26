@@ -111,7 +111,7 @@ conn = mysql.connector.connect(**db_config)
 cursor = conn.cursor()
 
 
-for _ in range(200):
+for _ in range(2000):
     data = generate_random_data()
     query = "INSERT INTO `schoolreg` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor.execute(query, data)

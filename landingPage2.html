@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="landingPage.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Transfer</title>
+    <title>Your Page Title</title>
     <style>
 
 
@@ -14,18 +14,17 @@
             align-items: center;
             padding: 10px;
             background-color: #355e8b;
-            width: 100%;
-            z-index: 1000;
-            position: fixed;
-            
-            
         }
 
         .Navigation {
             display: flex;
         }
 
-
+        .Navigation a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+        }
 
         main {
             padding: 20px;
@@ -36,14 +35,9 @@
             color: #fff;
             text-align: center;
             padding: 10px;
-            text-decoration: none;
+            position: fixed;
             bottom: 0;
             width: 100%;
-        }
-
-        footer a{
-            text-decoration: none;
-            color: #fff;
         }
 
         @media screen and (max-width: 600px) {
@@ -60,23 +54,18 @@
             .Navigation a {
                 margin: 5px 0;
             }
-
-            .container{
-                padding-top : 30px;
-                margin-top: 200px;
-            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h2 style="color:#fff; margin-left: 20px;">Student Transfer</h2>
+        <h2 style="color:#fff; margin-left: 20px;">Student Transfer Registration</h2>
         <nav class="Navigation">
             <a class="a" href="#prmary">Primary School</a>
             <a class="b" href="#Secondary">Secondary School</a>
             <a class="b" href="#University">University/College</a>
-            <a style="margin-right: 60px ;" class="btnLogin-popup" href="login.html">Login</a>
+            <a class="btnLogin-popup" href="login.html">Login</a>
         </nav>
     </header>
 
@@ -116,7 +105,7 @@
                     <p>Computers are  information using binary code, allowing them to perform an array of tasks, from complex calculations and data analysis to multimedia entertainment and communication. Computers come in various forms, including desktops, laptops, tablets, and smartphones, each tailored to specific user needs. Their rapid evolution, driven by Moore's Law and advancements in semiconductor technology, has continuously expanded their capabilities,</p>
                     <div class="LoginRegister">
                         <!-- <a href="login.html" class="LoginLink">Login</a> -->
-                        <a href="GovEducationOfficeRegistration.html" class="registerLink">Register</a>
+                        <a href="GovRegistration.html" class="registerLink">Register</a>
                     </div>
                 </span>
             </div>
@@ -179,24 +168,17 @@
     </main>
 
 
-    <footer style="display: flex ; justify-content: center;">
-        <div style="width: 30%;" class="">
-            <h3>Education portals:</h3>
-            <a href="https://kuccps.net/">KUCCPS</a><br><br>
-            <a href="https://www.knec.ac.ke/our-portals/">KNEC</a><br><br>
-            <a href="https://www.education.go.ke/">MINISTRY OF EDUCATION </a><br><br>
-
-        </div>
-
-        <div style="width: 30%;" class="">
-            <h3>Contacts: </h3>
-            <a href="tel:+25479738730">+254797387302</a><br><br>
-            <a href="tel:+254748027123">+254748027123</a><br><br>
-            <a href="mailto:maganaalex634@gmail.com">maganaalex634@gmail.com</a><br><br>
-            
-        </div>
-
- 
+    <footer>
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+                  <!-- <div class="dropdown">
+                <a class="c" href="#">Education portals</a>
+                <div class="dropdown-content">
+                    <a href="https://kuccps.net/">KUCCPS</a>
+                    <a href="https://www.knec.ac.ke/our-portals/">KNEC</a>
+                    <a href="https://www.education.go.ke/">MINISTRY OF EDUCATION 3</a>
+                    
+                </div>
+            </div> -->
     </footer>
 
 </body>

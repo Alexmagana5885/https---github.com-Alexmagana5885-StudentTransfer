@@ -70,7 +70,7 @@ $EducationOfficeResponse = $conn->query($sql);
                     </a>
                 </li>
                 <li>
-                    <a href="StudentTranferRegistration.html">
+                    <a href="StudentTranferRegistrationform.php">
                         <span class="title">Tranfer Registration</span>
                     </a>
                 </li>

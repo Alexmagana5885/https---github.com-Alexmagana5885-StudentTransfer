@@ -1,169 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>School Registration Form</title>
-  <link rel="stylesheet" href="ShoolRegistration.css">
-  <style>
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #355e8b;/
-    }
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ShoolRegistration.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-    .Navigation {
-        display: flex;
-    }
+        header {
+            background-color: #355e8b;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            position: fixed;
+        }
 
-    .Navigation a {
-        margin: 0 10px; 
-        text-decoration: none;
-        color: #fff;
-    }
-</style>
+        h2 {
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        .Navigation {
+            margin-top: 10px;
+        }
+
+        .Navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+   
+        body {
+            padding-top: 70px; 
+        }
+    </style>
+    <title>School Registration</title>
 </head>
-
 <body>
-
-
-    <!-- <header>
-        <h2 style="color:#fff; margin-left: 20px;">Student Transfer Registration</h2>
+    <header>
+        <h2>School Registration</h2>
         <nav class="Navigation">
-            <a class="a" href="firstPage.html">Home</a>
-            <a class="b" href="#">About</a>
-            <a class="c" href="#">Services</a>
-            <a class="d" href="#">Contacts</a>
+          <a class="btnLogin-popup" style="margin-right: 60px;" href="firstPage.html">Home</a>
         </nav>
-    </header> -->
-   
+    </header>
 
    
-<div class="wrapper">
-    <div class="title">
-      school Registration Form
-    </div>
-<form action="ShoolRegistration.php" method="post">
-  <div class="form">
-    <div class="inputfield">
-      <label>Level of School</label>
-      <div class="custom_select">
-        <select required name="level_of_school">
-          <option value="">Select</option>
-          <option value="Primary School">Primary School</option>
-          <option value="Secondary School">Secondary School</option>
-          <option value="University/Collage">University/Collage</option>
-        </select>
+    <div class="wrapper">
+        <div class="title">
+          school Registration Form
+        </div>
+    <form action="ShoolRegistration.php" method="post">
+      <div class="form">
+        <div class="inputfield">
+          <label>Level of School</label>
+          <div class="custom_select">
+            <select required name="level_of_school">
+              <option value="">Select</option>
+              <option value="Primary School">Primary School</option>
+              <option value="Secondary School">Secondary School</option>
+              <option value="University/Collage">University/Collage</option>
+            </select>
+          </div>
+        </div>
+        <div class="inputfield">
+          <label>School name</label>
+          <input required type="text" class="input" name="school_name">
+        </div>
+    
+        <div class="inputfield">
+          <label>School Location</label>
+          <div class="custom_select">
+              <select required id="selectCounty" name="Gcounty"></select>
+          </div>
       </div>
-    </div>
-    <div class="inputfield">
-      <label>School name</label>
-      <input required type="text" class="input" name="school_name">
-    </div>
-
-    <div class="inputfield">
-      <label>School Location</label>
-      <div class="custom_select">
-          <select required id="selectCounty" name="Gcounty"></select>
+    
+      <div class="inputfield">
+          <div class="custom_select">
+              <select required id="selectSubCounty" name="Gsubcounty"></select>
+          </div>
       </div>
-  </div>
-
-  <div class="inputfield">
-      <div class="custom_select">
-          <select required id="selectSubCounty" name="Gsubcounty"></select>
+    
+        <div class="inputfield">
+          <label>Registration Code</label>
+          <input required type="password" class="input" name="registration_number">
+        </div>
+        <div class="inputfield">
+          <label>Password</label>
+          <input required type="password" class="input" name="password">
+        </div>
+        <div class="inputfield">
+          <label>Gender Accepted</label>
+          <div class="custom_select">
+            <select required name="gender_accepted">
+              <option value="">Select</option>
+              <option value="Boys">Boys</option>
+              <option value="Girls">Girls</option>
+              <option value="Mixed">Mixed</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="inputfield">
+          <label>Mode of Schooling</label>
+          <div class="custom_select">
+            <select required name="mode_of_schooling">
+              <option value="">Day School</option>
+              <option value="Boys">Boarding School</option>
+              <option value="Girls">Both Day and Boarding school</option>
+            </select>
+          </div>
+    
+        <div class="inputfield">
+          <label>Email Address</label>
+          <input required type="text" class="input" name="email_address">
+        </div>
+        <div class="inputfield">
+          <label>Phone Number</label>
+          <input required type="text" class="input" name="phone_number">
+        </div>
+        <div class="inputfield">
+          <label>Address</label>
+          <textarea required class="textarea" name="address"></textarea>
+        </div>
+        <div class="inputfield">
+          <label>Postal Code</label>
+          <input required type="text" class="input" name="postal_code">
+        </div>
+        <div class="inputfield">
+          <label>School Fees Per Semester in Ksh</label>
+          <input required type="number" class="input" name="school_fees">
+        </div>
+    
+        <div class="inputfield">
+        <label>Types of Diet</label>
+        <div class="custom_select">
+          <select required name="diet_type">
+            <option value="">Select</option>
+            <option value="Normal diet to all student">Normal diet to all student</option>
+            <option value="School provides Special Medical Diets">School provides Special Medical Diets</option>
+            <option value="Student pays for the special diets">Student pays for the special diets</option>
+          </select>
+        </div>
       </div>
-  </div>
-
-    <div class="inputfield">
-      <label>Registration Code</label>
-      <input required type="password" class="input" name="registration_number">
-    </div>
-    <div class="inputfield">
-      <label>Password</label>
-      <input required type="password" class="input" name="password">
-    </div>
-    <div class="inputfield">
-      <label>Gender Accepted</label>
-      <div class="custom_select">
-        <select required name="gender_accepted">
-          <option value="">Select</option>
-          <option value="Boys">Boys</option>
-          <option value="Girls">Girls</option>
-          <option value="Mixed">Mixed</option>
-        </select>
+      <div class="inputfield">
+        <label>Medical</label>
+        <div class="custom_select">
+          <select required name="medical_facility">
+            <option value="">Select</option>
+            <option value="Available School Hospital">Available School Hospital</option>
+            <option value="Referral Hospital Near the School">Referral Hospital Near the School</option>
+          </select>
+        </div>
       </div>
-    </div>
-
-    <div class="inputfield">
-      <label>Mode of Schooling</label>
-      <div class="custom_select">
-        <select required name="mode_of_schooling">
-          <option value="">Day School</option>
-          <option value="Boys">Boarding School</option>
-          <option value="Girls">Both Day and Boarding school</option>
-        </select>
+      <script src="StudentTranferRegistration.js"></script>
+      </form>
       </div>
-
-    <div class="inputfield">
-      <label>Email Address</label>
-      <input required type="text" class="input" name="email_address">
-    </div>
-    <div class="inputfield">
-      <label>Phone Number</label>
-      <input required type="text" class="input" name="phone_number">
-    </div>
-    <div class="inputfield">
-      <label>Address</label>
-      <textarea required class="textarea" name="address"></textarea>
-    </div>
-    <div class="inputfield">
-      <label>Postal Code</label>
-      <input required type="text" class="input" name="postal_code">
-    </div>
-    <div class="inputfield">
-      <label>School Fees Per Semester in Ksh</label>
-      <input required type="number" class="input" name="school_fees">
-    </div>
-
-    <div class="inputfield">
-    <label>Types of Diet</label>
-    <div class="custom_select">
-      <select required name="diet_type">
-        <option value="">Select</option>
-        <option value="Normal diet to all student">Normal diet to all student</option>
-        <option value="School provides Special Medical Diets">School provides Special Medical Diets</option>
-        <option value="Student pays for the special diets">Student pays for the special diets</option>
-      </select>
-    </div>
-  </div>
-  <div class="inputfield">
-    <label>Medical</label>
-    <div class="custom_select">
-      <select required name="medical_facility">
-        <option value="">Select</option>
-        <option value="Available School Hospital">Available School Hospital</option>
-        <option value="Referral Hospital Near the School">Referral Hospital Near the School</option>
-      </select>
-    </div>
-  </div>
-  <script src="StudentTranferRegistration.js"></script>
-  </form>
-  </div>
-    <div class="inputfield terms">
-      <label class="check">
-        <h4>Agreed to terms and conditions</h4>
-        <input type="checkbox" required>
-        <span class="checkmark"></span>
-      </label>
-      
-   </div> 
-
-  <div class="inputfield">
-    <input type="submit" value="Register" class="btn">
-  </div>
-  </div>
-	
+        <div class="inputfield terms">
+          <label class="check">
+            <h4>Agreed to terms and conditions</h4>
+            <input type="checkbox" required>
+            <span class="checkmark"></span>
+          </label>
+          
+       </div> 
+    
+      <div class="inputfield">
+        <input type="submit" value="Register" class="btn">
+      </div>
+      </div>
+        
 </body>
-</html>    
+</html>

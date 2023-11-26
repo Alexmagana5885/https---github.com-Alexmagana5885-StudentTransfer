@@ -9,8 +9,6 @@ body {
 }
 
 
-
-
 header {
     top: 0;
     left:o;
@@ -68,7 +66,7 @@ header {
 
 
 
-/* =============== Navigation ================ */
+/*  Navigation  */
 .navigation {
   position: fixed;
   width: 300px;
@@ -142,7 +140,7 @@ header {
   white-space: nowrap;
 }
 
-/* --------- curve outside ---------- */
+/*  curve outside  */
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
   content: "";

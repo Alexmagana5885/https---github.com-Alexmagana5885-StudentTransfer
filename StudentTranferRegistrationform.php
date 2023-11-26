@@ -1,4 +1,22 @@
+<?php
+require_once('config.php');
 
+// Ensure that the $conn variable is properly configured in your config.php file.
+
+
+$school_name = 'school_name';
+
+// Use the registration_number to fetch data from the database
+$query = "SELECT * FROM schoolreg WHERE school_name = '$school_name'";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die('Query failed: ' . mysqli_error($conn));
+}
+
+$row = mysqli_fetch_assoc($result);
+
+?>
 
 
 <!DOCTYPE html>
@@ -8,7 +26,6 @@
     <link rel="stylesheet" href="studentTranferReg.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-
     <title>Student Transfer</title>
 </head>
 
@@ -72,30 +89,38 @@
                 
                 <label class="label">School Email Address</label>
                 <input name="schoolEmail" type="email" class="textarea">
+
+                
            
 
              
     </div>
 
-
     <div class="wrapper">
-        <h2>Intended School</h2>
-      
-        <label class="label" for="selectCounty">Select County</label>
-        <select name="county" class="textarea" id="selectCountyI" onchange="populateSchools()"></select>
-      
-        <label class="label">School Name</label>
-        <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
-      
-        <label class="label">Select Subcounty</label>
-        <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
-      
-        <label class="label">School Contact/Phone Number</label>
-        <input name="IntendedSchoolContact" type="number" class="textarea">
-      
-        <label class="label">School Email Address</label>
-        <input name="IntendedSchoolEmail" type="email" class="textarea">
-    </div>
+    <h2>Intended School</h2>
+  
+    <label class="label" for="selectCounty">Select County</label>
+    <select name="county" class="textarea" id="selectCountyI" onchange="populateSchools()"></select>
+  
+    <label class="label">School Name</label>
+    <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
+  
+    <label class="label">Select Subcounty</label>
+    <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
+  
+    <label class="label">School Contact/Phone Number</label>
+    <input name="IntendedSchoolContact" type="number" class="textarea">
+  
+    <label class="label">School Email Address</label>
+    <input name="IntendedSchoolEmail" type="email" class="textarea">
+
+    <a href="#" id="schoolDetailsLink" onclick="openSchoolDetails(event)">School Details</a>
+
+
+
+</div>
+
+
    
     
 
@@ -176,7 +201,8 @@
 </form>
 
 
-<script src="StudentTranferRegistration.js"></script> 
+<script src="StudentTranferRegistration.js"></script>
+
 
 
 </body>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ShoolRegistration.css">
+    <title>Education Office Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #355e8b;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure the header appears above other content */
+        }
+
+        h2 {
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        .Navigation {
+            margin-top: 10px;
+        }
+
+        .Navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        /* Add some padding to the body to account for the fixed header */
+        body {
+            padding-top: 70px; /* Adjust the value based on your header height */
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h2>Education Office Registration</h2>
+        <nav class="Navigation">
+          
+          <a class="btnLogin-popup" style="margin-right: 60px;" href="firstPage.html">Home</a>
+
+        </nav>
+    </header>
+    <div class="wrapper">
+      <div class="title">
+          Education Office Registration
+      </div>
+
+      <form action="GofficeReg.php" method="post">
+          <div class="form">
+
+              <div class="inputfield">
+                  <label>Name Of The Office</label>
+                  <input type="text" class="input" name="GOoffice">
+              </div>
+
+              <div class="inputfield">
+                  <label>Registration Number</label>
+                  <input type="text" class="input" name="registrationNumber">
+              </div>
+
+              <div class="inputfield">
+                  <div class="custom_select">
+                      <select id="selectCounty" name="Gcounty"></select>
+                  </div>
+              </div>
+
+              <div class="inputfield">
+                  <div class="custom_select">
+                      <select id="selectSubCounty" name="Gsubcounty"></select>
+                  </div>
+              </div>
+
+              <div class="inputfield">
+                  <label>Office Contact</label>
+                  <input type="number" class="input" name="OfficeContact">
+              </div>
+
+              <div class="inputfield">
+                  <label>Email address</label>
+                  <input type="email" class="input" name="Gemail">
+              </div>
+
+              <div class="inputfield">
+                  <label>Create Password</label>
+                  <input type="password" class="input" name="GCreatePassword">
+              </div>
+
+              <div class="inputfield">
+                  <label>Confirm Password</label>
+                  <input type="password" class="input" name="GConfirmPassword">
+              </div>
+
+              <div class="inputfield terms">
+                  <label class="check">
+                      <h4>Agreed to terms and conditions</h4>
+                      <input type="checkbox" required>
+                      <span class="checkmark"></span>
+                  </label>
+              </div>
+
+              <div class="inputfield">
+                  <input type="submit" value="Register" class="btn">
+              </div>
+          </div>
+      </form>
+      <script src="StudentTranferRegistration.js"></script>
+  </div>
+
+</body>
+</html>

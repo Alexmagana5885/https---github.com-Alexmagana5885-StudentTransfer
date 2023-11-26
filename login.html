@@ -2,68 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="index.js"></script>
-    <link rel= "stylesheet" href = "index.css">
+    <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Transfer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #355e8b;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure the header appears above other content */
+        }
+
+        h2 {
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        .Navigation {
+            margin-top: 10px;
+        }
+
+        .Navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        /* Add some padding to the body to account for the fixed header */
+        body {
+            padding-top: 70px; /* Adjust the value based on your header height */
+        }
+    </style>
+    <title>Login</title>
 </head>
 <body>
     <header>
-        <nav class = "Navigation">
-            <a class="a" href="firstPage.html">Home</a>
-            <a class="b" href="#">About</a>
-            <a class="c" href="#">Services</a>
-            <a class="d" href="#">Contacts</a>
-            <button class="btnLogin-popup">Login</button>
-        </nav>
+        <h2>User Login</h2>
+        <nav class="Navigation">
+          
+          <a class="btnLogin-popup" style="margin-right: 60px;" href="firstPage.html">Home</a>
 
+        </nav>
     </header>
 
     <div class="wraper">
 
-            <!-- Login -->
-            <form action="login.php" method="post">
-            <div class="boxLogin">
+      <!-- Login -->
+      <form action="login.php" method="post">
+      <div class="boxLogin">
 
-                <body class="schSelect">
-                    <label for="selectOption">Login Category:</label>
-                    <select name="loginCategory" id="selectOption">
-                        <option value="option1">Choose an option</option>
-                        <option value="option1">Student</option>
-                        <option value="option2">School</option>
-                        <option value="option3">Government Office</option>
-                    </select>
-                </body>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input name="registrationNumber" type="text" required>
-                    <label >Registration Number</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input name="password" type="password" required>
-                    <label >Password</label>
-                </div>
-                <div class="forgotPasword">
-                    <label><input type="checkbox">
-                    Remember Me</label>
-                    <a href="#">Forgot password?</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
-                <div class="LoginRegister">
-                    <p>Don't have an account?<a href="firstPage.html" class="registerLink"> Register</a></p>
-                   
-                </div>
-
-
-            </form>
- 
-        </div>
+          <body class="schSelect">
+              <label for="selectOption">Login Category:</label>
+              <select name="loginCategory" id="selectOption">
+                  <option value="option1">Choose an option</option>
+                  <option value="option1">Student</option>
+                  <option value="option2">School</option>
+                  <option value="option3">Government Office</option>
+              </select>
+          </body>
+      <form action="#">
+          <div class="input-box">
+              <span class="icon"></span>
+              <input style="font-size: 13px;" name="registrationNumber" type="text" required>
+              <label >Registration Number</label>
+          </div>
+          <div class="input-box">
+              <span class="icon"></span>
+              <input style="font-size: 13px;" name="password" type="password" required>
+              <label >Password</label>
+          </div>
+          <div class="forgotPasword">
+              <label><input type="checkbox">
+              Remember Me</label>
+              <a href="#">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn">Login</button>
+      </form>
+          <div class="LoginRegister">
+              <p>Don't have an account?<a href="firstPage.html" class="registerLink"> Register</a></p>
+             
+          </div>
 
 
-    </div>
+      </form>
 
+  </div>
+
+
+</div>
 </body>
 </html>
