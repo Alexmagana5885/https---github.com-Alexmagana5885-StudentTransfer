@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("config.php"); // Assuming this file contains your database connection code
+include("config.php"); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $registrationNumber = $_POST["registrationNumber"];
     $county = $_POST["Gcounty"];
     $subCounty = $_POST["Gsubcounty"];
-    $officeContact = $_POST["OfficeContact"]; // Corrected variable name
+    $officeContact = $_POST["OfficeContact"]; 
     $email = $_POST["Gemail"];
     $password = $_POST["GCreatePassword"];
     

@@ -128,7 +128,7 @@ select {
     font-family: 'Times New Roman', Times, serif;
 }
 
-/* Style the options when opened */
+
 select:focus {
     border-color: #007bff; /* Change the border color when the dropdown is focused */
     outline: none; /* Remove the default outline */

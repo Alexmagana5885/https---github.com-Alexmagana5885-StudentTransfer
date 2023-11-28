@@ -108,8 +108,8 @@ table{
     height: 500px;
     box-shadow: #355e8b;
     border-radius: 10px;
-    text-align: center; /* Center the content inside the popup */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Example shadow style */
+    text-align: center; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: center;
 }

@@ -68,7 +68,7 @@ $result2 = mysqli_query($conn, $query);
 
 <body>
 
-    <!-- =============== Navigation ================ -->
+    <!--  Navigation  -->
     <div class="container">
         <div class="navigation">
             <ul>
@@ -127,7 +127,7 @@ $result2 = mysqli_query($conn, $query);
                 </div>
             </div>
 
-            <!-- ======================= Cards ================== -->
+            <!--  Cards  -->
             <div class="cardBox">
                 <!-- Card 1: Total Transfers -->
                 <div class="card">
@@ -162,7 +162,7 @@ $result2 = mysqli_query($conn, $query);
                 </div>
             </div>
 
-            <!-- ================ Transfer Details ================= -->
+            <!--  Transfer Details  -->
             <div class="details">
                 <div class="recentTransfers">
                     <div class="cardHeader">
@@ -277,11 +277,11 @@ $result2 = mysqli_query($conn, $query);
         </div>
     </div>
 
-    <!-- =========== Scripts =========  -->
+    <!--  Scripts   -->
     <script src="adminsch.js"></script>
-    <!-- <script src="sample.js"></script> -->
+    
 
-    <!-- ====== ionicons ======= -->
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

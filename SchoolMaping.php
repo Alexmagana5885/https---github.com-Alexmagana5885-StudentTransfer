@@ -1,5 +1,5 @@
 <?php
-// Assuming you have a database connection established
+
 require_once('config.php');
 
 // Check connection

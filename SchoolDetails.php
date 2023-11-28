@@ -6,7 +6,7 @@ require_once('config.php');
 if (isset($_GET['school_name'])) {
     $school_name = $_GET['school_name']; 
 
-    // $school_name = 'Hensley, Hodges and Baker';
+    
 
     // Use the school_name to fetch data from the database
     $query = "SELECT * FROM schoolreg WHERE school_name = '$school_name'";

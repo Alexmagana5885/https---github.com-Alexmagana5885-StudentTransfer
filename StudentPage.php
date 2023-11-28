@@ -53,7 +53,7 @@ $EducationOfficeResponse = $conn->query($sql);
 </head>
 <body>
 
-    <!-- =============== Navigation ================ -->
+    <!--  Navigation  -->
     <div class="container">
         <div class="navigation">
             <ul>
@@ -186,7 +186,7 @@ $EducationOfficeResponse = $conn->query($sql);
 
 </div>
 
-<!-- ================ tranfer details ================= -->
+<!--  tranfer details  -->
 
             <div class="details">
                 <div class="recentTransfers">
@@ -610,12 +610,12 @@ $EducationOfficeResponse = $conn->query($sql);
 
 
 
-<!-- =========== Scripts =========  -->
+<!--  Scripts   -->
 
     <script src="adminsch.js"></script>
 
 
-    <!-- ====== ionicons ======= -->
+   
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

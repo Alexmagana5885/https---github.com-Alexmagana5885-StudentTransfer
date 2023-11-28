@@ -24,7 +24,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #355e8b; /* Set your desired background color */
+  background-color: #355e8b; 
 }
 
 .Navigation {
@@ -32,9 +32,9 @@ header {
 }
 
 .Navigation a {
-  margin: 0 10px; /* Adjust the margin as per your design */
+  margin: 0 10px; 
   text-decoration: none;
-  color: #fff; /* Set your desired text color */
+  color: #fff; 
 }
 
 

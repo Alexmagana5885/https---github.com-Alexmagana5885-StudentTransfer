@@ -1,7 +1,6 @@
 <?php
 require_once('config.php');
 
-// Ensure that the $conn variable is properly configured in your config.php file.
 
 
 $school_name = 'school_name';

@@ -88,7 +88,7 @@ def generate_random_data():
     medical_facility = fake.random_element(["Yes", "No"])
 
     return (
-        None,  # Assuming 'id' is an auto-increment field
+        None, 
         level_of_school,
         school_name,
         county,
