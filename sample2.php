@@ -1,75 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Information</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="StudentTranferRegistration.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Assuming jsonData contains the JSON data you generated in your PHP script
-            var jsonData = <?php echo $jsonData; ?>;
+<?php
+// Assuming you have a database connection established
+require_once('config.php');
 
-            // Populate County dropdown
-            var countyDropdown = $("#selectCountyI");
-            $.each(jsonData, function (county, schools) {
-                countyDropdown.append($("<option></option>").attr("value", county).text(county));
-            });
+if (isset($_GET['county'])) {
+    $selectedCounty = $_GET['county'];
 
-            // Handle county selection change
-            countyDropdown.on("change", function () {
-                var selectedCounty = $(this).val();
-                var schoolDropdown = $("#selectSchoolI");
+    // Fetch schools for the selected county
+    $sql = "SELECT school_name FROM schoolreg WHERE county = '$selectedCounty'";
+    $result = $conn->query($sql);
 
-                // Clear previous options
-                schoolDropdown.empty();
+    $schools = array();
 
-                // Populate School Name dropdown based on the selected county
-                $.each(jsonData[selectedCounty], function (index, school) {
-                    schoolDropdown.append($("<option></option>").attr("value", school.school_name).text(school.school_name));
-                });
-            });
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $schools[] = $row['school_name'];
+        }
+    }
 
-            // Handle school selection change
-            $("#selectSchoolI").on("change", function () {
-                var selectedCounty = $("#selectCountyI").val();
-                var selectedSchool = $(this).val();
+    // Close the database connection
+    $conn->close();
 
-                // Find the selected school in the JSON data
-                var selectedSchoolData = jsonData[selectedCounty].find(function (school) {
-                    return school.school_name === selectedSchool;
-                });
+    // Convert the array to JSON and echo it
+    echo json_encode(array($selectedCounty => $schools));
+}
+?>
 
-                // Populate Subcounty, School Contact/Phone Number, and School Email Address fields
-                $("p[name='Subcounty']").text(selectedSchoolData.subcounty);
-                $("p[name='IntendedSchoolContact']").text(selectedSchoolData.phone_number);
-                $("p[name='IntendedSchoolEmail']").text(selectedSchoolData.email_address);
-            });
-        });
-    </script>
-</head>
-<body>
-    <div class="wrapper">
-        <h2>Intended School</h2>
-      
-        <label class="label" for="selectCounty">Select County</label>
-        <select name="county" class="textarea" id="selectCountyI"></select>
-      
-        <label class="label">School Name</label>
-        <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
 
-        <label class="label">Select Subcounty</label>
-        <p class="textarea" name="Subcounty"></p>
+<div class="wrapper">
+    <h2>Intended School</h2>
+  
+    <label class="label" for="selectCounty">Select County</label>
+    <select name="county" class="textarea" id="selectCountyI"></select>
+    <!-- <input name="county" type="text" class="textarea"> -->
+  
+    <label class="label">School Name</label>
+    <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
+    <!-- <input name="IntendedSchoolName" type="text" class="textarea"> -->
+  
+    <label class="label">Select Subcounty</label>
+    <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
+    <!-- <input name="Subcounty" type="text" class="textarea"> -->
+  
+    <label class="label">School Contact/Phone Number</label>
+    <input name="IntendedSchoolContact" type="number" class="textarea">
+  
+    <label class="label">School Email Address</label>
+    <input name="IntendedSchoolEmail" type="email" class="textarea">
 
-        <label class="label">School Contact/Phone Number</label>
-        <p class="textarea" name="IntendedSchoolContact"></p>
 
-        <label class="label">School Email Address</label>
-        <p class="textarea" name="IntendedSchoolEmail"></p>
-    </div>
-    <script src="StudentTranferRegistration.js"></script>
-</body>
-<script src="StudentTranferRegistration.js"></script>
-
-</html>
+</div>

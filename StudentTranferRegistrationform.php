@@ -39,7 +39,7 @@ $row = mysqli_fetch_assoc($result);
         
         </nav>
     </header>
-    
+
     
 <form id="StudentTranferRegistrationForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data" >
 
@@ -90,32 +90,30 @@ $row = mysqli_fetch_assoc($result);
                 <label class="label">School Email Address</label>
                 <input name="schoolEmail" type="email" class="textarea">
 
-                
-           
-
-             
+                       
     </div>
+
 
     <div class="wrapper">
     <h2>Intended School</h2>
   
     <label class="label" for="selectCounty">Select County</label>
-    <select name="county" class="textarea" id="selectCountyI" onchange="populateSchools()"></select>
+    <select name="county" class="textarea" id="selectCountyI"></select>
+    <!-- <input name="county" type="text" class="textarea"> -->
   
     <label class="label">School Name</label>
-    <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select>
+    <!-- <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select> -->
+    <input name="IntendedSchoolName" type="text" class="textarea">
   
     <label class="label">Select Subcounty</label>
     <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
+    <!-- <input name="Subcounty" type="text" class="textarea"> -->
   
     <label class="label">School Contact/Phone Number</label>
     <input name="IntendedSchoolContact" type="number" class="textarea">
   
     <label class="label">School Email Address</label>
     <input name="IntendedSchoolEmail" type="email" class="textarea">
-
-    <a href="#" id="schoolDetailsLink" onclick="openSchoolDetails(event)">School Details</a>
-
 
 
 </div>

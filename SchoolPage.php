@@ -5,15 +5,24 @@ $sessionTimeout = 30 * 60;
 require_once('config.php');
 
 // Fetch data from the database
-$query = "SELECT * FROM studenttransferregistration";
+$limit = 10;
+$schoolName = 'school_name';
+
+$query = "SELECT * FROM studenttransferregistration WHERE schoolResponse = 'Rejected' AND intended_school_name = '$schoolName' LIMIT $limit";
+$result = mysqli_query($conn, $query);
+// $query = "SELECT * FROM studenttransferregistration";
 $result = mysqli_query($conn, $query);
 
 $query2 = "SELECT * FROM schoolreg";
 $result2 = mysqli_query($conn, $query2);
 
+
+
+
 $countTotalTransfers = "SELECT * FROM studenttransferregistration";
 $countResult = mysqli_query($conn, $countTotalTransfers);
 $totalTransfersCount = mysqli_num_rows($countResult);
+
 
 $countAcceptedTransfers = "SELECT * FROM studenttransferregistration WHERE schoolResponse = 'Approved'";
 $countResultAcceptedTransfers = mysqli_query($conn, $countAcceptedTransfers);
@@ -42,6 +51,7 @@ $loginCategory = $_SESSION['loginCategory'];
 $registrationNumber = $_SESSION['registrationNumber'];
 
 // Query the database to get user-specific data
+
 $query = "SELECT * FROM schoolreg WHERE registration_number = '$registrationNumber'";
 $result2 = mysqli_query($conn, $query);
 ?>
