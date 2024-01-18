@@ -1,13 +1,14 @@
-
-//Fetch the counties and sub-counties from JSON files
+// Fetch the counties and sub-counties from JSON files
 const countiesUrl = 'JSON/counties.json';
 const subCountiesUrl = 'JSON/subcounties.json';
-const SchoolMap = document.getElementById('SchoolMap');
+const SchoolMapurl = 'JSON/schoolmap.json';
 
 const selectCounty = document.getElementById('selectCounty');
 const selectSubCounty = document.getElementById('selectSubCounty');
+const SelectIntendedSchool = document.getElementById('IntendedSchoolName');
 
 // Initialize the second dropdown with a default option
+SelectIntendedSchool.innerHTML = '<option value="chooseSchool">Choose a School</option>';
 selectSubCounty.innerHTML = '<option value="chooseSubCounty">Choose a sub-county</option>';
 
 // Populate the first dropdown with counties
@@ -19,12 +20,62 @@ fetch(countiesUrl)
       option.value = county;
       option.textContent = county;
       selectCounty.appendChild(option);
-
     });
   })
   .catch(error => {
     console.error('Error fetching counties:', error);
   });
+
+// Handle change event for the first dropdown
+selectCounty.addEventListener('change', () => {
+  const selectedCounty = selectCounty.value;
+
+  // Clear existing options in the second dropdown
+  selectSubCounty.innerHTML = '<option value="chooseSubCounty">Choose a sub-county</option>';
+
+  // Populate the second dropdown with schools based on the selected county
+  fetch(SchoolMapurl)
+    .then(response => response.json())
+    .then(data => {
+      const schoolsInCounty = data[selectedCounty] || [];
+      schoolsInCounty.forEach(school => {
+        const option = document.createElement('option');
+        option.value = school;
+        option.textContent = school;
+        selectSubCounty.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching schools:', error);
+    });
+});
+
+
+  // Handle change event for the first dropdown
+selectCounty.addEventListener('change', () => {
+    const selectedCounty = selectCounty.value;
+  
+    // Clear existing options in the second dropdown
+    SelectIntendedSchool.innerHTML = '<option value="chooseSchool">Choose a school</option>';
+  
+    // Populate the second dropdown with sub-counties based on the selected county
+    fetch(SchoolMapurl)
+      .then(response => response.json())
+      .then(data => {
+        const SelectIntendedSchool = data[selectedCounty] || [];
+        SelectIntendedSchool.forEach(subCounty => {
+          const option = document.createElement('option');
+          option.value = subCounty;
+          option.textContent = subCounty;
+          SelectIntendedSchool.appendChild(option);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching sub-counties:', error);
+      });
+  });
+
+
 
 // Handle change event for the first dropdown
 selectCounty.addEventListener('change', () => {

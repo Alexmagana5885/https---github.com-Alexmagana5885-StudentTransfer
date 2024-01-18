@@ -93,30 +93,28 @@ $row = mysqli_fetch_assoc($result);
     </div>
 
 
-    <div class="wrapper">
+<div class="wrapper">
     <h2>Intended School</h2>
   
     <label class="label" for="selectCounty">Select County</label>
     <select name="county" class="textarea" id="selectCountyI"></select>
-    <!-- <input name="county" type="text" class="textarea"> -->
+
   
     <label class="label">School Name</label>
-    <!-- <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select> -->
-    <input name="IntendedSchoolName" type="text" class="textarea">
+    <select id="IntendedSchoolName" name="IntendedSchoolName" type="text" class="textarea"></select>
+
   
     <label class="label">Select Subcounty</label>
-    <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
-    <!-- <input name="Subcounty" type="text" class="textarea"> -->
-  
+    <input class="textarea" name="Subcounty" id="selectSubCountyI">
+
     <label class="label">School Contact/Phone Number</label>
-    <input name="IntendedSchoolContact" type="number" class="textarea">
+    <input id="IntendedSchoolContact" name="IntendedSchoolContact" type="number" class="textarea">
   
     <label class="label">School Email Address</label>
-    <input name="IntendedSchoolEmail" type="email" class="textarea">
+    <input id="IntendedSchoolEmail" name="IntendedSchoolEmail" type="email" class="textarea">
 
 
 </div>
-
 
    
     
@@ -198,10 +196,7 @@ $row = mysqli_fetch_assoc($result);
 </form>
 
 
-<script src="StudentTranferRegistration.js"></script>
-
-
-
+<script src="sampleM.js"></script> 
 </body>
 </html>
 

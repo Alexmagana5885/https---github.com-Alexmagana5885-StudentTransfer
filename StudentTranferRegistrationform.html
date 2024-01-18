@@ -1,0 +1,235 @@
+<?php
+require_once('config.php');
+
+
+
+$school_name = 'school_name';
+
+// Use the registration_number to fetch data from the database
+$query = "SELECT * FROM schoolreg WHERE school_name = '$school_name'";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die('Query failed: ' . mysqli_error($conn));
+}
+
+$row = mysqli_fetch_assoc($result);
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="studentTranferReg.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Student Transfer</title>
+</head>
+
+
+<body>
+    <header>
+        <nav style="font-size: 15px;" class="Navigation"> 
+            <a class="a" href="StudentPage.php">Home</a>
+
+            <button style="font-size: 12px;" type="submit" id="submitRequest">Submit Your Request</button>
+        
+        </nav>
+    </header>
+
+    
+<form id="StudentTranferRegistrationForm" action="StudentTranferRegistration.php" method="post" class="container" enctype="multipart/form-data" >
+
+   
+    <div class="wrapper"> 
+
+            <h2>Personal Details</h2>
+            
+                <label class="label">Full Name</label>
+                <input name="fullName" type="text" class="textarea">
+          
+                <label class="label">Grade</label>
+                <input name="Grade" type="text" class="textarea">
+
+                <label class="label">Phone Number</label>
+                <input name="studentPNumbe" type="number" class="textarea">
+           
+                <label class="label">Email Address</label>
+                <input name="studentEmail" type="email" class="textarea">
+            
+                <label class="label">Registration number</label>
+                <input name="RegistrationNumber" type="text" class="textarea">
+            
+                <label class="label">Date of Birth</label>
+                <input name="DateOfBirth" type="date" class="textarea">
+                
+            
+            
+    </div>
+
+
+    <div class="wrapper">
+            <h2>Previus School</h2>
+            
+                <label class="label">School Name</label>
+                <input name="schoolName" type="text" class="textarea">
+            
+                <label class="label" for="selectCounty">Select County</label>
+                <select name="county" class="textarea" id="selectCounty"></select>
+            
+                <label class="label">Select Subcounty</label>
+                <select class="textarea" name="Subcounty" id="selectSubCounty"></select>
+            
+                <label class="label">SChool contact/Phone Number</label>
+                <input name="schoolPNumber" type="number" class="textarea">
+            
+                
+                <label class="label">School Email Address</label>
+                <input name="schoolEmail" type="email" class="textarea">
+
+                       
+    </div>
+
+
+    <div class="wrapper">
+    <h2>Intended School</h2>
+  
+    <label class="label" for="selectCounty">Select County</label>
+    <select name="county" class="textarea" id="selectCountyI"></select>
+    <!-- <input name="county" type="text" class="textarea"> -->
+  
+    <label class="label">School Name</label>
+    <!-- <select name="IntendedSchoolName" id="selectSchoolI" class="textarea"></select> -->
+    <input name="IntendedSchoolName" type="text" class="textarea">
+  
+    <label class="label">Select Subcounty</label>
+    <select class="textarea" name="Subcounty" id="selectSubCountyI"></select>
+    <!-- <input name="Subcounty" type="text" class="textarea"> -->
+  
+    <label class="label">School Contact/Phone Number</label>
+    <input name="IntendedSchoolContact" type="number" class="textarea">
+  
+    <label class="label">School Email Address</label>
+    <input name="IntendedSchoolEmail" type="email" class="textarea">
+
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Fetch counties and populate the county dropdown
+        $.getJSON('SchoolMaping.php', function(data) {
+            var counties = Object.keys(data);
+    
+            $.each(counties, function(index, county) {
+                $('#selectCounty').append('<option value="' + county + '">' + county + '</option>');
+            });
+    
+            // Trigger change event to populate schools based on the selected county
+            $('#selectCounty').change();
+        });
+    
+        // Populate schools based on the selected county
+        $('#selectCounty').on('change', function() {
+            var selectedCounty = $(this).val();
+            var schools = data[selectedCounty];
+    
+            $('#IntendedSchoolName').empty(); // Clear existing options
+    
+            $.each(schools, function(index, school) {
+                $('#IntendedSchoolName').append('<option value="' + school.schoolName + '">' + school.schoolName + '</option>');
+            });
+        });
+    });
+    </script>
+
+   
+    
+
+    <div class="container2">
+        <div class="content">
+            <p style="margin-bottom: 2px;">Breafly give a Reason for your Tranfer.</p>
+            <p style="margin-bottom: 2px;">Talk of why you choose to leave your current School and </p>
+            <p>Why choose The Inteded School.</p>
+            <textarea name="ReasonForTranfer" cols="30" rows="10" id="tranferReason"></textarea>
+        </div>
+        <div class="content">
+            <p style="margin-bottom: 2px;">Upload the following documents</p>
+            <p>Make sure they are in PDF Format.</p>
+            
+            <div class="content2">
+                <label>Application Letter</label>
+                <input name="ApplicationLetterPdf" type="file" class="textarea" accept=".pdf">
+            </div>
+            <div class="content2">
+                <label>Privous school clearance form</label>
+                <input name="clearanceFormPDF" type="file" class="textarea" accept=".pdf">
+            </div>
+            <div class="content2">
+                <label>Tranfer Aproval from privous School</label>
+                <input name="TranferAprovalPDF" type="file" class="textarea" accept=".pdf">
+            </div>
+
+            <div class="content2">
+                <label>Birth Certificate or ID card</label>
+                <input name="identificationPDF" type="file" class="textarea" accept=".pdf">
+            </div>
+        </div> 
+
+
+
+        <div class="container3">
+
+            <div class="content3">
+
+                <p style="margin-bottom: 2px;">Parent Details</p>
+
+                <label>Name</label>
+                <input name="PName" type="text" class="textarea3">
+                <label>Phone Number</label>
+                <input name="PhoneNumberP" type="number" class="textarea3">
+                <label>Email Address</label>
+                <input name="pemail" type="email" class="textarea3" >
+                <label>ID Number</label>
+                <input name="PID" type="text" class="textarea3" >
+                <p>Reason for the leaving.</p>
+                <input style="width: 90%; height: 90px;" name="PID" type="text" class="textarea3" >
+                
+                <textarea name="PReasonForTranfer" cols="30" rows="10" id="tranferReason"></textarea>
+                
+            </div> 
+           
+            <div class="content3">
+                <p style="margin-bottom: 2px;">Parrent/ Gurdian Declarition.</p>
+                <p>I have cleard/ commit my self to clear all my financial obligations in the school. I also have knowledge of this tranfer and concent to it.</p>
+                <label for="">I.D NO</label>
+                <input name="IDPP" type="number" class="textarea3">
+                <label for="">Address</label>
+                <input name="addressP" type="text" class="textarea3">
+                <label for="">phone Number</label>
+                <input name="phoneNumberP" type="number" class="textarea3">
+                <label for="">Date</label>
+                <input name="Date" type="date" class="textarea3">
+    
+            </div>
+            
+        </div> 
+
+
+
+    </div> 
+
+
+</form>
+
+
+<script src="StudentTranferRegistration.js"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="sampleM.js"></script>  -->
+
+</body>
+</html>
+

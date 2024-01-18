@@ -233,43 +233,7 @@ $result2 = mysqli_query($conn, $query);
                     </table>
                 </div>
 
-                <!-- Response Popup Form -->
-                <form action="sample2.php" method="post">
-                                <!-- <?php
-                // if ($result->num_rows > 0) {
-                // while ($row = $result->fetch_assoc()) {
-                    // echo '<div class="popup" id="' . $row['registration_number'] . '">';
-                // }
-                // }
-                // ?> -->
-
-<!-- > popup1 -->
-                    <div class="popup" id="popup1">
-                        <div class="popup-content">
-                            <span class="close" id="closePopupBtn1">&times;</span>
-                            <h2 style="color: #355e8b;">Response</h2>
-
-                            <h3>Approval:</h3><br>
-                            <p>Attach a detailed letter explaining the approval, including any additional requirements or information.</p><br>
-
-                            <h3>Pending Transfer:</h3><br>
-                            <p>Attach a letter providing details on the reason for keeping the transfer request pending. Include any necessary information related to the decision.</p><br>
-
-                            <h3>Rejecting Transfer:</h3><br>
-                            <p>Attach a letter outlining the reasons for rejecting the transfer request. Provide detailed information supporting the decision to reject the transfer.</p>
-                            <br><br>
-
-                            <label for="selectOption" style="font-size: 16px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">Feedback</label>
-                            <select name="feedbackOption" id="selectOption" style="font-size: 14px; color: #355e8b; font-family: 'Times New Roman', Times, serif;">
-                                <option value="option1">Choose an option</option>
-                                <option value="option2">Approve</option>
-                                <option value="option3">Keep Pending</option>
-                                <option value="option4">Reject</option>
-                            </select>
-
-                            <input type="file" id="fileInput" name="admissionLetter" style="color: #355e8b; font-size: 1.17em; margin: 1em 0; font-weight: bold;">
-
-                            <button type="submit" name="Approved" style="width: 70px; height: 30px; margin-top: 20px; color: blue; font-size: 16px; font-family: 'Times New Roman', Times, serif;">Send</button>
+         
                         </div>
                     </div>
                 </form>

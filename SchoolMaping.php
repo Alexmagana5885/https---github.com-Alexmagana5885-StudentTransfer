@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch data from the database
-$sql = "SELECT county, school_name FROM schoolreg";
+$sql = "SELECT Gcounty, Gsubcounty, phone_number, email_address, school_name FROM schoolreg";
 $result = $conn->query($sql);
 
 // Initialize an associative array to store the data
@@ -18,14 +18,27 @@ $countySchools = array();
 if ($result->num_rows > 0) {
     // Fetch data and group schools by county
     while ($row = $result->fetch_assoc()) {
-        $county = $row["county"];
+        $county = $row["Gcounty"];
         $schoolName = $row["school_name"];
+        $Gsubcounty = $row["Gsubcounty"];
+        $phone_number = $row["phone_number"];
+        $email_address = $row["email_address"];
 
         // Add school to the countySchools array
         if (!isset($countySchools[$county])) {
             $countySchools[$county] = array();
         }
-        $countySchools[$county][] = $schoolName;
+
+        $countySchools[$county][] = array(
+            'schoolName' => $schoolName,
+            'SchoolInfo' => [
+                [
+                    'Gsubcounty' => $Gsubcounty,
+                    'phone_number' => $phone_number,
+                    'email_address' => $email_address
+                ]
+            ]
+        );
     }
 }
 
@@ -33,9 +46,18 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 // Convert the associative array to JSON
-$jsonData = json_encode($countySchools, JSON_PRETTY_PRINT);
+$SchoolMap = json_encode($countySchools, JSON_PRETTY_PRINT);
 
-// Output the JSON data
-header('Content-Type: application/json');
-echo $jsonData;
+// Specify the path and filename for the output file
+$outputFilePath = 'JSON/schoolmap.json';
+
+// Save JSON data to the file
+file_put_contents($outputFilePath, $SchoolMap);
+
+// Output success message or handle errors as needed
+if (file_exists($outputFilePath)) {
+    echo "JSON data has been successfully stored in the file: $outputFilePath";
+} else {
+    echo "Error: Unable to store JSON data in the file.";
+}
 ?>

@@ -50,6 +50,7 @@ body {
   width: 100%;
 }
 
+
 .navigation ul li {
   position: relative;
   width: 100%;
@@ -344,9 +345,9 @@ body {
 }
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
-}
+} 
 
-/*  Responsive Design  */
+/*  Responsive Design */
 @media (max-width: 991px) {
   .navigation {
     left: -300px;

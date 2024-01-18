@@ -69,18 +69,17 @@ $EducationOfficeResponse = $conn->query($sql);
                         <span class="title">Home</span>
                     </a>
                 </li>
+            
                 <li>
-                    <a href="StudentTranferRegistrationform.php">
+                    <a href="#">
+                        <span id="openPopupBtnSNotification" class="title">Notifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="StudentTranferRegistrationform.html">
                         <span class="title">Tranfer Registration</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="sessionEnd.php">
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
-
 
                 <li>
                     <a href="#">
@@ -90,6 +89,12 @@ $EducationOfficeResponse = $conn->query($sql);
                 <li>
                     <a href="#">
                         <span id="openPopupBtnSS" class="title">Account Settings School Information</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sessionEnd.php">
+                        <span class="title">Sign Out</span>
                     </a>
                 </li>
             </ul>
@@ -201,8 +206,8 @@ $EducationOfficeResponse = $conn->query($sql);
                                 <td>COUNTY</td>
                                 <td>SUB-COUNTY</td>
                                 <td>DATE</td>
-                                <td>Inteded School Response</td>
-                                <td>Education Office Response</td>
+                                <td>Responses</td>
+                                <td>Chat Box</td>
                                 
      
                             </tr>
@@ -217,7 +222,7 @@ $EducationOfficeResponse = $conn->query($sql);
                                 echo "<td>" . $row['intended_school_subcounty'] . "</td>";
                                 echo "<td>" . $row['transfer_date'] . "</td>";
                                 echo "<td><a class='buttonResponse' id='openPopupBtn1' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
-                               echo "<td><a class='buttonResponse' id='openPopupBtn2' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Responses</a></td>";
+                               echo "<td><a class='buttonResponse' id='openPopupBtn2' href='#?registration_number=" . $row['registration_number'] . "' class='status-link'>Send a Message</a></td>";
        
                                 echo "</tr>";
                             }
@@ -300,7 +305,7 @@ $EducationOfficeResponse = $conn->query($sql);
                 <div class="popup" id="popup1">
     <div style="font-size: 16px;" class="popup-content">
         <span class="close" id="closePopupBtn1">&times;</span>
-        <h2 style="color: #355e8b;">School Response</h2><br>
+        <h4 style="color: #355e8b;">School Response</h4><br>
         <?php
         if ($resultSchoolResponse->num_rows > 0) {
             while ($row = $resultSchoolResponse->fetch_assoc()) {
@@ -308,7 +313,7 @@ $EducationOfficeResponse = $conn->query($sql);
                 if (!empty($row['schoolResponse'])) {
                     // Display response text
                     echo $row['schoolResponse'];
-                    echo '</p><p>Download School Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '" style="text-decoration: none;">Download</a>';
+                    echo '</p><p>Download Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '" style="text-decoration: none;">Download</a>';
 
                 } else {
                     echo 'No Response';
@@ -319,7 +324,73 @@ $EducationOfficeResponse = $conn->query($sql);
             echo '<p>No Response</p>';
         }
         ?>
+        <br>
+
+        <h4 style="color: #355e8b;">Office Response</h4><br>
+        <?php
+        if ($EducationOfficeResponse->num_rows > 0) {
+            while ($row = $EducationOfficeResponse->fetch_assoc()) {
+                echo '<p>';
+                if (!empty($row['education_office_response'])) {
+                    // Display response text
+                    echo $row['education_office_response'];
+                    echo '</p><p>Download Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '"style="text-decoration: none;">Download</a>';
+                } else {
+                    echo 'No Response';
+                }
+                echo '</p>';
+            }
+        } else {
+            echo '<p>No Response</p>';
+        }
+        ?>
+
+<br>
+        <h4 style="color: #355e8b;">Office Response</h4><br>
+        <?php
+        if ($EducationOfficeResponse->num_rows > 0) {
+            while ($row = $EducationOfficeResponse->fetch_assoc()) {
+                echo '<p>';
+                if (!empty($row['education_office_response'])) {
+                    // Display response text
+                    echo $row['education_office_response'];
+                    echo '</p><p>Download Education Office Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '"style="text-decoration: none;">Download</a>';
+                } else {
+                    echo 'No Response';
+                }
+                echo '</p>';
+            }
+        } else {
+            echo '<p>No Response</p>';
+        }
+        ?>
+
+        <br>
+
+        <h4 style="color: #355e8b;">Office Response</h4><br>
+        <?php
+        if ($EducationOfficeResponse->num_rows > 0) {
+            while ($row = $EducationOfficeResponse->fetch_assoc()) {
+                echo '<p>';
+                if (!empty($row['education_office_response'])) {
+                    // Display response text
+                    echo $row['education_office_response'];
+                    echo '</p><p>Download Education Office Response: <a href="StudentPageResponse_doc.php?registration_number=' . $row['registration_number'] . '"style="text-decoration: none;">Download</a>';
+                } else {
+                    echo 'No Response';
+                }
+                echo '</p>';
+            }
+        } else {
+            echo '<p>No Response</p>';
+        }
+        ?>
+        
+    
+    
     </div>
+
+
 </div>
 
 
@@ -328,7 +399,28 @@ $EducationOfficeResponse = $conn->query($sql);
 <div class="popup" id="popup2">
     <div style="font-size: 16px;" class="popup-content">
         <span class="close" id="closePopupBtn2">&times;</span>
-        <h2 style="color: #355e8b;">Education Office Response</h2><br>
+        <h4 style="color: #355e8b;">send a Message</h4>
+        <br>
+            <label for="selectOption">TO: </label>
+              <select style="color: #355e8b; font-size: 15px; border: none; outline: none; " name="loginCategory" id="selectOption">
+                  <option value="option0">Choose Recipient</option>
+                  <option value="option1">Privious School</option>
+                  <option value="option2">Privious School County Education Office</option>
+                  <option value="option1">Inteded School</option>
+                  <option value="option2">Inteded School County Education Office</option>
+              </select>
+              <br><hr><br><br>
+              <label style="align-self : flex-start ;" for="messageSubject: ">Subject: </label>
+              <input style="color: #355e8b; font-size: 15px; border: none; outline: none; " type="text" name="messageSubject" id="message_subject">
+              <br><hr><br><br>
+              <textarea placeholder="message" style="color: #355e8b; font-size: 15px; align-items: start; border: none; outline: none;  " name="message" id="message" cols="30" rows="10"></textarea>
+              <br><button class="messageButton" id="message_button" style="height: 17px; width: 60px; border-radius: 5px; background-color:white; font-size: 13px; " type="submit" >Send</button>
+
+              <style>
+                #message_button:hover{
+                    background-color: red ; 
+                }
+              </style>
         <?php
         if ($EducationOfficeResponse->num_rows > 0) {
             while ($row = $EducationOfficeResponse->fetch_assoc()) {
@@ -349,12 +441,134 @@ $EducationOfficeResponse = $conn->query($sql);
     </div>
 </div>
 
+<!-- notification-box -->
 
 
+<div class="popupSNotification" id="popupSNotification">
+    <div class="popup-contentSNotification">
+        <span class="closeSNotification" id="closePopupBtnSNotification">&times;</span>
+        <h2 style="color: #355e8b;">Notification</h2>
+    </div>
+
+    <style>
+        
+        .inputfield {
+            margin-bottom: 10px;
+        }
+
+        .inputfield label {
+            width: 70%;
+            color: #473f8a;
+            font-size: 10px;
+        }
+
+        .wrapper .form .inputfield .input,
+        .inputfield .textarea,
+        .inputfield .custom_select select {
+            width: 70%;
+            outline: none;
+            border: 1px solid #a0a1b4;
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+        }
+    </style>
+
+    <div class="wrapper">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                background-color: #f0f0f0;
+            }
+    
+            .notification-box {
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                width: 100%;
+                margin: 10px;
+                padding: 15px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .sender-name {
+                font-size: 18px;
+                font-weight: bold;
+            }
+    
+            .message-header {
+                font-size: 14px;
+                color: #555;
+            }
+    
+            .message {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <div class="notification-box">
+        <div class="sender-name">John Doe</div>
+        <div class="message-header">New Message</div>
+        <div class="message">Hello! How are you doing today?</div>
+    </div>
+    
+    <div class="notification-box">
+        <div class="sender-name">Jane Smith</div>
+        <div class="message-header">Reminder</div>
+        <div class="message">Don't forget the meeting at 3 PM.</div>
+    </div>
+    <div class="notification-box">
+        <div class="sender-name">John Doe</div>
+        <div class="message-header">New Message</div>
+        <div class="message">Hello! How are you doing today?</div>
+    </div>
+    
+    <div class="notification-box">
+        <div class="sender-name">Jane Smith</div>
+        <div class="message-header">Reminder</div>
+        <div class="message">Don't forget the meeting at 3 PM.</div>
+    </div>
+    <div class="notification-box">
+        <div class="sender-name">John Doe</div>
+        <div class="message-header">New Message</div>
+        <div class="message">Hello! How are you doing today?</div>
+    </div>
+    
+    <div class="notification-box">
+        <div class="sender-name">Jane Smith</div>
+        <div class="message-header">Reminder</div>
+        <div class="message">Don't forget the meeting at 3 PM.</div>
+    </div>
+    
+    <script src="StudentTranferRegistration.js"></script>
+
+    </body>
 
 
+        
+    </div>
 
-        <div class="popupS" id="popupS">
+</div>
+
+
+<!-- ----------Edit Student Personal Information---------------- -->
+
+
+<div class="popupS" id="popupS">
             <div class="popup-contentS">
                 <span class="closeS" id="closePopupBtnS">&times;</span>
                 <h2 style="color: #355e8b;">Account Settings</h2>
@@ -489,7 +703,7 @@ $EducationOfficeResponse = $conn->query($sql);
             </div>
         </div>
 
-
+<!-- ---------------------------------------------------------------------- -->
 
         <div class="popupSS" id="popupSS">
             <div class="popup-contentSS">
@@ -602,21 +816,12 @@ $EducationOfficeResponse = $conn->query($sql);
 
 
 
-        
-
-        
-
-
-
-
-
 <!--  Scripts   -->
 
     <script src="adminsch.js"></script>
 
 
    
-    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

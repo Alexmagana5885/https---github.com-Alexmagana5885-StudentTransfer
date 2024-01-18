@@ -5,16 +5,16 @@ $sessionTimeout = 30 * 60;
 
 
 require_once('config.php');
-$query = "select * from studenttransferregistration";
-$result = mysqli_query($conn, $query);
-$query2 = "select * from gofficeregistration";
+// $query = "select * from studenttransferregistration";
+// $result = mysqli_query($conn, $query);
+$query2 = "select * from eduofficeregistration";
 $result2 = mysqli_query($conn, $query2);
 
 
 $query = "SELECT * FROM studenttransferregistration";
 $result = mysqli_query($conn, $query);
 $totalTransfersCount = mysqli_num_rows($result);
-$query2 = "SELECT * FROM gofficeregistration";
+$query2 = "SELECT * FROM eduofficeregistration";
 $result2 = mysqli_query($conn, $query2);
 
 $countAcceptedTransfers = "SELECT * FROM studenttransferregistration WHERE education_office_response = 'Approved'";
@@ -43,6 +43,8 @@ if (!isset($_SESSION['loginCategory']) || !isset($_SESSION['registrationNumber']
 // Fetch user-specific data based on session variables
 $loginCategory = $_SESSION['loginCategory'];
 $registrationNumber = $_SESSION['registrationNumber'];
+
+
 
 // Query the database to get user-specific data
 $query = "SELECT * FROM eduofficeregistration WHERE registration_number = '$registrationNumber'";
@@ -196,7 +198,7 @@ $result2 = mysqli_query($conn, $query);
                             
                             <?php
 
-                                $sql = "SELECT * FROM studenttransferregistration ORDER BY 
+                                $sql = "SELECT * FROM studenttransferregistration  ORDER BY 
                                 CASE 
                                     WHEN education_office_response = '' THEN 3 
                                     WHEN education_office_response = 'Pending' THEN 0

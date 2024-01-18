@@ -37,6 +37,7 @@ if ($result->num_rows == 1) {
     // Store the login category and registration number in session variables for later use.
     $_SESSION['loginCategory'] = $loginCategory;
     $_SESSION['registrationNumber'] = $registrationNumber;
+    
 
     // Redirect the user to the appropriate page based on the login category.
     if ($loginCategory === 'option1') {
