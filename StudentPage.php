@@ -395,6 +395,7 @@ $EducationOfficeResponse = $conn->query($sql);
 
 
 
+<!-- --------------------Messages----------------- -->
 
 <div class="popup" id="popup2">
     <div style="font-size: 16px;" class="popup-content">
@@ -441,7 +442,7 @@ $EducationOfficeResponse = $conn->query($sql);
     </div>
 </div>
 
-<!-- notification-box -->
+<!------------------------- notification-box -------------------->
 
 
 <style>
@@ -471,17 +472,13 @@ $EducationOfficeResponse = $conn->query($sql);
 </head>
 <body>
     <div class="popupSNotification" id="popupSNotification">
-        <div style="" class="popup-contentSNotification">
+        <div class="popup-contentSNotification">
             <span class="closeSNotification" id="closePopupBtnSNotification">&times;</span>
             <h1 style="color: blue; ">Notification</h1>
         </div>
-        <div class="notification-box">
-            <div class="sender-name">John Doe</div>
-            <div class="message-header">New Message</div>
-            <div class="message">Hello! How are you doing today?</div>
-        </div>
-    
 
+
+        
         <div class="notification-box">
             <div class="sender-name">Jane Smith</div>
             <div class="message-header">Reminder</div>
@@ -505,10 +502,10 @@ $EducationOfficeResponse = $conn->query($sql);
 
         .popupSNotification{
             width: 500px;
-            height: 400px;
+            padding: 20px;
+            max-height: 550px;
             border: 5px solid #fff;
             border-radius: 10px;
-            align-items: center;
             flex-direction: column;
             overflow: auto;
             background-color: #fff;
@@ -545,18 +542,21 @@ $EducationOfficeResponse = $conn->query($sql);
 
             .closeSNotification{
                 font-size: 30px;
+                width: 35px;
                 font-weight: bold;
                 color: #0b054d;
                 position: relative;
+                left: 10px;
+                right: 10px;
                 align-self: flex-end;
-                /* position: absolute;
-                top: 1px; 
-                right: 1px;  */
-
+                right: 0;
+                cursor: pointer;
             }
 
             .closeSNotification:hover{
-                color: red;
+                color: white;
+                background: blue;
+                border-radius: 5px;
             }
     </style>
 

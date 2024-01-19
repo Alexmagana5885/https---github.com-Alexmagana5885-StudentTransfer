@@ -443,7 +443,7 @@ body {
 }
 
 
-.popupS, .popupSS{
+.popupS, .popupSS, .popupSNotification{
   display: none;
   position: fixed;
   top: 50%;
