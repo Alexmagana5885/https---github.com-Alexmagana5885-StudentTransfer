@@ -30,7 +30,7 @@ function togglePopup(btn, popup) {
   btn.addEventListener('click', () => {
     popup.style.display = 'flex';
   });
-
+ 
   let closeBtn = popup.querySelector('.close');
   closeBtn.addEventListener('click', () => {
     popup.style.display = 'none';
@@ -54,6 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const popupS = document.getElementById('popupS');
   togglePopup(openPopupBtnS, popupS);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const openPopupBtnSNotification = document.getElementById('openPopupBtnSNotification');
+  const popupSNotification = document.getElementById('popupSNotification');
+  togglePopup(openPopupBtnSNotification, popupSNotification);
+});
+
+closePopupBtnSNotification.addEventListener('click', () => {
+  popupSNotification.style.display = 'none';
+});
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const openPopuppBtn1 = document.getElementById('openPopuppBtn1');

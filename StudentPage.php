@@ -444,14 +444,8 @@ $EducationOfficeResponse = $conn->query($sql);
 <!-- notification-box -->
 
 
-<div class="popupSNotification" id="popupSNotification">
-    <div class="popup-contentSNotification">
-        <span class="closeSNotification" id="closePopupBtnSNotification">&times;</span>
-        <h2 style="color: #355e8b;">Notification</h2>
-    </div>
-
-    <style>
-        
+<style>
+        /* Add your styles here */
         .inputfield {
             margin-bottom: 10px;
         }
@@ -474,25 +468,57 @@ $EducationOfficeResponse = $conn->query($sql);
             transition: border-color 0.3s ease;
         }
     </style>
-
-    <div class="wrapper">
-
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                min-height: 100vh;
-                background-color: #f0f0f0;
-            }
+</head>
+<body>
+    <div class="popupSNotification" id="popupSNotification">
+        <div style="" class="popup-contentSNotification">
+            <span class="closeSNotification" id="closePopupBtnSNotification">&times;</span>
+            <h1 style="color: blue; ">Notification</h1>
+        </div>
+        <div class="notification-box">
+            <div class="sender-name">John Doe</div>
+            <div class="message-header">New Message</div>
+            <div class="message">Hello! How are you doing today?</div>
+        </div>
     
+
+        <div class="notification-box">
+            <div class="sender-name">Jane Smith</div>
+            <div class="message-header">Reminder</div>
+            <div class="message">Don't forget the meeting at 3 PM.</div>
+        </div>
+        <div class="notification-box">
+            <div class="sender-name">Jane Smith</div>
+            <div class="message-header">Reminder</div>
+            <div class="message">Don't forget the meeting at 3 PM.</div>
+        </div>
+        <div class="notification-box">
+            <div class="sender-name">Jane Smith</div>
+            <div class="message-header">Reminder</div>
+            <div class="message">Don't forget the meeting at 3 PM.</div>
+        </div>
+
+
+    </div>
+
+    <style>
+
+        .popupSNotification{
+            width: 500px;
+            height: 400px;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            align-items: center;
+            flex-direction: column;
+            overflow: auto;
+            background-color: #fff;
+            box-shadow:  0 0 10px #0b054d;
+            
+ 
+        }
             .notification-box {
                 background-color: #fff;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 10px blue;
                 max-width: 400px;
                 width: 100%;
                 margin: 10px;
@@ -516,53 +542,30 @@ $EducationOfficeResponse = $conn->query($sql);
             .message {
                 font-size: 16px;
             }
-        </style>
-    </head>
-    <body>
-    
-    <div class="notification-box">
-        <div class="sender-name">John Doe</div>
-        <div class="message-header">New Message</div>
-        <div class="message">Hello! How are you doing today?</div>
-    </div>
-    
-    <div class="notification-box">
-        <div class="sender-name">Jane Smith</div>
-        <div class="message-header">Reminder</div>
-        <div class="message">Don't forget the meeting at 3 PM.</div>
-    </div>
-    <div class="notification-box">
-        <div class="sender-name">John Doe</div>
-        <div class="message-header">New Message</div>
-        <div class="message">Hello! How are you doing today?</div>
-    </div>
-    
-    <div class="notification-box">
-        <div class="sender-name">Jane Smith</div>
-        <div class="message-header">Reminder</div>
-        <div class="message">Don't forget the meeting at 3 PM.</div>
-    </div>
-    <div class="notification-box">
-        <div class="sender-name">John Doe</div>
-        <div class="message-header">New Message</div>
-        <div class="message">Hello! How are you doing today?</div>
-    </div>
-    
-    <div class="notification-box">
-        <div class="sender-name">Jane Smith</div>
-        <div class="message-header">Reminder</div>
-        <div class="message">Don't forget the meeting at 3 PM.</div>
-    </div>
-    
-    <script src="StudentTranferRegistration.js"></script>
 
-    </body>
+            .closeSNotification{
+                font-size: 30px;
+                font-weight: bold;
+                color: #0b054d;
+                position: relative;
+                align-self: flex-end;
+                /* position: absolute;
+                top: 1px; 
+                right: 1px;  */
+
+            }
+
+            .closeSNotification:hover{
+                color: red;
+            }
+    </style>
 
 
-        
-    </div>
 
-</div>
+
+</body>
+
+
 
 
 <!-- ----------Edit Student Personal Information---------------- -->
