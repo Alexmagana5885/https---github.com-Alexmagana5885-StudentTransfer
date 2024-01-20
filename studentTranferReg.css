@@ -279,13 +279,13 @@ header {
 }
 #tranferReason{
   border-radius: 1px;
-  border:#5f7ba3;
   width: 90%;
   height: 300px;
   font-size: 15px;
   color: #fff;
-  background: #97a1c0;
+  background: linear-gradient(to bottom, #ccd3e9, #fff);;
 }
+
 
 
 .container3 {

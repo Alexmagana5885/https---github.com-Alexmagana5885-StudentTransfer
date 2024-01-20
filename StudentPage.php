@@ -419,7 +419,7 @@ $EducationOfficeResponse = $conn->query($sql);
 
               <style>
                 #message_button:hover{
-                    background-color: red ; 
+                    color: red ; 
                 }
               </style>
         <?php
@@ -509,7 +509,7 @@ $EducationOfficeResponse = $conn->query($sql);
             flex-direction: column;
             overflow: auto;
             background-color: #fff;
-            box-shadow:  0 0 10px #0b054d;
+            box-shadow:  0 0 10px blue;
             
  
         }
