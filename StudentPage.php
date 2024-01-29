@@ -65,7 +65,7 @@ $EducationOfficeResponse = $conn->query($sql);
 
                 <li>
                     <a href="firstPage.html">
-                        
+                        <!-- <img src="/images/icons/home.jpeg" alt=""> -->
                         <span class="title">Home</span>
                     </a>
                 </li>
@@ -324,7 +324,7 @@ $EducationOfficeResponse = $conn->query($sql);
             echo '<p>No Response</p>';
         }
         ?>
-        <br>
+        <hr>
 
         <h4 style="color: #355e8b;">Office Response</h4><br>
         <?php
@@ -345,7 +345,7 @@ $EducationOfficeResponse = $conn->query($sql);
         }
         ?>
 
-<br>
+<hr>
         <h4 style="color: #355e8b;">Office Response</h4><br>
         <?php
         if ($EducationOfficeResponse->num_rows > 0) {
@@ -365,7 +365,7 @@ $EducationOfficeResponse = $conn->query($sql);
         }
         ?>
 
-        <br>
+        <hr>
 
         <h4 style="color: #355e8b;">Office Response</h4><br>
         <?php
@@ -477,23 +477,26 @@ $EducationOfficeResponse = $conn->query($sql);
             <h1 style="color: blue; ">Notification</h1>
         </div>
 
+        <?php        
+        $sql = "SELECT * FROM messages";
+        $result = mysqli_query($conn, $sql);
 
-        
-        <div class="notification-box">
-            <div class="sender-name">Jane Smith</div>
-            <div class="message-header">Reminder</div>
-            <div class="message">Don't forget the meeting at 3 PM.</div>
-        </div>
-        <div class="notification-box">
-            <div class="sender-name">Jane Smith</div>
-            <div class="message-header">Reminder</div>
-            <div class="message">Don't forget the meeting at 3 PM.</div>
-        </div>
-        <div class="notification-box">
-            <div class="sender-name">Jane Smith</div>
-            <div class="message-header">Reminder</div>
-            <div class="message">Don't forget the meeting at 3 PM.</div>
-        </div>
+        // Loop through the results and generate HTML for each message
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div class="notification-box">';
+            echo '<div class="sender-name">' . $row['SenderName'] . '</div>';
+            echo '<div class="message-header">' . $row['MessageHeader'] . '</div>';
+            echo '<div class="message">' . $row['MessageBody'] . '</div>';
+            echo '<div class="time">' . $row['TimeStamp'] . '</div>';
+            echo '</div>';
+        }
+
+        // Close the database connection
+        mysqli_close($conn);
+
+        ?>
+
+
 
 
     </div>
