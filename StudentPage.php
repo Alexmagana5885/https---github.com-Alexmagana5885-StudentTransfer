@@ -83,12 +83,12 @@ $EducationOfficeResponse = $conn->query($sql);
 
                 <li>
                     <a href="#">
-                        <span id="openPopupBtnS" class="title">Account Settings Personal Information</span>
+                        <span id="openPopupBtnS" class="title"> Settings Personal Information</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span id="openPopupBtnSS" class="title">Account Settings School Information</span>
+                        <span id="openPopupBtnSS" class="title"> Settings School Information</span>
                     </a>
                 </li>
 
@@ -472,8 +472,9 @@ $EducationOfficeResponse = $conn->query($sql);
 </head>
 <body>
     <div class="popupSNotification" id="popupSNotification">
+    <span class="closeSNotification" id="closePopupBtnSNotification">&times;</span>
         <div class="popup-contentSNotification">
-            <span class="closeSNotification" id="closePopupBtnSNotification">&times;</span>
+            
             <h1 style="color: blue; ">Notification</h1>
         </div>
 
@@ -506,7 +507,7 @@ $EducationOfficeResponse = $conn->query($sql);
         .popupSNotification{
             width: 500px;
             padding: 20px;
-            max-height: 550px;
+            
             border: 5px solid #fff;
             border-radius: 10px;
             flex-direction: column;
@@ -527,6 +528,7 @@ $EducationOfficeResponse = $conn->query($sql);
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+                z-index: 1;
             }
     
             .sender-name {
@@ -548,12 +550,13 @@ $EducationOfficeResponse = $conn->query($sql);
                 width: 35px;
                 font-weight: bold;
                 color: #0b054d;
-                position: relative;
+                position:relative;
                 left: 10px;
-                right: 10px;
+                right: 5px;
+                text-align: left;
                 align-self: flex-end;
-                right: 0;
                 cursor: pointer;
+                margin-bottom: 30px;
             }
 
             .closeSNotification:hover{
@@ -608,13 +611,13 @@ $EducationOfficeResponse = $conn->query($sql);
                     
 
                 </style>
-                
+             
     <div class="wrapper">
         <div class="title">
             Edit Student Personal Information
         </div>
 
-        <form action="sample.php" method="post" enctype="multipart/form-data">
+<form action="EditStudentPersonalInformation.php" method="post" enctype="multipart/form-data">
             
             <input type="hidden" name="student_id" value="<?php echo $row['registration_number']; ?>">
 
@@ -693,14 +696,16 @@ $EducationOfficeResponse = $conn->query($sql);
 </div>
 
 </div>
-</form>
-<script src="StudentTranferRegistration.js"></script>
-</div>
 
             <div class="inputfield">
             <input style=" width: 80px; height: 30px; border-radius: 10px; color: #0b054d; " type="submit" value="Update Information" class="btn">
             </div>
-        </form>
+
+</form>
+<script src="StudentTranferRegistration.js"></script>
+</div>
+
+
     </div>
 
                 
