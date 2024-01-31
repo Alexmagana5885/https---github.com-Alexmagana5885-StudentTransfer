@@ -16,7 +16,7 @@ $registration_number  = $_SESSION['registration_number'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve values from the form
     $student_id = $_SESSION["registration_number"]; 
-    // $student_id = $_POST["student_id"];
+    
     $Sname = $_POST["Sname"];
     $ProfilePicture = $_FILES["ProfilePicture"]["name"]; // Use $_FILES for file upload
     $sGender = $_POST["sGender"];
